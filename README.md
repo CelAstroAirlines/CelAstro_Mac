@@ -5,20 +5,12 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* 用 foreman s 開啟
 
-* System dependencies
+* 第一次 clone 要做 bundle install，安裝需要的套件
 
-* Configuration
+* !database.yml 要設定帳號或密碼(如果沒帳號/密碼，就不需要填寫)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* postgresql 要 createdb CelAstro_development for development
 
 * ...
