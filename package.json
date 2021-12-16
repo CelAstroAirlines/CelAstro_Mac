@@ -12,6 +12,9 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3"
+    "webpack-dev-server": "^3",
+    "tailwindcss": "^2.2.7",
+    "postcss":"^8.3.6",
+    "autoprefixer": "^10.0.2"
   }
 }

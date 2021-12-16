@@ -14,7 +14,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <% if user_signed_in? %>
-      <%= current_user.email%>您好
+      <%= current_user.first_name%>您好
       <%= button_to '登出', destroy_user_session_path, method: :delete %>
       <%= link_to '修改', edit_user_registration_path %>
     <% else %>
