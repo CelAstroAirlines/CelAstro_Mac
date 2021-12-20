@@ -1,27 +1,55 @@
-<h2>會員登入</h2>
+<section class="text-gray-600 body-font bg-indigo-800">
+  <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label "信箱" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="lg:w-4/7 md:w-1/2 md:pr-16 lg:pr-0 pr-0 bg-orange-50 rounded-md ">
+      <div class="w-60 h-60 mx-auto">
+        <%= image_tag 'CelAstrologo_copy Small.png' %>
+      </div>
+      <h1 class="title-font font-medium text-3xl text-gray-900 text-center ">Experience CelAstro Airlines Membership </h1>
+      <p class="leading-relaxed mt-4 text-center pb-10">一同體驗
+        星辰航空會員方案</p>    
+    </div>
+
+    <div class="lg:w-4/7 md:w-1/2 bg-beige-50  p-8 flex flex-col md:ml-auto w-full md:mt-0 rounded-md">
+      <h2 class="text-gray-900 text-lg font-medium title-font mb-10">會員登入</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="relative mb-4">
+        <div class="field border border-gray-600 ">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "電子信箱"%>
         </div>
 
-        <div class="field">
-          <%= f.label "密碼" %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+        <div class="field  border border-gray-600 mt-5">
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "密碼" %>
+        </div>
+        <div class="pt-5 text-right ">
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <%= link_to "忘記密碼?", new_password_path(resource_name) %><br />
+          <% end %>
         </div>
 
         <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
-            <%= f.label :"記住我" %>
+            <%= f.label :"記住我的電子信箱" %>
           </div>
         <% end %>
-
-        <div class="actions">
-          <%= f.submit "登入" %>
+        <div class="flex justify-between ">
+          <div class="text-brown-500 text-xl  hover:text-brown-800 mt-8">
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to "加入CelAstro >", new_registration_path(resource_name) %>
+          <% end %>
+          </div>
+          <div><button class="text-white bg-brown-500 mr-0 mt-8 border-0 py-1 px-10 focus:outline-none hover:bg-brown-800 rounded text-lg "><%= link_to '登入', new_user_session_path %></button></div>
         </div>
-      <% end %>
+      </div>
+    <% end %> 
+    </div>
+  </div>
+</section>
 
-      <%= render "devise/shared/links" %>
+    
+        
+       
+  
+      
 
