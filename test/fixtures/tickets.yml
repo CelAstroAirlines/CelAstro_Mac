@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket_amount: 1
+  departure: MyString
+  arrival: MyString
+  airport: MyString
+  date: 2021-12-21 12:19:21
+  seat_no: MyString
+
+two:
+  ticket_amount: 1
+  departure: MyString
+  arrival: MyString
+  airport: MyString
+  date: 2021-12-21 12:19:21
+  seat_no: MyString

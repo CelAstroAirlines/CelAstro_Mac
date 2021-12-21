@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket: one
+  user: one
+  timestamp: MyString
+  slug: MyString
+  selling_amount: 1
+
+two:
+  ticket: two
+  user: two
+  timestamp: MyString
+  slug: MyString
+  selling_amount: 1
