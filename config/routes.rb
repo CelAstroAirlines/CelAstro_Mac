@@ -4,6 +4,12 @@ Rails.application.routes.draw do
 
   root "pages#index"
   get 'index', to:'pages#index'
+
+  # google map
+  resources :maps, only: [:index]
+
+
+
   
   
 end

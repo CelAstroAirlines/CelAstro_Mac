@@ -1,0 +1,1 @@
+Pusher.google_map_api_key = ENV["pusher_google_map_api_key"]
