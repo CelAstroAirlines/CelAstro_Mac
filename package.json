@@ -2,6 +2,7 @@
   "name": "cel-astro",
   "private": true,
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.12.12",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -12,9 +13,9 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3",
+    "autoprefixer": "^10.0.2",
+    "postcss": "^8.3.6",
     "tailwindcss": "^2.2.7",
-    "postcss":"^8.3.6",
-    "autoprefixer": "^10.0.2"
+    "webpack-dev-server": "^3"
   }
 }
