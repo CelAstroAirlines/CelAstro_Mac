@@ -1,21 +1,22 @@
 import { Loader } from '@googlemaps/js-api-loader';
 
 const loader = new Loader({
-  apiKey: "AIzaSyDoWb_1HSSHXzvSiTPR7LExQ7U3DKAzfLI",
+  apiKey: "YOUR_API_KEY",
   version: "weekly",
   libraries: ["places"]
 });
 
 const mapOptions = {
   center: {
-    lat: 0,
-    lng: 0
+    lat: 40.749933,
+    lng: -73.98633
   },
-  zoom: 4
+  zoom: 13,
+  mapTypeControl: false
 };
 
 // Promise
-loader
+const map = loader
   .load()
   .then((google) => {
     new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -23,3 +24,4 @@ loader
   .catch(e => {
     // do something
   });
+  
