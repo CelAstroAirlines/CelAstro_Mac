@@ -1,2 +1,31 @@
-
-<h1 class="bg-red-500">Hello</h1>
+<header class="bg-indigo-800 opacity-85">
+    <div class="w-screen flex flex-row items-center p-4 ml-9 justify-between bg-indigo-800 opacity-85 shadow-xs">
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 ">
+            <div class=w-24 s mx-auto> 
+                <%=image_tag 'CelAstro_LOGO_Transparent Small'%>
+            </div>
+        </div>
+    
+        <div class="flex flex-row-reverse mr-1 ml-1 md:hidden">
+         <i class="fas fa-bars"></i>
+        </div>
+        <div class="mr-12 hidden md:flex">
+            <button class="inline-flex items-center bg-indigo-800 opacity-85 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 text-yellow-500 body-font"><%= link_to '登入', new_user_session_path %>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 15 15"><g fill="currentColor"><path d="M3 14s-1 0-1-1s1-4 6-4s6 3 6 4s-1 1-1 1H3zm5-6a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/></g></svg>
+                    <path d=""></path>
+                 </svg>
+            </button>
+       </div>
+    </div>
+    
+     <div class="container p-5 text-gray-300 body-font">
+        <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-gray-400	flex flex-wrap items-center justify-between text-base ">
+            <a class="mr-5">預定行程</a>
+            <a class="mr-5">班機時刻</a>
+            <a class="mr-5">準備啟程</a>
+            <a class="mr-5">體驗星辰</a>
+            <a class="mr-5">COSMILE會員</a>
+            <a class="mr-5">旅客支援</a>
+        </nav>
+    </div>
+</header>
