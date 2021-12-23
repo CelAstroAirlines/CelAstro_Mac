@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   # google map
   resources :maps, only: [:index]
   resources :tickets, only: [:index]
-  
 end
