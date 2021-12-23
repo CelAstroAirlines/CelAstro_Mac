@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_19_062601) do
+ActiveRecord::Schema.define(version: 2021_12_22_105611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carts", force: :cascade do |t|
+    t.bigint "ticket_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "ticket_amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ticket_id"], name: "index_carts_on_ticket_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "ticket_id", null: false
+    t.bigint "user_id", null: false
+    t.string "order_timestamp"
+    t.string "slug"
+    t.integer "sellign_amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ticket_id"], name: "index_orders_on_ticket_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer "ticket_amount"
+    t.string "departure"
+    t.string "arrival"
+    t.string "airport"
+    t.datetime "date"
+    t.string "seat_no"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ticket_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,4 +68,8 @@ ActiveRecord::Schema.define(version: 2021_12_19_062601) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "carts", "tickets"
+  add_foreign_key "carts", "users"
+  add_foreign_key "orders", "tickets"
+  add_foreign_key "orders", "users"
 end
