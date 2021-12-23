@@ -8,4 +8,15 @@ Rails.application.routes.draw do
   # google map
   resources :maps, only: [:index]
   resources :tickets, only: [:index]
+
+  namespace :api do
+    namespace :v1 do
+      resources :tickets, only: [] do
+        member do 
+          resources  :seats
+        end
+      end
+    end
+  end
+
 end
