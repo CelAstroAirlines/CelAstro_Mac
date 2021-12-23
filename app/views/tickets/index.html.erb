@@ -1,0 +1,32 @@
+
+<h1> Ticket Info</h1>
+
+<section>
+  <Table>
+    <thead>
+      <tr>
+        <td>Ticket ID</td>
+        <td>Departure Airport</td>
+        <td>Arrival Airport</td>
+        <td>Departure Date</td>
+        <td>Ticket Price</td>
+        <td>Seat No.</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tickets.each do |ticket| %>
+      <tr>
+        <td>
+        <%= ticket_id %>
+       </td>
+        <td><%= ticket.departure %></td>
+        <td><%= ticket.arrival %></td>
+        <td><%= ticket.date %></td>
+        <td><%= ticket.price %></td>
+        <td><%= ticket.seat_no %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </Table>
+</section>
+
