@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -6,7 +6,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-=======
+
 #require 'uri'
 #require 'net/http'
 #require 'openssl'
@@ -40,12 +40,12 @@ for flight in dep_flight_data
 end
 dep_ticket_id = (depHash["departure_airport_code"]+depHash["arrival_airport_code"]+ depHash["departure_date"]).split('/').join
 
-@ticket.create(
+Ticket.create(
   ticket_id: dep_ticket_id,
-  departure: depHash["departure_date"],
+  departure: depHash["departure_airport_code"],
   arrival: depHash["arrival_airport_code"],
   date: depHash["departure_date"],
-  ticket_amount:depHash["price"]
+  ticket_amount: (depHash["price"]*28)
 )
 
 myJson = JSON.parse(ari_data)
@@ -58,18 +58,16 @@ for flight in return_flight_data
     returnHash = flight
   end
 end
-@ticket.create(
-  ticket_id: dep_ticket_id,
-  departure: returnHash["departure_date"],
+
+ari_ticket_id = (returnHash["departure_airport_code"]+returnHash["arrival_airport_code"]+ returnHash["departure_date"]).split('/').join
+Ticket.create(
+  ticket_id: ari_ticket_id,
+  departure: returnHash["departure_airport_code"],
   arrival: returnHash["arrival_airport_code"],
   date: returnHash["departure_date"],
-  ticket_amount: returnHash["price"]
+  ticket_amount: (returnHash["price"]*28)
 )
 
-#ari_ticket_id = (returnHash["departure_airport_code"]+returnHash["arrival_airport_code"]+ returnHash["departure_date"]).split('/').join
 #total_price= (depHash["price"]+returnHash["price"])*28.ceil()
 #ticket_id = dep_ticket_id + ari_ticket_id
 
-
-
->>>>>>> edited seeds file
