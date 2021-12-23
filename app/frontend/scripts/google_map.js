@@ -16,7 +16,7 @@ const mapOptions = {
 };
 
 // Promise
-const map = loader
+loader
   .load()
   .then((google) => {
     new google.maps.Map(document.getElementById("map"), mapOptions);
