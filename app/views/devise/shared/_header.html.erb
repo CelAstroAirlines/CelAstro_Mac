@@ -5,7 +5,14 @@
                 <%=image_tag 'CelAstro_Font_LOGO_white'%>
             </div>
         </div>
-    
+
+        <div class="text-yellow-500">
+        <% if user_signed_in? %>
+        <%= current_user.email%>
+        <button><%= link_to '修改', edit_user_registration_path %></button>
+        <% end %>
+        </div>
+
         <div class="flex flex-row-reverse mr-1 ml-1 md:hidden">
          <i class="fas fa-bars"></i>
         </div>
@@ -15,6 +22,7 @@
                     <path d=""></path>
                  </svg>
             </button>
+            <button class="inline-flex items-center bg-indigo-800 opacity-85 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 text-yellow-500 body-font"> <%= link_to '登出', destroy_user_session_path, method: :delete %></button>
        </div>
     </div>
 </header>
