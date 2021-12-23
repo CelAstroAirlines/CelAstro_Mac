@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket: one
+  user: one
+  order_timestamp: MyString
+  slug: MyString
+  sellign_amount: 1
+
+two:
+  ticket: two
+  user: two
+  order_timestamp: MyString
+  slug: MyString
+  sellign_amount: 1
