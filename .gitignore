@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # 相關密碼配置
 config/application.yml
+
+# Ignore application configuration
+/config/application.yml
