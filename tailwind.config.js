@@ -27,6 +27,7 @@ module.exports = {
       purple: colors.violet,
       pink: colors.pink,
       orange: colors.orange,
+      amber: colors.amber,
     },
     spacing: {
       px: '1px',
@@ -812,6 +813,14 @@ module.exports = {
         },
         beige:{
           '50': '#fdfcfb',
+        },
+        dark:{
+          '400': '#4A5154',
+          '500': '#3B3E42',
+          '600': '#43484B',
+          '700': '#333739',
+          '800': '#2C2E30',
+          '900': '#181F22',
         },
         navy: {
           '50':  '#f3f8f9',
