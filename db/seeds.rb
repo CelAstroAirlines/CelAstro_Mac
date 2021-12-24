@@ -44,18 +44,9 @@ Ticket.create(
   ticket_id: dep_ticket_id,
   departure: depHash["departure_airport_code"],
   arrival: depHash["arrival_airport_code"],
-  date: depHash["departure_date"],
+  departure_date: depHash["departure_date"],
   ticket_amount: (depHash["price"]*28)
 )
-if Ticket.find(params[:ticket_id]) == dep_ticket_id
-  Ticket.update(
-    ticket_id: dep_ticket_id,
-    departure: depHash["departure_airport_code"],
-    arrival: depHash["arrival_airport_code"],
-    date: depHash["departure_date"],
-    ticket_amount: (depHash["price"]*28)
-  )
-end
 
 
 myJson = JSON.parse(ari_data)
@@ -76,7 +67,7 @@ Ticket.create(
   ticket_id: ari_ticket_id,
   departure: returnHash["departure_airport_code"],
   arrival: returnHash["arrival_airport_code"],
-  date: returnHash["departure_date"],
+  departure_date: returnHash["departure_date"],
   ticket_amount: (returnHash["price"]*28)
 )
 

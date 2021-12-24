@@ -8,8 +8,12 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
-    @ticket.save
+     @ticket = Ticket.new(ticket_params)
+     if Ticket.find_by(params[:ticket_id]) != @ticket.ticket_id
+       @ticket.update
+     else
+       @ticket.update     
+     end
   end
 
   def show
