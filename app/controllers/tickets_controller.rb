@@ -9,13 +9,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
-    if @ticket.save
-      flash[:notice] = "Ticket Info Updated"
-      redirect_to tickets_path
-    else 
-      flash[:alert] = "Record not found"
-      redirect_to root
-    end
+    @ticket.save
   end
 
   def show

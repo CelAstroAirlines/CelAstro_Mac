@@ -10,20 +10,18 @@
         <td>Arrival Airport</td>
         <td>Departure Date</td>
         <td>Ticket Price</td>
-        <td>Seat No.</td>
       </tr>
     </thead>
     <tbody>
       <% @tickets.each do |ticket| %>
       <tr>
         <td>
-        <%= ticket_id %>
+        <%= ticket.ticket_id %>
        </td>
         <td><%= ticket.departure %></td>
         <td><%= ticket.arrival %></td>
         <td><%= ticket.date %></td>
-        <td><%= ticket.price %></td>
-        <td><%= ticket.seat_no %></td>
+        <td><%= ticket.ticket_amount %></td>
       </tr>
       <% end %>
     </tbody>
