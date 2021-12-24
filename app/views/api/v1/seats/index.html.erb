@@ -13,3 +13,10 @@
 <div>
   <button type="Condirm" name="seat_confirm" id="seat_confirm" bg-black>送出</button>
 
+<%= form_for :seat do |f| %>
+  No0 : <%= f.check_box :seat_no0 %><br />
+  No1 : <%= f.check_box :seat_no1 %><br />
+  No2 : <%= f.check_box :seat_no2 %><br />
+  No3 : <%= f.check_box :seat_no3 %><br />
+  <%= f.submit %>
+<% end %>
