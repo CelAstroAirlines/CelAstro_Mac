@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   root "pages#index"
   get 'index', to:'pages#index'
 
+  get "/payment", to: "orders#payment"
+  # post "/receipt",  to: "orders#receipt"
+
   # google map
   resources :maps, only: [:index]
   resources :tickets, only: [:index]
+
 
   namespace :api do
     namespace :v1 do
@@ -18,5 +22,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+
+  resources :receipts
 
 end
