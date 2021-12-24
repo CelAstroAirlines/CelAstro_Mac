@@ -1,7 +1,7 @@
 class Api::V1::SeatsController < ApplicationController
   
   def create
-    @seat = Seats.new
+    @seat = Seat.new
     render json:{result: "接到了"}
   end
 end
