@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_22_105611) do
+ActiveRecord::Schema.define(version: 2021_12_23_234951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,62 @@ ActiveRecord::Schema.define(version: 2021_12_22_105611) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ticket_id"], name: "index_orders_on_ticket_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "seats", force: :cascade do |t|
+    t.string "plane_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "seatNo0"
+    t.boolean "seatNo1"
+    t.boolean "seatNo2"
+    t.boolean "seatNo3"
+    t.boolean "seatNo4"
+    t.boolean "seatNo5"
+    t.boolean "seatNo6"
+    t.boolean "seatNo7"
+    t.boolean "seatNo8"
+    t.boolean "seatNo9"
+    t.boolean "seatNo10"
+    t.boolean "seatNo11"
+    t.boolean "seatNo12"
+    t.boolean "seatNo13"
+    t.boolean "seatNo14"
+    t.boolean "seatNo15"
+    t.boolean "seatNo16"
+    t.boolean "seatNo17"
+    t.boolean "seatNo18"
+    t.boolean "seatNo19"
+    t.boolean "seatNo20"
+    t.boolean "seatNo21"
+    t.boolean "seatNo22"
+    t.boolean "seatNo23"
+    t.boolean "seatNo24"
+    t.boolean "seatNo25"
+    t.boolean "seatNo26"
+    t.boolean "seatNo27"
+    t.boolean "seatNo28"
+    t.boolean "seatNo29"
+    t.boolean "seatNo30"
+    t.boolean "seatNo31"
+    t.boolean "seatNo32"
+    t.boolean "seatNo33"
+    t.boolean "seatNo34"
+    t.boolean "seatNo35"
+    t.boolean "seatNo36"
+    t.boolean "seatNo37"
+    t.boolean "seatNo38"
+    t.boolean "seatNo39"
+    t.boolean "seatNo40"
+    t.boolean "seatNo41"
+    t.boolean "seatNo42"
+    t.boolean "seatNo43"
+    t.boolean "seatNo44"
+    t.boolean "seatNo45"
+    t.boolean "seatNo46"
+    t.boolean "seatNo47"
+    t.boolean "seatNo48"
+    t.boolean "seatNo49"
   end
 
   create_table "tickets", force: :cascade do |t|
