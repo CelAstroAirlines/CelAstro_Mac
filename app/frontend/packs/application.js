@@ -16,4 +16,3 @@ import "stylesheets"
 import "scripts"
 
 
-console.log('Hello World from Webpacker')
