@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
   def index
-    @tickets = Ticket.all
+    @q = Ticket.ransack(params[:q])
+    @tickets = @q.result(distinct: true)
   end 
 
   def new
