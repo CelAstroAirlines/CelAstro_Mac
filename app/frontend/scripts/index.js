@@ -1,2 +1,2 @@
 import './google_map'
-import './seat'
+import './book_seat'
