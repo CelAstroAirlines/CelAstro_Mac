@@ -5,7 +5,7 @@
     <label for="cbox1">1A</label>
   </ul>
   <ul>
-    <input type="checkbox" id="cbox2" value="second_checkbox" checked="checked">
+    <input type="checkbox" id="cbox2" value="second_checkbox">
     <label for="cbox2">1B</label>
   </ul>
 </div>
@@ -13,10 +13,4 @@
 <div>
   <button type="Condirm" name="seat_confirm" id="seat_confirm" bg-black>送出</button>
 
-<%= form_for :seat do |f| %>
-  No0 : <%= f.check_box :seat_no0 %><br />
-  No1 : <%= f.check_box :seat_no1 %><br />
-  No2 : <%= f.check_box :seat_no2 %><br />
-  No3 : <%= f.check_box :seat_no3 %><br />
-  <%= f.submit %>
-<% end %>
+</div>
