@@ -1,7 +1,6 @@
 class TicketsController < ApplicationController
   def index
-    @q = Ticket.ransack(params[:q])
-    @tickets = @q.result(distinct: true)
+    @tickets = Ticket.all
   end 
 
   def new
@@ -33,6 +32,6 @@ class TicketsController < ApplicationController
 
   private
   def ticket_params
-    params.require(:ticket).permit(:ticket_id, :ticket_amount, :date)
+    params.require(:ticket).permit(:ticket_id, :departure, :arrival, :ticket_amount, :departure_date)
   end
 end
