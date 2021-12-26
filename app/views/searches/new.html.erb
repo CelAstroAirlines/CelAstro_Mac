@@ -8,17 +8,25 @@
       星辰航空會員方案</p>    
   </div>
   <div class="lg:w-4/7 md:w-1/2 bg-beige-80  p-8 flex flex-col md:ml-auto w-full md:mt-0 rounded-md">
+    <% if @search.errors.any? %>
+      <% @search.errors.full_messages.each do |message|%>
+        <ul><li style="color:rgb(193, 192, 192);font-size: medium"><%= message %></li></ul>
+        <% end %>
+    <% end %>
+
     <%= form_for(@search) do |s|%>
     <div class="field border border-gray-600 ">
-      <%= s.label :departure %>
-      <%= s.text_field :departure, autofocus: true, autocomplete: "departure", placeholder: "出發地"%>
+      <%= s.label :departure, "Departure Airport 出發地" %>
+      <%= s.select :departure, ['TPE','HND'], include_blank: true %>
+      <!-- <%= s.text_field :departure, autocomplete: "departure", placeholder: "TPE 台北/HND 東京"%> -->
     </div>
     <div class="field border border-gray-600 ">
-      <%= s.label :arrival %>
-      <%= s.text_field :arrival, autocomplete: "arrival", placeholder: "抵達地" %>
+      <%= s.label :arrival, "Arrival Airport 目的地" %>
+      <%= s.select :arrival, ['HND', 'TPE'], include_blank: true %>
+      <!-- <%= s.text_field :arrival, autocomplete: "arrival", placeholder: "TPE 台北/HND 東京" %> -->
     </div>
     <div class="field border border-gray-600 ">
-      <%= s.label :departure_date %>
+      <%= s.label :departure_date, "Departure Date 出發日期" %>
       <%= s.text_field :departure_date, placeholder: "mm/dd/yyyy" %>
     </div>
     <div><%= s.submit '搜尋' %></div>  

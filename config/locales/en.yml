@@ -31,3 +31,17 @@
 
 en:
   hello: "Hello world"
+en:
+  activerecord:
+    attributes:
+      search:
+    errors:
+      models:
+        search:
+          attributes:
+            departure: 
+              blank: "不能空白"
+            arrival: 
+              blank: "不能空白"
+            departure_date: 
+              blank: "不能空白"

@@ -1,3 +1,10 @@
 // Place all the styles related to the searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.field_with_errors {
+  display: inline;
+
+  input[type="text"] {
+    border: solid 5px rgb(249, 225, 166);
+  }
+}
