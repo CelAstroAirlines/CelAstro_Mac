@@ -20,5 +20,6 @@ Rails.application.routes.draw do
     end
   end
   post '/api/v1/tickets/:id/seats/update' , to: 'api/v1/seats#update_seat'
+  post '/api/v1/tickets/:id/seats/check', to: 'api/v1/seats#check'
 
 end
