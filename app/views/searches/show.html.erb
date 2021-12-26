@@ -8,7 +8,13 @@
       <p><%= ticket.departure %></p>
       <p><%= ticket.arrival %></p>
       <p><%= ticket.departure_date %></p>  
+      <p>ID:<%= ticket.ticket_id %></p>
+      <p>票價: NTD$<%= ticket.ticket_amount %></p>
+
     </div>
 <% end %>
-<%= link_to "回上頁", new_search_path %>
+<div>
+  <%= link_to "回上頁", new_search_path %>
+  <%= button_to "加入購物車"%>
+</div>
 <% end %>

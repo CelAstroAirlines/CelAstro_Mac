@@ -1,12 +1,20 @@
 class SearchesController < ApplicationController
-  
+  def index
+    redirect_to root_path
+  end
+
   def new
     @search = Search.new
   end
 
   def create
     @search = Search.create(search_params)
-    redirect_to @search
+    if @search.save 
+      redirect_to @search
+    else
+      render :new
+    end
+    
   end
 
   def show
