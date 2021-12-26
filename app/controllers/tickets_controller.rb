@@ -8,8 +8,12 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
-    @ticket.save
+     @ticket = Ticket.new(ticket_params)
+     if Ticket.find_by(params[:ticket_id]) != @ticket.ticket_id
+       @ticket.update
+     else
+       @ticket.update     
+     end
   end
 
   def show
@@ -28,6 +32,6 @@ class TicketsController < ApplicationController
 
   private
   def ticket_params
-    params.require(:ticket).permit(:ticket_id, :ticket_amount, :date)
+    params.require(:ticket).permit(:ticket_id, :departure, :arrival, :ticket_amount, :departure_date)
   end
 end
