@@ -11,6 +11,12 @@ class Api::V1::SeatsController < ApplicationController
     render html:params[:seat]
   end
 
+  def check
+    if params[:seat] == "cbox2" 
+      render json: {result: 'false'}
+    end
+  end
+
 
 
 end
