@@ -1,9 +1,9 @@
 <h1>Search Result</h1>
-<% if @search.search_ticket.empty? %>
+<% if @ticket.search_ticket.empty? %>
   <p> 查無紀錄 </p>
  
 <% else %>
-  <% @search.search_ticket.each do |ticket| %>
+  <% @ticket.search_ticket.each do |ticket| %>
     <div>
       <p><%= ticket.departure %></p>
       <p><%= ticket.arrival %></p>
