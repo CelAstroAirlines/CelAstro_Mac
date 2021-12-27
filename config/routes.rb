@@ -5,12 +5,16 @@ Rails.application.routes.draw do
   root "pages#index"
   get 'index', to:'pages#index'
 
+  get "/payment", to: "orders#payment"
+  # post "/receipt",  to: "orders#receipt"
+
   # google map
   resources :maps, only: [:index]
   resources :tickets
   resources :searches, only: [:index, :show]
   # get 'search', to:'tickets#search'
  
+
 
   namespace :api do
     namespace :v1 do
@@ -23,5 +27,8 @@ Rails.application.routes.draw do
   end
   post '/api/v1/tickets/:id/seats/update' , to: 'api/v1/seats#update_seat'
   post '/api/v1/tickets/:id/seats/check', to: 'api/v1/seats#check'
+
+
+  resources :receipts
 
 end
