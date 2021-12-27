@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # google map
   resources :maps, only: [:index]
   resources :tickets
-  resources :searches
+  resources :searches, only: [:index, :show]
+  # get 'search', to:'tickets#search'
+ 
 
   namespace :api do
     namespace :v1 do

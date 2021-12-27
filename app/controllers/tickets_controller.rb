@@ -6,7 +6,10 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
-    render :show
+  end
+
+  def search
+    @ticket = Ticket.new
   end
 
   def create
@@ -14,12 +17,13 @@ class TicketsController < ApplicationController
      if Ticket.find_by(params[:ticket_id]) != @ticket.ticket_id
        @ticket.update
      else
-       @ticket.update     
+       @ticket.save    
      end
   end
 
   def show
-    @ticket = Ticket.find(params[:departure])
+    render html:params
+    # @ticket = Ticket.find(params[:id])
   end
 
 

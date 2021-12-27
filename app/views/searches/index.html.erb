@@ -8,13 +8,9 @@
       星辰航空會員方案</p>    
   </div>
   <div class="lg:w-4/7 md:w-1/2 bg-beige-80  p-8 flex flex-col md:ml-auto w-full md:mt-0 rounded-md">
-    <% if @ticket.errors.any? %>
-      <% @search.errors.full_messages.each do |message|%>
-        <ul><li style="color:rgb(193, 192, 192);font-size: medium"><%= message %></li></ul>
-        <% end %>
-    <% end %>
+    
 
-    <%= form_for (@ticket, url: ticket_path(@ticket)) do |s|%>
+    <%= form_for (@tickets) do |s|%>
     <div class="field border border-gray-600 ">
       <%= s.label :departure, "Departure Airport 出發地" %>
       <%= s.select :departure, ['TPE','HND'], include_blank: true %>
