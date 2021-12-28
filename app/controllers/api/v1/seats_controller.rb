@@ -1,7 +1,17 @@
 class Api::V1::SeatsController < ApplicationController
+
+  def create
+    ticket_id = Seat.find_by(ticket_id: params[:id])
+    if ticket_id == 'true'
+      redirect_to action: "show", id: params[:id]
+    else
+    end
+      
+  end
+
   
   def index
-    @seat = Seat.new #給予tickets空位填入班機id
+    @seat = Seat.all #給予tickets空位填入班機id
     @ticket_id = params[:id]
   end
 
