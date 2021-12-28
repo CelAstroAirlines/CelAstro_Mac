@@ -4,6 +4,7 @@ document.addEventListener('turbolinks:load', () => {
   const element = document.getElementById("ticket-id");
   const ticket_id = element.getAttribute("data-ticket-id");
 
+
   consumer.subscriptions.create({ channel: "SeatsRoomChannel", ticket_id: ticket_id }, {
     connected() {
       console.log("搭上線啦！ " + ticket_id)

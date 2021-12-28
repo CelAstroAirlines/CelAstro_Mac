@@ -13,8 +13,11 @@ class Api::V1::SeatsController < ApplicationController
   end
 
   def check
+    render html:params
     if params[:seat] == "cbox2" 
       render json: {result: 'false'}
+    else
+      ActionCable.server.broadcast "seats_room_channel_#{params[:id]}", message: "hello"
     end
   end
 
