@@ -9,10 +9,14 @@ Rails.application.routes.draw do
   get "/payment", to: "orders#payment"
   # post "/receipt",  to: "orders#receipt"
 
-  # google map
-  resources :maps, only: [:index]
+  # ticket
   resources :tickets
+
+  #search
   resources :searches
+
+  #cart
+  resources :carts
 
 
   namespace :api do
@@ -29,5 +33,8 @@ Rails.application.routes.draw do
 
 
   resources :receipts
+
+  # google map
+  resources :maps, only: [:index]
 
 end
