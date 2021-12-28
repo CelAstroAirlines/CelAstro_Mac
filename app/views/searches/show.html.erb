@@ -1,9 +1,17 @@
 <h1>Search Result</h1>
+<<<<<<< HEAD
 <% if @ticket.search_ticket.empty? %>
   <p> 查無紀錄 </p>
  
 <% else %>
   <% @ticket.search_ticket.each do |ticket| %>
+=======
+<% if @search.search_ticket.empty? %>
+  <p> 查無紀錄 </p>
+ 
+<% else %>
+  <% @search.search_ticket.each do |ticket| %>
+>>>>>>> fixing implementing search
     <div>
       <p><%= ticket.departure %></p>
       <p><%= ticket.arrival %></p>
@@ -14,7 +22,13 @@
     </div>
 <% end %>
 <div>
+<<<<<<< HEAD
   <%= link_to "回上頁", search_path %>
   <%= button_to "加入購物車"%>
+=======
+  <%= link_to "回上頁", new_search_path %>
+  <%= @search.search_ticket %>
+  <%#= button_to "查看票價詳情", ticket_path(@search)%>
+>>>>>>> fixing implementing search
 </div>
 <% end %>

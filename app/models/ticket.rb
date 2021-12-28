@@ -3,6 +3,8 @@ class Ticket < ApplicationRecord
   validates :arrival, presence: true 
   validates :departure_date, presence: true
 
+
+
   def search_ticket
     tickets = Ticket.all
     tickets = tickets.where(["departure LIKE ?","%#{departure}%"]) if departure.present?

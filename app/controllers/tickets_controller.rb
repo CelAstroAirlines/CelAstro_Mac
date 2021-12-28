@@ -1,7 +1,6 @@
 class TicketsController < ApplicationController
   def index
-    # @tickets = Ticket.all
-    redirect_to ticket_path(@ticket)
+    @tickets = Ticket.all
   end 
 
   def new
@@ -21,9 +20,17 @@ class TicketsController < ApplicationController
      end
   end
 
+  def search
+    @tickets = Ticket.all
+    @tickets = @tickets.where(["departure LIKE ?","%#{departure}%"]) if departure.present?
+    @tickets = @tickets.where(["arrival LIKE ?","%#{arrival}%"]) if arrival.present?
+    @tickets = @tickets.where(["departure_date LIKE ?","%#{departure_date}%"]) if departure_date.present?
+    return tickets
+    # redirect_to @ticket
+  end   
+
   def show
-    render html:params
-    # @ticket = Ticket.find(params[:id])
+    @ticket = Ticket.find(params[:ticket_id])
   end
 
 
@@ -32,12 +39,12 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    @ticket = Ticket.find(params[:ticket_id])
+    @ticket = Ticket.find(params[:id])
     @ticket.delete
   end
 
   private
   def ticket_params
-    params.require(:ticket).permit(:ticket_id, :departure, :arrival, :ticket_amount, :departure_date)
+    params.require(:ticket).permit(:id, :departure, :arrival, :ticket_amount, :departure_date)
   end
 end
