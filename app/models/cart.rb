@@ -1,4 +1,4 @@
 class Cart < ApplicationRecord
-  has_many :ticket
+  has_many :tickets
   belongs_to :user
 end
