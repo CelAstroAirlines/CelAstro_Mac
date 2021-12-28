@@ -1,7 +1,8 @@
 class Api::V1::SeatsController < ApplicationController
   
-  def create
+  def index
     @seat = Seat.new #給予tickets空位填入班機id
+    @room_id = params[:id]
   end
 
   def update_seat
