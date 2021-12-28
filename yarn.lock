@@ -3117,11 +3117,6 @@ findup-sync@^3.0.0:
     micromatch "^3.0.4"
     resolve-dir "^1.0.1"
 
-flatpickr@^4.6.9:
-  version "4.6.9"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.9.tgz#9a13383e8a6814bda5d232eae3fcdccb97dc1499"
-  integrity sha512-F0azNNi8foVWKSF+8X+ZJzz8r9sE1G4hl06RyceIaLvyltKvDl6vqk9Lm/6AUUCi5HWaIjiUbk7UpeE/fOXOpw==
-
 flatted@^3.2.2:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.4.tgz#28d9969ea90661b5134259f312ab6aa7929ac5e2"
@@ -6601,11 +6596,6 @@ static-extend@^0.1.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
-
-stimulus-flatpickr@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/stimulus-flatpickr/-/stimulus-flatpickr-1.4.0.tgz#a41071a3e69cfc50b7eaaacf356fc0ab1ab0543c"
-  integrity sha512-rcC/c9+E+f5W2kOjaaLShtf3i+p95ACqt+oGzSAgeuZh2YeIN8gW4EWO7h0STBLzSVPl6BjIfPWP7upMPavIVQ==
 
 stimulus@^3.0.1:
   version "3.0.1"

@@ -7,7 +7,3 @@ import { definitionsFromContext } from "stimulus/webpack-helpers"
 const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
-
-import Flatpickr from 'stimulus-flatpickr'
-import 'flatpickr/dist/themes/dark.css'
-application.register('flatpickr', Flatpickr)

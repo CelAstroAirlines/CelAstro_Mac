@@ -1,7 +1,9 @@
-
+<<<<<<< HEAD
 ["x-rapidapi-host"] = "rapidapi-host"
 ["x-rapidapi-key"] = "rapidapi-key"
+=======
 
-Newebpay_Hashkey = "hash_key"
-Newebpay_HashIV = "hash_iv"
-Newebpay_MerchantID = "merchant_id"
+      Newebpay_Hashkey = "hash_key"
+      Newebpay_HashIV = "hash_iv"
+      Newebpay_MerchantID = "merchant_id"
+>>>>>>> 7815567 (newebpay & fixed sign in view)

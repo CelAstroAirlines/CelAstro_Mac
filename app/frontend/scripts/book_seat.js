@@ -23,7 +23,6 @@ document.addEventListener('turbolinks:load', () => {
     axios.defaults.headers.common['X-CSRF-TOKEN'] = csrf_token.content
     let res = await axios.post(`/api/v1/tickets/1/seats/check`, api_seat_check);
     let data = res.data.result;
-    console.log(data)
     if (data === "false") {
       alert('此位已被選取');
     } else {
@@ -32,7 +31,7 @@ document.addEventListener('turbolinks:load', () => {
   }
 
 
-  seats.addEventListener("click", (res) => {
+  seats && seats.addEventListener("click", (res) => {
     // choose_seats(res)
     api_seats_check(res)
   })

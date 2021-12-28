@@ -1,35 +1,45 @@
-<section class="text-gray-600 body-font bg-indigo-700 mt-28">
+<section class="text-gray-600 body-font bg-indigo-700 ">
+  
   <div class="flex flex-col ml-28 pt-10 mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">會員註冊</h1>
-  </div>  
+  </div>
+  
   <div class="py-11  bg-indigo-900 ">
+
     <div class="flex lg:w-5/6 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
-      <div class="relative flex-grow  my-14 mx-10">
+      <div class="relative flex-grow w-full my-14 mx-20">
+
        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
        <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="flex ">
-          <div>
-            <%= f.text_field :last_name, autofocus: false, autocomplete: "last_name", placeholder: "姓氏", class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 '%>
-          
-            <%= f.text_field :first_name , autofocus: false, autocomplete: "first_name",
-            placeholder: "名字", class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %><br>
 
-            <%= f.text_field :tel, autofocus: true, autocomplete: "first_name",
-            placeholder: "電話", class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80  mb-5' %>
+      <div class="flex ">
+        <div>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "姓氏", class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 '%>
         
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "電子信箱",class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 '%><br>
-        
-            <%= f.password_field :password, autocomplete: "new-password",placeholder: "密碼",class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5'%>
+          <%= f.text_field :first_name , autofocus: true, autocomplete: "first_name",
+          placeholder: "名字", class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %><br>
 
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再次確認密碼",class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 '%>
-            <% if @minimum_password_length %>
-            <em>(最少<%= @minimum_password_length %>碼)</em>
-            <% end %>
-          </div>
-          <div class="w-28 h-28 mx-auto">
-            <%= image_tag 'membership_logo.png' %>
-          </div>
-        </div>    
+    
+          <%= f.text_field :tel, autofocus: true, autocomplete: "first_name",
+          placeholder: "電話", class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80  mb-5' %>
+      
+        
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "電子信箱",class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 '%><br>
+        
+
+          <%= f.password_field :password, autocomplete: "new-password",placeholder: "密碼",class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5'%>
+
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再次確認密碼",class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 '%>
+          <% if @minimum_password_length %>
+          <em>(最少<%= @minimum_password_length %>碼)</em>
+          <% end %>
+        </div>
+        <div class="w-24 h-24 mx-auto">
+          <%= image_tag 'membership_logo.png' %>
+        </div>
+      </div>    
+        
+
           <div class="flex justify-between ">
             <div>
               <p class="mb-2">
@@ -39,11 +49,12 @@
               <p>
                 <input type="checkbox" id="cbox2" value="second_checkbox" >
                 <label for="cbox2">我已滿20歲</label>
-              </p><br>
-              <div >
-              <button class="text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg  "><%= link_to '註冊', new_user_registration_path %></button>
-              </div>
-            </div>   
+              </p>
+            </div>
+
+            <div >
+              <button class="text-white bg-brown-500 mr-24 border-0 py-1 px-11 focus:outline-none hover:bg-brown-800 rounded text-lg  "><%= link_to '註冊', new_user_registration_path %></button>
+            </div>
           </div>
         <% end %>
         <%# <#%= render "devise/shared/links" %>
@@ -51,3 +62,6 @@
     </div>
   </div>
 </section>
+
+  
+
