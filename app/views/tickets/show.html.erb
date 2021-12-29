@@ -1,6 +1,6 @@
 <h1>Ticket Info</h1>
 
-<% @tickets.each do |ticket| %>
+
   <div>
     <p><%= ticket.departure %></p>
     <p><%= ticket.arrival %></p>
@@ -15,4 +15,3 @@
 <div>
   <%= link_to "返回搜尋", tickets_path %>
 </div>
-<%end%>

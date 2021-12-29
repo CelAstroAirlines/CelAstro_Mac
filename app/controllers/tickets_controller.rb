@@ -3,11 +3,8 @@ class TicketsController < ApplicationController
   def index
     @q = Ticket.ransack(params[:q])
     @tickets = @q.result(distinct: true)
-    # if @q 
-    #   redirect_to ticket_path(@ticket)
-    # end
   end 
-
+  
   def new
     @ticket = Ticket.new
   end
@@ -26,11 +23,12 @@ class TicketsController < ApplicationController
   end
 
   def search
-    
+    @q = Ticket.ransack(params[:q])
+    @ticket = @q.result.first
   end   
 
   def show
-    @ticket = Ticket.find(params[:id])
+    @ticket = Ticket.find_by(id: params[:id])
   end 
 
   def update
@@ -44,6 +42,9 @@ class TicketsController < ApplicationController
 
   private
   def ticket_params
-    params.require(:ticket).permit(:id, :departure, :arrival, :ticket_amount, :departure_date)
+    params.require(:ticket).permit(:departure, :arrival, :ticket_amount, :departure_date)
+  end
+  def search_params
+    params.require(:ticket).permit(:departure, :arrival, :departure_date)
   end
 end

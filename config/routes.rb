@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/pbadmin', as: 'rails_admin'
+  # mount RailsAdmin::Engine => '/pbadmin', as: 'rails_admin'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -11,8 +11,7 @@ Rails.application.routes.draw do
 
   # ticket
   resources :tickets
-  resources :searches, only: [:index, :show]
-  # get 'search', to:'tickets#search'
+  get 'search', to:'tickets#search'
  
 
   #cart

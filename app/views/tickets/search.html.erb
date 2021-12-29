@@ -1,0 +1,33 @@
+<h1> Ticket Info</h1>
+
+<Table>
+  <thead>
+    <tr>
+      <td>Ticket ID</td>
+      <td>Departure Airport</td>
+      <td>Arrival Airport</td>
+      <td>Departure Date</td>
+      <td>Ticket Price</td>
+      <td>ID</td>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% if not @ticket %>
+    <h2> 查無紀錄 </h2>
+    <% else %>
+      
+      <tr>
+        <td>
+          <%= @ticket.ticket_id %>
+        </td>
+        <td><%= @ticket.departure %></td>
+        <td><%= @ticket.arrival %></td>
+        <td><%= @ticket.departure_date %></td>
+        <td><%= @ticket.ticket_amount %></td>
+        <td><%= @ticket.id %></td>
+      </tr>
+      
+    <% end %>
+  </tbody>
+</Table>
