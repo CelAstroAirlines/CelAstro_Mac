@@ -1,3 +1,6 @@
+![CelAstro_Logo_with_word_resized ](https://user-images.githubusercontent.com/92965976/147650732-5185b9d5-6a4f-466e-a298-392f788697d9.jpg)
+
+
 # README
 
 This README would normally document whatever steps are necessary to get the
