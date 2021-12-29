@@ -1,4 +1,5 @@
-![CelAstro_Logo_with_word_resized ](https://user-images.githubusercontent.com/92965976/147650732-5185b9d5-6a4f-466e-a298-392f788697d9.jpg)
+![CelAstro_Logo_with_word_resized](https://user-images.githubusercontent.com/92965976/147652276-f9955acf-729e-4167-9963-fec81a9166cd.jpg)
+
 
 
 # README
