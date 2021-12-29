@@ -1,6 +1,6 @@
 <h1>Ticket Info</h1>
 
-<% @tickets.search_ticket.each do |ticket| %>
+<% @tickets.each do |ticket| %>
   <div>
     <p><%= ticket.departure %></p>
     <p><%= ticket.arrival %></p>
@@ -11,5 +11,8 @@
 <div>
   <%= link_to "回上頁", search_path %>
   <%= button_to "加入購物車"%>
+</div>
+<div>
+  <%= link_to "返回搜尋", tickets_path %>
 </div>
 <%end%>

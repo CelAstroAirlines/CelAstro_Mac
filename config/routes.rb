@@ -11,7 +11,12 @@ Rails.application.routes.draw do
 
   # ticket
   resources :tickets
-  get 'tickets/search', to:'tickets#search'
+  resources :searches, only: [:index, :show]
+  # get 'search', to:'tickets#search'
+ 
+
+  #cart
+  resources :carts
 
 
   namespace :api do

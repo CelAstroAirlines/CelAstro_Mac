@@ -1,6 +1,11 @@
 class TicketsController < ApplicationController
+
   def index
-    @tickets = Ticket.all
+    @q = Ticket.ransack(params[:q])
+    @tickets = @q.result(distinct: true)
+    # if @q 
+    #   redirect_to ticket_path(@ticket)
+    # end
   end 
 
   def new
@@ -21,18 +26,12 @@ class TicketsController < ApplicationController
   end
 
   def search
-    @tickets = Ticket.all
-    @tickets = @tickets.where(["departure LIKE ?","%#{departure}%"]) if departure.present?
-    @tickets = @tickets.where(["arrival LIKE ?","%#{arrival}%"]) if arrival.present?
-    @tickets = @tickets.where(["departure_date LIKE ?","%#{departure_date}%"]) if departure_date.present?
-    return tickets
-    # redirect_to @ticket
+    
   end   
 
   def show
-    @ticket = Ticket.find(params[:ticket_id])
-  end
-
+    @ticket = Ticket.find(params[:id])
+  end 
 
   def update
     @ticket.update(ticket_params)

@@ -1,7 +1,33 @@
 
 <h1> Ticket Info</h1>
 
-<section>
+
+<%= search_form_for @q do |f| %>
+
+
+  <div class="field border border-gray-600 ">
+  <%= f.label :departure_cont, "Departure Airport 出發地" %>
+  <%= f.select :departure_cont, ['TPE','HND'], include_blank: true %>
+  </div>
+  <div class="field border border-gray-600 ">
+  <%= f.label :arrival_cont, "Arrival Airport 目的地" %>
+  <%= f.select :arrival_cont, ['HND', 'TPE'], include_blank: true %>
+  </div>
+  <div class="field border border-gray-600 ">
+  <%= f.label :departure_date_cont, "Departure Date 出發日期" %>
+  <%= f.text_field :departure_date_cont, placeholder: "mm/dd/yyyy" %>
+  </div>
+  <div><%= f.submit '搜尋' %></div>  
+
+<% end %>
+ 
+
+<%= link_to 'HOME', root_path %>
+</div>
+</div>
+
+
+<!-- <section>
   <Table>
     <thead>
       <tr>
@@ -26,5 +52,5 @@
       <% end %>
     </tbody>
   </Table>
-</section>
+</section> -->
 
