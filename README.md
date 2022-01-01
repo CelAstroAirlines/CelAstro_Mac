@@ -1,4 +1,6 @@
 # README
+![CelAstro_Logo_with_word_resized](https://user-images.githubusercontent.com/92965976/147652718-168431fb-a999-4a4a-b508-5327be369824.jpg)
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

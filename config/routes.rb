@@ -33,6 +33,10 @@ Rails.application.routes.draw do
 
 
   resources :receipts
+  resources :members
+
+  # google map
+  resources :maps, only: [:index]
 
   # google map
   resources :maps, only: [:index]
