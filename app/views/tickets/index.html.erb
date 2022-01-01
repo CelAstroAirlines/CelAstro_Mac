@@ -1,55 +1,30 @@
 
-<%= search_form_for @q, url: search_path do |f| %>
-
+<%= search_form_for @q, url: search_path do |s| %>
+<div id="form_container">
   <div class="field border border-gray-600 ">
-    <%= f.label :departure_cont, "Departure Airport 出發地" %>
-    <%= f.select :departure_cont, ['TPE','HND'], include_blank: true %>
-    <select name="請選擇">
-      <option value="one_way">單程</option>
-      <option value="round_trip">來回</option>
-    </select>
+    <%= s.label :ticket_type_cont, "請選擇航程" %>
+    <%= s.select :ticket_type_cont, ['one_way','roundtrip'], include_blank: true %>
   </div>
   <div class="field border border-gray-600 ">
-    <%= f.label :arrival_cont, "Arrival Airport 目的地" %>
-    <%= f.select :arrival_cont, ['HND', 'TPE'], include_blank: true %>
+    <%= s.label :departure_cont, "Departure Airport 出發地" %>
+    <%= s.select :departure_cont, ['TPE','HND'], include_blank: true %>
   </div>
   <div class="field border border-gray-600 ">
-    <%= f.label :departure_date_cont, "Departure Date 出發日期" %>
-    <%= f.text_field :departure_date_cont, placeholder: "mm/dd/yyyy" %>
+    <%= s.label :arrival_cont, "Arrival Airport 目的地" %>
+    <%= s.select :arrival_cont, ['HND', 'TPE'], include_blank: true %>
+  </div>
+  <div class="field border border-gray-600 ">
+    <%= s.label :departure_date_cont, "Departure Date 出發日期" %>
+    <%= s.text_field :departure_date_cont, placeholder: "mm/dd/yyyy" %>
+  </div>
+  <div class="field border border-gray-600 ">
+    <%= s.label :returning_date_cont, "Return Date 回程日期" %>
+    <%= s.text_field :returning_date_cont, placeholder: "mm/dd/yyyy" %>
   </div>
   
-  <div><%= f.submit '搜尋' %></div>  
-<% end %>
+  <div><%= s.submit '搜尋' %></div>  
+
+  <% end %>
  
-
 <%= link_to 'HOME', root_path %>
-<!-- <section>
-  <Table>
-    <thead>
-      <tr>
-        <td>Ticket ID</td>
-        <td>Departure Airport</td>
-        <td>Arrival Airport</td>
-        <td>Departure Date</td>
-        <td>Ticket Price</td>
-        <td>ID</td>
 
-      </tr>
-    </thead>
-    <tbody>
-      <% @tickets.each do |ticket| %>
-      <tr>
-        <td>
-        <%= ticket.ticket_id %>
-       </td>
-        <td><%= ticket.departure %></td>
-        <td><%= ticket.arrival %></td>
-        <td><%= ticket.departure_date %></td>
-        <td><%= ticket.ticket_amount %></td>
-        <td><%= ticket.id %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </Table>
-</section>
- -->

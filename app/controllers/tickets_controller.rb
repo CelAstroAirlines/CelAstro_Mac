@@ -25,7 +25,7 @@ class TicketsController < ApplicationController
   def search
     @q = Ticket.ransack(params[:q])
     @ticket = @q.result.first
-  end   
+  end
 
   def show
     @ticket = Ticket.find_by(id: params[:id])
@@ -44,7 +44,5 @@ class TicketsController < ApplicationController
   def ticket_params
     params.require(:ticket).permit(:departure, :arrival, :ticket_amount, :departure_date)
   end
-  def search_params
-    params.require(:ticket).permit(:departure, :arrival, :departure_date)
-  end
+  
 end
