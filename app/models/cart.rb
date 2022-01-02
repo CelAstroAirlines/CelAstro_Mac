@@ -41,4 +41,10 @@ class Cart < ApplicationRecord
       }
     end
   end
+
+  # 算出票價總價(只會有一個 item)
+  def total_price
+    items.reduce(0) { |sum, item| sum + item.tax_price }
+  end
+
 end

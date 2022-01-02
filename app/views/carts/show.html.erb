@@ -1,4 +1,4 @@
-<h1>購物車 show 頁面</h1>
+<h1>票價資訊</h1>
 
 <div class="flex flex-col max-w-screen-lg">
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -14,6 +14,12 @@
                 票價
               </th>
               <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                燃油附加費
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                機場服務費
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 總計
               </th>
             </tr>
@@ -25,10 +31,16 @@
                   <%= item.ticket.ticket_id %>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= item.ticket.ticket_amount %>
+                  <%= item.price %>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= item.total_price %>
+                  <%= item.fuel_surcharge %>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  <%= item.airport_service_fee %>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  <%= item.tax_price %>
                 </td>
               </tr>
               <% end %>
@@ -36,8 +48,8 @@
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                   總價
                 </td>
-                <td colspan="2" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  XXX
+                <td colspan="4" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  <%= current_cart.total_price %>
                 </td>
               </tr>
           </tbody>

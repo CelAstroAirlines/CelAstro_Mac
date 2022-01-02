@@ -10,9 +10,9 @@ class CartsController < ApplicationController
     redirect_to tickets_path, notice: "已加入購物車"
   end
 
+  #測試用,會移除
   def index  
     @carts = Cart.all
-
   end
 
   def show

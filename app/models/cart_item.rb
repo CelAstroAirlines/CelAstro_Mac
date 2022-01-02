@@ -15,8 +15,24 @@ class CartItem < ApplicationRecord
     Ticket.find_by(id: ticket_id)
   end
 
-  # 算出票價總價(只會有一個 item)
-  def total_price
+  # 單價
+  def price
     ticket.ticket_amount * quantity
   end
+
+  # 燃油附加費
+  def fuel_surcharge
+    (price * 0.09).ceil
+  end
+
+  # 機場服務費
+  def airport_service_fee
+    (price * 0.1).ceil
+  end
+
+  # 
+  def tax_price
+    price + fuel_surcharge + airport_service_fee
+  end
+
 end
