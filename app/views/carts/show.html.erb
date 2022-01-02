@@ -31,16 +31,16 @@
                   <%= item.ticket.ticket_id %>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= item.price %>
+                  <%= "TWD #{item.price}" %>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= item.fuel_surcharge %>
+                  <%= "TWD #{item.fuel_surcharge}" %>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= item.airport_service_fee %>
+                  <%= "TWD #{item.airport_service_fee}" %>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= item.tax_price %>
+                  <%= "TWD #{item.tax_price}" %>
                 </td>
               </tr>
               <% end %>
@@ -49,7 +49,7 @@
                   總價
                 </td>
                 <td colspan="4" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= current_cart.total_price %>
+                  <%= "TWD #{current_cart.total_price}" %>
                 </td>
               </tr>
           </tbody>

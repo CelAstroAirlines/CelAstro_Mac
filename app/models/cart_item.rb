@@ -30,7 +30,6 @@ class CartItem < ApplicationRecord
     (price * 0.1).ceil
   end
 
-  # 
   def tax_price
     price + fuel_surcharge + airport_service_fee
   end
