@@ -1,10 +1,14 @@
 <h1>測試</h1>
 <%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form|%>
-  <%= @form_info%>
-  <%= form.text_field :MerchantID, value: @form_info[:MerchantID]%>
-  <%= form.text_field :TradeInfo, value: @form_info[:TradeInfo]%>
-  <%= form.text_field :TradeSha, value: @form_info[:TradeSha]%>
-  <%= form.text_field :Version, value: @form_info[:Version]%>
-  <%= form.submit'送出'%>
+  
+  <%= form.text_field :MerchantID, value: @form_info[:MerchantID], class:"border-4 border-red-300"%>
+  
+  <%= form.text_field :TradeInfo, value: @form_info[:TradeInfo], class:"border-4 border-red-300"%>
+
+  <%= form.text_field :TradeSha, value: @form_info[:TradeSha], class:"border-4 border-red-300"%>
+
+  <%= form.text_field :Version, value: @form_info[:Version], class:"border-4 border-red-300"%>
+
+  <%= form.submit'送出', class:"border-4 border-red-300"%>
 
 <% end %>
