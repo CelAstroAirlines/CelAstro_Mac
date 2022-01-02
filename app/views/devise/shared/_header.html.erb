@@ -16,7 +16,7 @@
             </div>
             <div class="text-yellow-500">
                 <% if user_signed_in? %>
-                <%= current_user.email%>
+                <%= current_user.first_name%>
                  <button><%= link_to '修改', edit_user_registration_path %></button>
                 <% end %>
              </div>
