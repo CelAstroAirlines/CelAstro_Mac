@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
   def index
-    # @tickets = Ticket.all
-    redirect_to ticket_path(@ticket)
+    @tickets = Ticket.all
+    # redirect_to tickets_path(@ticket)
   end 
 
   def new
@@ -19,7 +19,8 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @ticket = Ticket.find(params[:departure])
+    @ticket = Ticket.find(params[:id])
+
   end
 
 

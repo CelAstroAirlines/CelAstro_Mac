@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   get "/payment", to: "orders#payment"
   # post "/receipt",  to: "orders#receipt"
 
-  # google map
-  resources :maps, only: [:index]
-  resources :tickets, only: [:index]
+  resources :tickets, only: [:index, :show]
   resources :searches
 
 
@@ -32,5 +30,12 @@ Rails.application.routes.draw do
 
   # google map
   resources :maps, only: [:index]
+
+  # cart
+  resources :carts, only: [:index, :show] do
+    collection do
+      post :add, path: 'add/:id' #for ticket 加入購物車按鍵
+    end
+  end
 
 end
