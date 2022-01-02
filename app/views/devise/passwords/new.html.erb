@@ -1,16 +1,33 @@
-<h2>忘記密碼?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label "信箱" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<section class="text-gray-600 body-font bg-indigo-700 ">
+  <div class="flex flex-col ml-28 pt-10 mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">忘記密碼</h1>
   </div>
+    <div class="py-11  bg-indigo-900 ">
+      <div class=" lg:w-5/6 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
+        <div class="w-full">
+          <div class="p-5 text-xl text-gray-900 md:text-center lg:w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0">
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "發送重置密碼" %>
-  </div>
-<% end %>
+          <div class=" text-xl text-gray-900 text-center">
+          <%= f.label "信箱" %><br>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5' %></div>
 
-<%= render "devise/shared/links" %>
+          <div class="actions text-center">
+            <%= f.submit "發送重置密碼", class:"text-white bg-brown-500 mr-0 mt-8 border-0 py-1 px-10 focus:outline-none hover:bg-brown-800 rounded text-lg" %>
+          </div>
+
+          <div class="p-8 text-xl text-gray-900 md:text-right lg:w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 ">
+          <%= link_to "登入", new_session_path(resource_name), class:"text-white bg-brown-500 mr-0 mt-8 border-0 py-2 px-10 focus:outline-none hover:bg-brown-800 rounded text-lg " %>
+          <%= link_to "註冊", new_registration_path(resource_name), class:"text-white bg-brown-500 mr-0 mt-8 border-0 py-2 px-10 focus:outline-none hover:bg-brown-800 rounded text-lg " %>
+          </div>
+          <% end %>    
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
