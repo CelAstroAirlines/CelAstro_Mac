@@ -11,10 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_01_03_155620) do
 =======
 ActiveRecord::Schema.define(version: 2021_12_29_142748) do
 >>>>>>> 5e780b6 (remove seats column)
+=======
+ActiveRecord::Schema.define(version: 2021_12_31_123757) do
+>>>>>>> 50ecfe7 (actioncable with stimulus)
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,12 +50,18 @@ ActiveRecord::Schema.define(version: 2021_12_29_142748) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string "state"
     t.integer "seat_id"
     t.string "area"
     t.string "user_id"
 =======
 >>>>>>> 5e780b6 (remove seats column)
+=======
+    t.string "state"
+    t.integer "seat_id"
+    t.string "area"
+>>>>>>> 50ecfe7 (actioncable with stimulus)
   end
 
   create_table "tickets", force: :cascade do |t|
