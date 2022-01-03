@@ -16,6 +16,7 @@
         <td style="padding:0px 10px; border-right: 1px solid black;">Return Arrival Time</td>
         <td style="padding:0px 10px; border-right: 1px solid black;">Ticket Price</td>
         <td style="padding:0px 10px; border-right: 1px solid black;">ID</td>
+        <td style="padding:0px 10px; border-right: 1px solid black;">Quantity</td>
       </tr>
     </thead>
     <tbody style="background-color: rgb(237, 237, 237); border-bottom: 2px solid black;">
@@ -35,9 +36,20 @@
           <td style="padding: 50px 10px; border-right: 1px solid black;"><%= @ticket.return_arrival_time %></td>
           <td style="padding: 50px 10px; border-right: 1px solid black;"><%= @ticket.ticket_amount %></td>
           <td style="padding: 50px 10px; border-right: 1px solid black;"><%= @ticket.id %></td>
+          <td>
+            <select name="ticket[:quantity]" id="ticket_quantity">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </td>
           <td style="padding: 50px 10px; border-right: 1px solid black;"><%= button_to "加入購物車", add_cart_index_path(@ticket), method: "post" %></td>
         </tr>  
       <% end %>
+      <%= link_to "返回搜尋", tickets_path %>
     </tbody>
   </Table>
 </div>
+
