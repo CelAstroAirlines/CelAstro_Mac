@@ -32,14 +32,14 @@ module Newebpay
 
     def set_info()  
       info[:MerchantID] = @merchant_id
-      info[:MerchantOrderNo] = "1611133228887"
+      info[:MerchantOrderNo] = "161151805477"
       info[:Amt] ="2500"
       info[:ItemDesc] = "test" 
       info[:Email] = "k_sky369@yahoo.com.tw"
       info[:TimeStamp] = Time.now.to_i 
       info[:RespondType] = "JSON"
       info[:Version] = "1.5"
-      info[:ReturnURL] = "http://localhost:3000/receipts/receivempg"
+      info[:ReturnURL] = "http://localhost:3000/orders/receivempg"
       info[:NotifyURL] = "https://ccore.newebpay.com/MPG/mpg_gateway"
       info[:LoginType] = 0 
       info[:CREDIT] =  1

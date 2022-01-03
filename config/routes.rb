@@ -31,9 +31,11 @@ Rails.application.routes.draw do
   end
   post '/api/v1/tickets/:id/seats/update' , to: 'api/v1/seats#update_seat'
   post '/api/v1/tickets/:id/seats/check', to: 'api/v1/seats#check'
-  post '/receipts/receivempg', to: 'receipts#receivempg'
+  post '/orders/receivempg', to: 'orders#receivempg'
+  # post '/receipts/index', to: 'receipts#index
 
 
+ 
   resources :receipts
   resources :members
 
