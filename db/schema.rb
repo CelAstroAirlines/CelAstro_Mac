@@ -106,8 +106,16 @@ ActiveRecord::Schema.define(version: 2022_01_01_103733) do
     t.string "seat_no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "ticket_id"
+    t.string "ticket_serial"
     t.string "departure_date"
+    t.string "ticket_type"
+    t.string "returning_date"
+    t.string "departure_time"
+    t.string "arrival_time"
+    t.string "return_departure_airport"
+    t.string "return_arrival_airport"
+    t.string "return_departure_time"
+    t.string "return_arrival_time"
   end
 
   create_table "users", force: :cascade do |t|
@@ -124,6 +132,11 @@ ActiveRecord::Schema.define(version: 2022_01_01_103733) do
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

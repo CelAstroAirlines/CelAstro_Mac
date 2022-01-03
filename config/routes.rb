@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # mount RailsAdmin::Engine => '/pbadmin', as: 'rails_admin'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -8,10 +9,10 @@ Rails.application.routes.draw do
   get "/payment", to: "orders#payment"
   # post "/receipt",  to: "orders#receipt"
 
-  resources :tickets, only: [:index, :show]
-  resources :searches
-
-
+  # ticket
+  resources :tickets
+  get 'search', to:'tickets#search'
+ 
   namespace :api do
     namespace :v1 do
       resources :tickets, only: [] do
@@ -28,14 +29,14 @@ Rails.application.routes.draw do
   resources :receipts
   resources :members
 
-  # google map
-  resources :maps, only: [:index]
-
   # cart
-  resources :carts, only: [:index, :show, :destroy] do
+  resources :cart, only: [:show, :destroy] do
     collection do
       post :add, path: 'add/:id' #for ticket 加入購物車按鍵
     end
   end
+
+  # google map
+  resources :maps, only: [:index]
 
 end

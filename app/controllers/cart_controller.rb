@@ -1,18 +1,13 @@
-class CartsController < ApplicationController
+class CartController < ApplicationController
 
   before_action :if_not_login
 
-  # 給 ticket 頁面使用, path: add_carts_path 加入購物車
+  # 給 ticket 頁面使用, path: add_cart_path 加入購物車
   def add
-    current_cart.add_item(params[:id]) # current_cart 定義在 CartsHelper
+    current_cart.add_item(params[:id]) # current_cart 定義在 CartHelper
     session[:cart2022] = current_cart.serialize
 
-    redirect_to tickets_path, notice: "已加入購物車"
-  end
-
-  #測試用,會移除
-  def index  
-    @carts = Cart.all
+    redirect_to cart_path, notice: "已加入購物車"
   end
 
   def show

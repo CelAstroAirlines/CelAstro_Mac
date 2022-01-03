@@ -1,20 +1,20 @@
-<h1>Search Result</h1>
-<% if @ticket.search_ticket.empty? %>
-  <p> 查無紀錄 </p>
- 
-<% else %>
-  <% @ticket.search_ticket.each do |ticket| %>
+<div class="mt-32">
+  <h1>Ticket Info</h1>
+
+  <% @tickets.each do |ticket| %>
     <div>
       <p><%= ticket.departure %></p>
       <p><%= ticket.arrival %></p>
       <p><%= ticket.departure_date %></p>  
       <p>ID:<%= ticket.ticket_id %></p>
       <p>票價: NTD$<%= ticket.ticket_amount %></p>
-
     </div>
-<% end %>
-<div>
-  <%= link_to "回上頁", new_search_path %>
-  <%= button_to "加入購物車", add_carts_path, method: "post" %>
+  <div>
+    <%= link_to "回上頁", search_path %>
+    <%= button_to "加入購物車", add_cart_index_path(@ticket), method: "post" %>
+  </div>
+  <div>
+    <%= link_to "返回搜尋", tickets_path %>
+  </div>
+  <%end%>
 </div>
-<% end %>
