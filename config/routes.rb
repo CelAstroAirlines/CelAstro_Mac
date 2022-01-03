@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   resources :maps, only: [:index]
 
   # cart
-  resources :carts, only: [:index, :show] do
+  resources :carts, only: [:index, :show, :destroy] do
     collection do
       post :add, path: 'add/:id' #for ticket 加入購物車按鍵
     end

@@ -19,6 +19,12 @@ class CartsController < ApplicationController
     # render html: current_cart.items # 空值,應該是票沒被加入成功的關係
   end
 
+  def destroy
+    session[:cart2022] = nil
+    redirect_to tickets_path, notice: "購物車已清空"
+  end
+
+
   private
   def if_not_login
     if !current_user

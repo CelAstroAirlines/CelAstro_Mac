@@ -22,12 +22,12 @@ class CartItem < ApplicationRecord
 
   # 燃油附加費
   def fuel_surcharge
-    (price * 0.09).ceil
+    (price * 0.01).ceil
   end
 
   # 機場服務費
   def airport_service_fee
-    (price * 0.1).ceil
+    (price * 0.02).ceil
   end
 
   def tax_price

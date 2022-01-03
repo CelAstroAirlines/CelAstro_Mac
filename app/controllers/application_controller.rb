@@ -13,7 +13,4 @@ class ApplicationController < ActionController::Base
      member_path(current_user)
   end
 
-  # def init_cart
-  #   @cart = Cart.from_hash(session[:cart9487])
-  # end
 end
