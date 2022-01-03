@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_29_025301) do
+ActiveRecord::Schema.define(version: 2021_12_31_152935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,8 +100,16 @@ ActiveRecord::Schema.define(version: 2021_12_29_025301) do
     t.string "seat_no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "ticket_id"
+    t.string "ticket_serial"
     t.string "departure_date"
+    t.string "ticket_type"
+    t.string "returning_date"
+    t.string "departure_time"
+    t.string "arrival_time"
+    t.string "return_departure_airport"
+    t.string "return_arrival_airport"
+    t.string "return_departure_time"
+    t.string "return_arrival_time"
   end
 
   create_table "users", force: :cascade do |t|

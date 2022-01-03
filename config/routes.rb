@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # mount RailsAdmin::Engine => '/pbadmin', as: 'rails_admin'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -8,10 +9,13 @@ Rails.application.routes.draw do
   get "/payment", to: "orders#payment"
   # post "/receipt",  to: "orders#receipt"
 
-  # google map
-  resources :maps, only: [:index]
-  resources :tickets, only: [:index]
-  resources :searches
+  # ticket
+  resources :tickets
+  get 'search', to:'tickets#search'
+ 
+
+  #cart
+  resources :carts
 
 
   namespace :api do
@@ -29,6 +33,9 @@ Rails.application.routes.draw do
 
   resources :receipts
   resources :members
+
+  # google map
+  resources :maps, only: [:index]
 
   # google map
   resources :maps, only: [:index]
