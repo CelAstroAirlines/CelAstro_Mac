@@ -1,30 +1,32 @@
+<div class="mt-32">
+  <%= search_form_for @q, url: search_path do |s| %>
+  <div id="form_container">
+    <div class="field border border-gray-600 ">
+      <%= s.label :ticket_type_cont, "請選擇航程" %>
+      <%= s.select :ticket_type_cont, ['one_way','roundtrip'], include_blank: true %>
+    </div>
+    <div class="field border border-gray-600 ">
+      <%= s.label :departure_cont, "Departure Airport 出發地" %>
+      <%= s.select :departure_cont, ['TPE','HND'], include_blank: true %>
+    </div>
+    <div class="field border border-gray-600 ">
+      <%= s.label :arrival_cont, "Arrival Airport 目的地" %>
+      <%= s.select :arrival_cont, ['HND', 'TPE'], include_blank: true %>
+    </div>
+    <div class="field border border-gray-600 ">
+      <%= s.label :departure_date_cont, "Departure Date 出發日期" %>
+      <%= s.text_field :departure_date_cont, placeholder: "mm/dd/yyyy" %>
+    </div>
+    <div class="field border border-gray-600 ">
+      <%= s.label :returning_date_cont, "Return Date 回程日期" %>
+      <%= s.text_field :returning_date_cont, placeholder: "mm/dd/yyyy" %>
+    </div>
+    
+    <div><%= s.submit '搜尋' %></div>  
 
-<%= search_form_for @q, url: search_path do |s| %>
-<div id="form_container">
-  <div class="field border border-gray-600 ">
-    <%= s.label :ticket_type_cont, "請選擇航程" %>
-    <%= s.select :ticket_type_cont, ['one_way','roundtrip'], include_blank: true %>
-  </div>
-  <div class="field border border-gray-600 ">
-    <%= s.label :departure_cont, "Departure Airport 出發地" %>
-    <%= s.select :departure_cont, ['TPE','HND'], include_blank: true %>
-  </div>
-  <div class="field border border-gray-600 ">
-    <%= s.label :arrival_cont, "Arrival Airport 目的地" %>
-    <%= s.select :arrival_cont, ['HND', 'TPE'], include_blank: true %>
-  </div>
-  <div class="field border border-gray-600 ">
-    <%= s.label :departure_date_cont, "Departure Date 出發日期" %>
-    <%= s.text_field :departure_date_cont, placeholder: "mm/dd/yyyy" %>
-  </div>
-  <div class="field border border-gray-600 ">
-    <%= s.label :returning_date_cont, "Return Date 回程日期" %>
-    <%= s.text_field :returning_date_cont, placeholder: "mm/dd/yyyy" %>
-  </div>
+    <% end %>
   
-  <div><%= s.submit '搜尋' %></div>  
+  <%= link_to 'HOME', root_path %>
+</div>
 
-  <% end %>
- 
-<%= link_to 'HOME', root_path %>
 
