@@ -5,7 +5,8 @@ class CartController < ApplicationController
   # 給 ticket 頁面使用, path: add_cart_path 加入購物車
   def add
     current_cart.add_item(params[:id]) # current_cart 定義在 CartHelper
-    session[:cart2022] = current_cart.serialize
+    # session[:cart2022] = current_cart.serialize
+    session[Cart::SessionKey] = current_cart.serialize
 
     redirect_to cart_path, notice: "已加入購物車"
   end
@@ -15,8 +16,9 @@ class CartController < ApplicationController
   end
 
   def destroy
-    session[:cart2022] = nil
-    redirect_to tickets_path, notice: "購物車已清空"
+    # session[:cart2022] = nil
+    session[Cart::SessionKey] = nil
+    redirect_to cart_path, notice: "購物車已清空"
   end
 
 
