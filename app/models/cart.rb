@@ -3,6 +3,8 @@ class Cart < ApplicationRecord
   has_many :tickets
   has_many :cart_items
 
+  SessionKey = :cart2022
+
   attr_reader :items #getter
 
   def initialize(items = [])
