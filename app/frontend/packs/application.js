@@ -14,12 +14,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import "stylesheets" 
+import "stylesheets"
 import "scripts"
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 50ecfe7 (actioncable with stimulus)
 import "controllers"
