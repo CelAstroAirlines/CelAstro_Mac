@@ -5,7 +5,7 @@ class Cart < ApplicationRecord
 
   SessionKey = :cart2022
 
-  attr_reader :items #getter
+  attr_reader :items # getter
 
   def initialize(items = [])
     @items = items
@@ -21,10 +21,7 @@ class Cart < ApplicationRecord
     end
   end
 
-  def empty?
-    items.empty?
-  end
-
+  # return correct hash format
   def serialize
     all_items = items.map { |item|
       { "ticket_id" => item.ticket_id, "quantity" => item.quantity}
@@ -44,7 +41,7 @@ class Cart < ApplicationRecord
     end
   end
 
-  # 算出票價總價(只會有一個 item)
+  # 算出票價總價(目前只會有一個 item)
   def total_price
     items.reduce(0) { |sum, item| sum + item.tax_price }
   end
