@@ -2,17 +2,16 @@ class CartController < ApplicationController
 
   before_action :if_not_login
 
-  # 給 ticket 頁面使用, path: add_cart_path 加入購物車
+  # for tickets view
   def add
-    current_cart.add_item(params[:id]) # current_cart 定義在 CartHelper
-    # session[:cart2022] = current_cart.serialize
+    current_cart.add_item(params[:id])
     session[Cart::SessionKey] = current_cart.serialize
 
     redirect_to cart_path, notice: "已加入購物車"
   end
 
   def show
-    # render html: current_cart.items # 空值,應該是票沒被加入成功的關係
+    # render html: current_cart.items # if items get nil, because ticket not added
   end
 
   def destroy
@@ -20,7 +19,6 @@ class CartController < ApplicationController
     session[Cart::SessionKey] = nil
     redirect_to cart_path, notice: "購物車已清空"
   end
-
 
   private
   def if_not_login
