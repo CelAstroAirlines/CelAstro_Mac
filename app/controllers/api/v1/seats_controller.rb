@@ -40,7 +40,7 @@ class Api::V1::SeatsController < ApplicationController
 
 
     ActionCable.server.broadcast "seats_room_channel_#{params[:plane_id]}", {
-      id: @seat,
+      seat_params: @seat,
       message: render(partial: 'seat', locals:{f:@seat})
     }
 
