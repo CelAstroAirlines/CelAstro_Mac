@@ -13,6 +13,7 @@
                     </svg>
                  </button>
                  <button class="inline-flex items-center   py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 text-yellow-500 body-font"> <%= link_to '登出', destroy_user_session_path, method: :delete %></button>
+                 <button class="inline-flex items-center   py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 text-yellow-500 body-font"> <%= link_to '回首頁', root_path %></button>
             </div>
             <div class="text-yellow-500">
                 <% if user_signed_in? %>
