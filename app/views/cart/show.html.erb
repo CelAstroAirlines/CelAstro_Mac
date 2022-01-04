@@ -39,16 +39,17 @@
                     <%= item.quantity %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <%= "TWD #{item.price}" %>
+                    <%#= "TWD #{item.price}" %>
+                    <%= "TWD " + number_with_delimiter(item.price) %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <%= "TWD #{item.fuel_surcharge}" %>
+                    <%= "TWD " + number_with_delimiter(item.fuel_surcharge)%>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <%= "TWD #{item.airport_service_fee}" %>
+                    <%= "TWD " + number_with_delimiter(item.airport_service_fee) %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <%= "TWD #{item.tax_price}" %>
+                    <%= "TWD " + number_with_delimiter(item.tax_price) %>
                   </td>
                 </tr>
                 <% end %>
@@ -57,7 +58,7 @@
                     總價
                   </td>
                   <td colspan="5" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <%= "TWD #{current_cart.total_price}" %>
+                    <%= "TWD " + number_with_delimiter(current_cart.total_price) %>
                   </td>
                 </tr>
             </tbody>
