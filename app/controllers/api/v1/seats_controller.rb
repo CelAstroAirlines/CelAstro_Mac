@@ -31,10 +31,10 @@ class Api::V1::SeatsController < ApplicationController
 
     if @seat.state == "vaccant" 
       @seat.occupied!
-      @seat.update(user_id: current_user)
+      # @seat.update(user_id: current_user)
     elsif @seat.state == "occupied" 
       @seat.vaccant!
-      @seat.update(user_id: nil)      
+      # @seat.update(user_id: nil)      
     end
     
 
