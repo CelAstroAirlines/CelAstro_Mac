@@ -1,5 +1,6 @@
  <%= render 'devise/shared/navbar' %> 
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -86,106 +87,181 @@
         <div class="swiper-slide"><%=image_tag 'photo5'%></div>
         <div class="swiper-slide"><%=image_tag 'photo6'%></div>
         <div class="swiper-slide"><%=image_tag 'photo7'%></div>
+=======
+ <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+  <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="3"
+      aria-label="Slide 4"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="4"
+      aria-label="Slide 5"
+    ></button>
+  </div>
+  <div class="carousel-inner relative w-full overflow-hidden h-screen">
+    <div class="carousel-item active relative float-left w-full">
+      <%=image_tag 'photo2',class:'block w-full'%>
+      <div class="carousel-caption hidden md:block absolute text-center">
+        <h5 class="text-xl text-white">First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+>>>>>>> 115ae97 (change slideshow pic)
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
     </div>
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        }
-      });
-    </script>
-  </body>
-</html>
-
-<div>
-    <div class="bg-dark-600 mx-auto ">
-        <h2 class="text-xl p-4  text-gray-200 text-center">探索景點</h2>
+    <div class="carousel-item relative float-left w-full">
+      <%=image_tag 'photo3',class:'block w-full'%>
+      <div class="carousel-caption hidden md:block absolute text-center">
+        <h5 class="text-xl">Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 flex justify-between" >
-        <div class="p-3 w-full md:w-64 justify-center items-center bg-dark-300 shadow-lg rounded-lg flex flex-col">
-            <%= image_tag'england', class:'object-center object-cover rounded-lg'%>
-            <div class="w-full p-4 justify-start flex flex-col">
-            <h4 class="border-b-2 text-xl text-center text-gray-600">英國</h4>
-            </div>
-        </div>
-        <div class="p-3 w-full md:w-64 justify-center items-center bg-dark-300 shadow-lg rounded-lg flex flex-col">
-            <%= image_tag'tailand', class:'object-center object-cover rounded-lg'%>
-            <div class="w-full p-4 justify-start flex flex-col">
-            <h4 class="border-b-2 text-xl text-center text-gray-600">泰國</h4>
-            </div>
-        </div>
-        <div class="p-3 w-full md:w-64 justify-center items-center bg-dark-300 shadow-lg rounded-lg flex flex-col">
-            <%= image_tag'japan', class:'object-center object-cover rounded-lg'%>
-            <div class="w-full p-4 justify-start flex flex-col">
-            <h4 class="border-b-2 text-xl text-center text-gray-600">日本</h4>
-            </div>
-        </div>
-        <div class="p-3 w-full md:w-64 justify-center items-center bg-dark-300 shadow-lg rounded-lg flex flex-col">
-            <%= image_tag'korea', class:'object-center object-cover rounded-lg'%>
-            <div class="w-full p-4 justify-start flex flex-col">
-            <h4 class="border-b-2 text-xl text-center text-gray-600">韓國</h4>
-            </div>
-        </div>
-        <div class="p-3 w-full md:w-64 justify-center items-center bg-dark-300 shadow-lg rounded-lg flex flex-col">
-            <%= image_tag'singapro', class:'object-center object-cover rounded-lg'%>
-            <div class="w-full p-4 justify-start flex flex-col">
-            <h4 class="border-b-2 text-xl text-center text-gray-600">新加坡</h4>
-            </div>
-        </div>
+    <div class="carousel-item relative float-left w-full">
+      <%=image_tag 'photo5',class:'block w-full'%>
+      <div class="carousel-caption hidden md:block absolute text-center">
+        <h5 class="text-xl">Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
     </div>
+    <div class="carousel-item relative float-left w-full">
+      <%=image_tag 'photo6',class:'block w-full'%>
+      <div class="carousel-caption hidden md:block absolute text-center">
+        <h5 class="text-xl">Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item relative float-left w-full">
+      <%=image_tag 'photo7',class:'block w-full'%>
+      <div class="carousel-caption hidden md:block absolute text-center">
+        <h5 class="text-xl">Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+    type="button"
+    data-bs-target="#carouselExampleCaptions"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+    type="button"
+    data-bs-target="#carouselExampleCaptions"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
-<div class="w-full bg-dark-500">
+
+<%# 探索景點 %>
+<div>
+  <div class="bg-dark-600 mx-auto ">
+      <h2 class="text-xl p-4  text-gray-200 text-center">探索景點</h2>
+  </div>
+  <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 bg-dark-600 flex justify-between items-center p-10">
+  <div class="container w-52 mx-auto bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+      <%=image_tag'england1',class:'inline-block h-64 w-full' %> 
+    <div class="text-center relative py-1">
+      
+      <h1 class="mb-1 text-2xl font-sans font-semibold text-gray-700 hover:text-gray-300 cursor-pointer">ENGLAND</h1>
+      <span class="text-lg text-gray-700 hover:text-gray-900 hover:text-amber-500">英國</span>
+    </div>
+  </div>
+  <div class="container w-52 mx-auto  bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+      <%=image_tag'thailand1',class:'inline-block h-64 w-full'%> 
+    <div class="text-center relative py-1">
+      
+      <h1 class="mb-1 text-2xl font-sans font-semibold text-gray-700 hover:text-gray-900 cursor-pointer">THAILAND</h1>
+      <span class="text-lg text-gray-700 hover:text-gray-900">泰國</span>
+    </div>
+  </div>
+  <div class="container w-52 mx-auto  bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+      <%=image_tag'japan1',class:'inline-block h-64 w-full' %> 
+    <div class="text-center relative py-1">
+      
+      <h1 class="mb-1 text-2xl font-sans font-semibold text-gray-700 hover:text-gray-900 cursor-pointer">JAPAN</h1>
+      <span class="text-lg text-gray-700 hover:text-gray-900">日本</span>
+    </div>
+  </div>
+  <div class="container w-52 mx-auto  bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+      <%=image_tag'korea1',class:'inline-block h-64 w-full'%> 
+    <div class="text-center relative py-1">
+      
+      <h1 class="mb-1 text-2xl font-sans font-semibold text-gray-700 hover:text-gray-900 cursor-pointer">KOREA</h1>
+      <span class="text-lg text-gray-700 hover:text-gray-900">韓國</span>
+    </div>
+  </div>
+  <div class="container w-52 mx-auto  bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+      <%=image_tag'singaproe1',class:'inline-block h-64 w-full'%> 
+    <div class="text-center relative py-1">
+      
+      <h1 class="mb-1 text-2xl font-sans font-semibold text-gray-700 hover:text-gray-900 cursor-pointer">SINGAPROE</h1>
+      <span class="text-lg text-gray-700 hover:text-gray-900">新加坡</span>
+    </div>
+  </div>
+</div>
+
+<div class="w-full bg-gray-600">
     <section class="max-w-6xl mx-auto px-3 sm:px-6 lg:px-4 py-10">
-        <div class="text-center pb-12">
-            <h1 class="font-normal text-2xl md:text-2xl lg:text-3xl font-heading text-gray-200">
-                Starlights            
-            </h1>
+      <div class="text-center pb-12 ">
+        <h1 class="font-normal text-2xl md:text-2xl lg:text-3xl font-heading text-gray-200">
+            Starlights            
+        </h1>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="w-full bg-gray-800 rounded-lg sahdow-lg  flex flex-col pt-9 ">
+          <div class="container w-72 mx-auto rounded-xl  overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+            <%= image_tag'starlights1'%>
+          </div>
+          <div class="text-center pt-2">
+            <p class="text-base text-gray-200 font-light mb-2 p-2">旅行資訊</p>
+          </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="w-full bg-gray-800 rounded-lg sahdow-lg  flex flex-col px-14 pt-10">
-                <div class="mb-8">
-                  <%= image_tag'starlights1', class:'object-center object-cover rounded-lg h-40 w-60'%>
-                </div>
-                <div class="text-center">
-                    <p class="text-lg text-gray-200 font-light mb-2">旅行資訊</p>
-                </div>
-            </div>
-            <div class="w-full bg-gray-800 rounded-lg sahdow-lg flex flex-col px-14 pt-10">
-                <div class="mb-8">
-                  <%= image_tag'starlights2', class:'object-center object-cover rounded-lg h-40 w-60'%>
-                </div>
-                <div class="text-center">
-                  <p class="text-lg text-gray-200 font-light mb-2">旅行前登入行程管理預選餐點，一鍵即響知名餐廳主廚聯手打造的機上星級美味</p>
-                </div>
-            </div>
-            <div class="w-full bg-gray-800 rounded-lg sahdow-lg flex flex-col px-14 pt-10">
-                <div class="mb-8">
-                  <%=image_tag'starlights3', class:'object-center object-cover rounded-lg h-40 w-60 '%>
-                </div>
-                <div class="text-center">
-                  <p class="text-lg text-gray-200 font-light mb-2">星辰航空榮獲WTTC國際安全旅遊戳記，共同推動疫後台灣觀光旅遊發展</p>
-                </div>
-            </div>
+        <div class="w-full bg-gray-800 rounded-lg sahdow-lg flex flex-col pt-9">
+          <div class="container w-72 mx-auto rounded-xl  overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+            <%= image_tag'starlights2'%>
+          </div>
+          <div class="text-center pt-2">
+            <p class="text-base text-gray-200 font-light mb-2 p-2">旅行前登入行程管理預選餐點，一鍵即響知名餐廳主廚聯手打造的機上星級美味</p>
+          </div>
         </div>
+        <div class="w-full bg-gray-800 rounded-lg sahdow-lg flex flex-col pt-9">
+          <div class="container w-72 mx-auto rounded-xl  overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+            <%=image_tag'starlights3'%>
+          </div>
+          <div class="text-center pt-2">
+            <p class="text-base text-gray-200 font-light mb-2 p-2">星辰航空榮獲WTTC國際安全旅遊戳記，共同推動疫後台灣觀光旅遊發展</p>
+          </div>
+        </div>
+      </div> 
     </section>
 </div>
 

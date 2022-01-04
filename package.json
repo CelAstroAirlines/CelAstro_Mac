@@ -10,10 +10,14 @@
     "axios": "^0.24.0",
     "dotenv": "^10.0.0",
     "figaro-js": "^3.0.2",
+<<<<<<< HEAD
     "flatpickr": "^4.6.9",
     "stimulus": "^3.0.1",
     "stimulus-flatpickr": "^1.4.0",
+=======
+>>>>>>> 115ae97 (change slideshow pic)
     "turbolinks": "^5.2.0",
+    "tw-elements": "^1.0.0-alpha3",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },
