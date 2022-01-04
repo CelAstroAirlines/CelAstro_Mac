@@ -32,8 +32,8 @@ module Newebpay
 
     def set_info()  
       info[:MerchantID] = @merchant_id
-      info[:MerchantOrderNo] = "161151805477"
-      info[:Amt] ="2500"
+      info[:MerchantOrderNo] = "161155599577"
+      info[:Amt] = "222"
       info[:ItemDesc] = "test" 
       info[:Email] = "k_sky369@yahoo.com.tw"
       info[:TimeStamp] = Time.now.to_i 
