@@ -1,9 +1,8 @@
 
-
 module Newebpay
   class Mpg
     attr_accessor :info
-     # 使用 attr_accessor 讓 info 方便存取
+   
     def initialize()
       @key = ENV['Newebpay_Hashkey']
       @iv = ENV['Newebpay_HashIV']
@@ -21,10 +20,6 @@ module Newebpay
       }
     end
 
-    # def test
-    #  "Test success!"
-    # end
-
     def trade_info
       # AES256 加密後的資訊
       aes_encode(url_encoded_query_string)
@@ -37,21 +32,19 @@ module Newebpay
 
     def set_info()  
       info[:MerchantID] = @merchant_id
-      info[:MerchantOrderNo] = "163451122189"
+      info[:MerchantOrderNo] = "161151805477"
       info[:Amt] ="2500"
       info[:ItemDesc] = "test" 
       info[:Email] = "k_sky369@yahoo.com.tw"
       info[:TimeStamp] = Time.now.to_i 
       info[:RespondType] = "JSON"
       info[:Version] = "1.5"
-      info[:ReturnURL] = "http://localhost:3000/receipts"
-      # info[:NotifyURL] = "https://ccore.newebpay.com/MPG/mpg_gateway"
-      # info[:SAMSUNGPAY] = 1
-      # info[:ANDROIDPAY] = 1
-      # info[:LINEPAY] = 1
+      info[:ReturnURL] = "http://localhost:3000/orders/receivempg"
+      info[:NotifyURL] = "https://ccore.newebpay.com/MPG/mpg_gateway"
       info[:LoginType] = 0 
       info[:CREDIT] =  1
-      info[:VACC] =  1
+      info[:TradeLimit] = "300"
+      
     end
 
     def url_encoded_query_string

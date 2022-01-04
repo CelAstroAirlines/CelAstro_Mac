@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   resources :tickets
   get 'search', to:'tickets#search'
  
-
-  #cart
-  resources :carts
+ 
+  # google map
+  resources :maps, only: [:index]
+  resources :tickets, only: [:index]
+  resources :searches
 
 
   namespace :api do
@@ -29,13 +31,20 @@ Rails.application.routes.draw do
   end
   post '/api/v1/tickets/:id/seats/update' , to: 'api/v1/seats#update_seat'
   post '/api/v1/tickets/:id/seats/check', to: 'api/v1/seats#check'
+  post '/orders/receivempg', to: 'orders#receivempg'
+  # post '/receipts/index', to: 'receipts#index
 
 
+ 
   resources :receipts
   resources :members
 
-  # google map
-  resources :maps, only: [:index]
+  # cart
+  resources :cart, only: [:show, :destroy] do
+    collection do
+      post :add, path: 'add/:id' #for ticket 加入購物車按鍵
+    end
+  end
 
   # google map
   resources :maps, only: [:index]

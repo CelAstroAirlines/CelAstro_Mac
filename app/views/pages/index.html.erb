@@ -1,46 +1,92 @@
  <%= render 'devise/shared/navbar' %> 
 
- <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
-  <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-    <button
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
-    <button
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide-to="1"
-      aria-label="Slide 2"
-    ></button>
-    <button
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide-to="2"
-      aria-label="Slide 3"
-    ></button>
-    <button
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide-to="3"
-      aria-label="Slide 4"
-    ></button>
-    <button
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide-to="4"
-      aria-label="Slide 5"
-    ></button>
-  </div>
-  <div class="carousel-inner relative w-full overflow-hidden h-screen">
-    <div class="carousel-item active relative float-left w-full">
-      <%=image_tag 'photo2',class:'block w-full'%>
-      <div class="carousel-caption hidden md:block absolute text-center">
-        <h5 class="text-xl text-white">First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 1920px;
+        height: 708px;
+        object-fit: cover;
+      }
+      .swiper-button-next{
+          color:#fff;
+      }
+      .swiper-button-prev{
+          color:#fff;
+      }
+      .swiper-pagination-bullet{
+          background-color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper ">
+        <div class="swiper-slide"><%=image_tag 'photo1'%></div>        
+        <div class="swiper-slide"><%=image_tag 'photo2'%></div>
+        <div class="swiper-slide"><%=image_tag 'photo3'%></div>
+        <div class="swiper-slide"><%=image_tag 'photo4'%></div>
+        <div class="swiper-slide"><%=image_tag 'photo5'%></div>
+        <div class="swiper-slide"><%=image_tag 'photo6'%></div>
+        <div class="swiper-slide"><%=image_tag 'photo7'%></div>
+>>>>>>> 83d0827fe652ed686032c31a9294810f281e6be1
       </div>
     </div>
     <div class="carousel-item relative float-left w-full">

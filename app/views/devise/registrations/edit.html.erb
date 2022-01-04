@@ -1,58 +1,70 @@
-<h2>會員修改資料</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label "姓氏" %><br />
-    <%= f.text_field :last_name , autofocus: true, autocomplete: "last_name" %>
+<section class="text-gray-600 body-font bg-indigo-700 ">
+  <div class="flex flex-col ml-28 pt-10 mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">變更個人資料</h1>
   </div>
 
-  <div class="field">
-    <%= f.label "名字" %><br />
-    <%= f.text_field :first_name , autofocus: true, autocomplete: "first_name" %>
+  <div class="py-11  bg-indigo-900 ">
+    <div class="flex lg:w-5/6 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
+      <div class="w-full">
+        <div class=" flex justify-evenly md:text-center lg:w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0  bg-orange-200 rounded-md p-8">
+          <div class="text-2xl text-gray-900">姓氏<br>
+          <p class="text-2xl text-orange-800"><%= @user.last_name%></p></div>
+          <div class="text-2xl text-gray-900">名字<br>
+          <p class="text-2xl text-orange-800"><%= @user.first_name%></p></div>   
+        </div>
+          
+        <div class=" p-10 text-xl text-gray-900 md:text-center lg:w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0  ">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <%= f.label "電話" %><br>
+          <%= f.text_field :tel , autofocus: true, autocomplete: "tel", class:'bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80  mb-5'%>
+
+          <div>
+            <%= f.label "信箱" %><br>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5' %>
+          </div>
+        
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label "新密碼" %> <i>(如果不做更改請留空白)</i>
+            <% if @minimum_password_length %>
+              <em>最少<%= @minimum_password_length %>碼</em><br>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "new-password", class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5' %>
+          </div>
+
+          <div class="field">
+            <%= f.label "再次確認新密碼" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password",class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %>
+          </div>
+
+          <div class="field">
+            <%= f.label "舊密碼" %> <i>(我們需要您的舊密碼來確認您的更改)</i><br />
+            <%= f.password_field :current_password, autocomplete: "current-password",class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "更新", class:"text-white bg-brown-500 mr-0 mt-8 border-0 py-1 px-10 focus:outline-none hover:bg-brown-800 rounded text-lg" %>
+          </div><br>
+          <% end %>
+
+          <div class="flex justify-between my-5">
+          <div><p>刪除我的帳戶</p>
+          <p><%= button_to "刪除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class:"text-white bg-brown-500  border-0 py-1 px-10 focus:outline-none hover:bg-brown-800 rounded text-lg" %></p></div><br>
+          <%= link_to "回上頁", :back, class:"hover:text-orange-800 mx-10 mt-8"%>
+          </div>
+        </div>        
+      </div>  
+    </div>
   </div>
+</section>
 
-  <div class="field">
-    <%= f.label "電話" %><br />
-    <%= f.text_field :tel , autofocus: true, autocomplete: "tel" %>
-  </div>
 
-  <div class="field">
-    <%= f.label "信箱" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label "新密碼" %> <i>(如果不做更改請留空白)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em>最少<%= @minimum_password_length %>碼</em>
-    <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label "再次確認新密碼" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "舊密碼" %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
-
-<h3>刪除我的帳戶</h3>
-
-<p>Unhappy? <%= button_to "刪除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "回上頁", :back %>

@@ -10,8 +10,8 @@
 
 first_airport_code = "TPE"
 second_airport_code = "HND"
-departure_date = "01/17/2022"
-ticket_id = first_airport_code + second_airport_code + (departure_date).split('/').join
+departure_date = "2022-01-17"
+ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
 ticket_amount = 18500
 
 Ticket.create(
@@ -25,8 +25,8 @@ Ticket.create(
   arrival_time:"11:45 AM"
 )
 
-re_date = "02/17/2022"
-reticket_id = second_airport_code + first_airport_code + (re_date).split('/').join
+re_date = "2022-02-17"
+reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
 
 
 Ticket.create(
