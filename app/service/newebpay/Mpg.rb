@@ -3,12 +3,13 @@ module Newebpay
   class Mpg
     attr_accessor :info
    
-    def initialize()
+    def initialize(price)
       @key = ENV['Newebpay_Hashkey']
       @iv = ENV['Newebpay_HashIV']
       @merchant_id = ENV['Newebpay_MerchantID']
       @info = {} 
-      set_info()
+      @payment_amt = price
+      set_info
     end
 
     def form_info
@@ -30,10 +31,14 @@ module Newebpay
       sha256_encode(@key, @iv, trade_info)
     end
 
-    def set_info()  
+    def total_amt
+      current_cart.total_price
+    end
+
+    def set_info  
       info[:MerchantID] = @merchant_id
-      info[:MerchantOrderNo] = "161155599577"
-      info[:Amt] = "222"
+      info[:MerchantOrderNo] = serial_generator
+      info[:Amt] = @payment_amt
       info[:ItemDesc] = "test" 
       info[:Email] = "k_sky369@yahoo.com.tw"
       info[:TimeStamp] = Time.now.to_i 
@@ -44,7 +49,6 @@ module Newebpay
       info[:LoginType] = 0 
       info[:CREDIT] =  1
       info[:TradeLimit] = "300"
-      
     end
 
     def url_encoded_query_string
@@ -70,6 +74,17 @@ module Newebpay
     def sha256_encode(key, iv, trade_info)
       encode_string = "HashKey=#{key}&#{trade_info}&HashIV=#{iv}"
       Digest::SHA256.hexdigest(encode_string).upcase
+    end
+
+    private
+    def serial_generator
+      serial = "AIR#{Time.current.strftime("%Y%m%d")}#{code_generator(7)}"
+    end
+
+    def code_generator(n = 7)
+      all_chars = [*'A'..'Z', *'0'..'9']
+      confused_chars = ['X', 'O', '0', 'B', 'P', 'M', 'N', 'D', 'T']
+      (all_chars - confused_chars).sample(n).join
     end
   end
 end
