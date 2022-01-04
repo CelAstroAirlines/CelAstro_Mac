@@ -14,21 +14,11 @@ export default class extends Controller {
     api_seat_check["area"] = area
     httpClient.post(`/api/v1/tickets/ATEST123/seats/check`, api_seat_check).then(({ data }) => { })
   }
-<<<<<<< HEAD
   booked() {
 
   }
   connect() {
     const id = this.seat_infoTarget.dataset.id
-=======
-  connect() {
-    const seat_id = this.seat_infoTarget.dataset.seat_id
-    const area = this.seat_infoTarget.dataset.area
-    const ticket_id = this.seat_infoTarget.dataset.ticket_id
-    const id = this.seat_infoTarget.dataset.id
-    // console.log("will create a subscription for", area, seat_id)
-
->>>>>>> 50ecfe7 (actioncable with stimulus)
     this.channel = consumer.subscriptions.create({
       channel: 'SeatsRoomChannel',
       id: id
@@ -46,21 +36,9 @@ export default class extends Controller {
     console.log('Disconnected !!!')
   }
   _cableReceived(data) {
-<<<<<<< HEAD
     if (this.seat_infoTarget.dataset["id"] == data.seat_params.id) {
       this.seat_infoTarget.innerHTML = data.message
     }
-=======
-    // console.log(data.id.id)
-    if (this.seat_infoTarget.dataset["id"] == data.id.id) {
-      this.seat_infoTarget.innerHTML = data.message
-    }
-
-    // console.log(data.id)
-    // console.log(data)
-
-
->>>>>>> 50ecfe7 (actioncable with stimulus)
   }
 
 }

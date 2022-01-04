@@ -1,5 +1,5 @@
 class Api::V1::SeatsController < ApplicationController
-
+  # before_action :authenticate_user!
   def create
     ticket_id = Seat.find_by(ticket_id: params[:id])
     if ticket_id == 'true'
@@ -11,7 +11,7 @@ class Api::V1::SeatsController < ApplicationController
 
   
   def index
-    @seat = Seat.where(:plane_id =>"ATEST123").order(:id) #給予tickets空位填入班機id
+    @seat = Seat.where(:plane_id =>params[:id]).order(:id) #給予tickets空位填入班機id
   end
 
   def update_seat
@@ -31,8 +31,10 @@ class Api::V1::SeatsController < ApplicationController
 
     if @seat.state == "vaccant" 
       @seat.occupied!
+      @seat.update(user_id: current_user)
     elsif @seat.state == "occupied" 
-      @seat.vaccant!      
+      @seat.vaccant!
+      @seat.update(user_id: nil)      
     end
     
 
