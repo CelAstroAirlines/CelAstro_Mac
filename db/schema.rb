@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_03_063839) do
+ActiveRecord::Schema.define(version: 2022_01_05_072425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,59 +44,13 @@ ActiveRecord::Schema.define(version: 2022_01_03_063839) do
   end
 
   create_table "seats", force: :cascade do |t|
-    t.string "plane_id"
+    t.string "ticket_serial"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "seat_no0", default: true
-    t.boolean "seat_no1", default: true
-    t.boolean "seat_no2", default: true
-    t.boolean "seat_no3", default: true
-    t.boolean "seat_no4", default: true
-    t.boolean "seat_no5", default: true
-    t.boolean "seat_no6", default: true
-    t.boolean "seat_no7", default: true
-    t.boolean "seat_no8", default: true
-    t.boolean "seat_no9", default: true
-    t.boolean "seat_no10", default: true
-    t.boolean "seat_no11", default: true
-    t.boolean "seat_no12", default: true
-    t.boolean "seat_no13", default: true
-    t.boolean "seat_no14", default: true
-    t.boolean "seat_no15", default: true
-    t.boolean "seat_no16", default: true
-    t.boolean "seat_no17", default: true
-    t.boolean "seat_no18", default: true
-    t.boolean "seat_no19", default: true
-    t.boolean "seat_no20", default: true
-    t.boolean "seat_no21", default: true
-    t.boolean "seat_no22", default: true
-    t.boolean "seat_no23", default: true
-    t.boolean "seat_no24", default: true
-    t.boolean "seat_no25", default: true
-    t.boolean "seat_no26", default: true
-    t.boolean "seat_no27", default: true
-    t.boolean "seat_no28", default: true
-    t.boolean "seat_no29", default: true
-    t.boolean "seat_no30", default: true
-    t.boolean "seat_no31", default: true
-    t.boolean "seat_no32", default: true
-    t.boolean "seat_no33", default: true
-    t.boolean "seat_no34", default: true
-    t.boolean "seat_no35", default: true
-    t.boolean "seat_no36", default: true
-    t.boolean "seat_no37", default: true
-    t.boolean "seat_no38", default: true
-    t.boolean "seat_no39", default: true
-    t.boolean "seat_no40", default: true
-    t.boolean "seat_no41", default: true
-    t.boolean "seat_no42", default: true
-    t.boolean "seat_no43", default: true
-    t.boolean "seat_no44", default: true
-    t.boolean "seat_no45", default: true
-    t.boolean "seat_no46", default: true
-    t.boolean "seat_no47", default: true
-    t.boolean "seat_no48", default: true
-    t.boolean "seat_no49", default: true
+    t.string "state"
+    t.integer "seat_no"
+    t.string "area"
+    t.string "user_id"
   end
 
   create_table "tickets", force: :cascade do |t|
