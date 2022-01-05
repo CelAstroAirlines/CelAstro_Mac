@@ -1,2 +1,6 @@
 gmail_username: 'CelAstroAirlines'
 gmail_password: 'CelAstro2022'
+
+Newebpay_Hashkey: "YYOi27ZGzBEKvFHRtcyia6nnValatjgI"
+Newebpay_HashIV: "Cg0UBU7qkpDWwEZP"
+Newebpay_MerchantID: "MS128687089"
