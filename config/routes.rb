@@ -20,15 +20,8 @@ Rails.application.routes.draw do
   resources :searches
 
 
-  namespace :api do
-    namespace :v1 do
-      resources :tickets, only: [] do
-        member do 
-          resources  :seats
-        end
-      end
-    end
-  end
+
+  get '/tickets/:id/seats', to: 'api/v1/seats#index'
   post '/api/v1/tickets/:id/seats/update' , to: 'api/v1/seats#update_seat'
   post '/api/v1/tickets/:id/seats/check', to: 'api/v1/seats#check'
   post '/orders/receivempg', to: 'orders#receivempg'

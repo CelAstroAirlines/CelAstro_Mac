@@ -11,7 +11,7 @@ class Api::V1::SeatsController < ApplicationController
 
   
   def index
-    @seat = Seat.where(:plane_id =>params[:id]).order(:id) 
+    @seat = Seat.where(:ticket_serial =>params[:id]).order(:id) 
   end
 
   def update_seat
@@ -19,10 +19,10 @@ class Api::V1::SeatsController < ApplicationController
   end
 
   def check    
+
     @seat = Seat.find_by(
-      plane_id: params[:id], 
-      seat_id: params[:seat][:seat_id], 
-      area: params[:seat][:area]
+      ticket_serial: params[:id], 
+      id: params[:seat]
     )
 
     if @seat.state == "vaccant" 
@@ -33,7 +33,7 @@ class Api::V1::SeatsController < ApplicationController
       # @seat.update(user_id: nil)      
     end
     
-    ActionCable.server.broadcast "seats_room_channel_#{params[:plane_id]}", {
+    ActionCable.server.broadcast "seats_room_channel_#{params[:ticket_serial]}", {
       seat_params: @seat,
       message: render(partial: 'seat', locals:{f:@seat})
     }

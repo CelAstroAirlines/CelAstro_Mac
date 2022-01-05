@@ -8,37 +8,22 @@ export default class extends Controller {
 
   check() {
     const seat_id = this.seat_infoTarget.dataset.seat_id
-    const area = this.seat_infoTarget.dataset.area
     let api_seat_check = {}
-    api_seat_check["seat_id"] = seat_id
-    api_seat_check["area"] = area
+    api_seat_check["seat"] = seat_id
     httpClient.post(`/api/v1/tickets/ATEST123/seats/check`, api_seat_check).then(({ data }) => { })
   }
-  booked() {
 
-  }
   connect() {
-    const id = this.seat_infoTarget.dataset.id
     this.channel = consumer.subscriptions.create({
-      channel: 'SeatsRoomChannel',
-      id: id
+      channel: 'SeatsRoomChannel'
     },
       {
-        connected: this._cableConnected.bind(this),
-        disconnected: this._cableDisconnected.bind(this),
         received: this._cableReceived.bind(this),
       });
   }
-  _cableConnected() {
-    console.log('Connected !!!')
-  }
-  _cableDisconnected() {
-    console.log('Disconnected !!!')
-  }
   _cableReceived(data) {
-    if (this.seat_infoTarget.dataset["id"] == data.seat_params.id) {
-      this.seat_infoTarget.innerHTML = data.message
-    }
+    const seat = document.querySelector(`[data-seat_id='${data.seat_params.id}']`)
+    seat.innerHTML = data.message
   }
 
 }
