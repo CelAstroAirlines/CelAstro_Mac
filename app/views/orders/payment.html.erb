@@ -1,16 +1,16 @@
-<h1 class="mt-32">測試</h1>
+<h1 class="mt-32"></h1>
+
 <%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form|%>
   
-  <%= form.text_field :MerchantID, value: @form_info[:MerchantID], class:"border-4 border-red-300"%>
+  <%= form.hidden_field :MerchantID, value: @form_info[:MerchantID], class:"border-4 border-red-300"%>
   
-  <%= form.text_field :TradeInfo, value: @form_info[:TradeInfo], class:"border-4 border-red-300"%>
+  <%= form.hidden_field :TradeInfo, value: @form_info[:TradeInfo], class:"border-4 border-red-300"%>
 
-  <%= form.text_field :TradeSha, value: @form_info[:TradeSha], class:"border-4 border-red-300"%>
+  <%= form.hidden_field :TradeSha, value: @form_info[:TradeSha], class:"border-4 border-red-300"%>
 
-  <%= form.text_field :Version, value: @form_info[:Version], class:"border-4 border-red-300"%>
+  <%= form.hidden_field :Version, value: @form_info[:Version], class:"border-4 border-red-300"%>
 
-  <%= form.submit'送出', class:"border-4 border-red-300"%>
+  <%= form.submit'前往藍新金流刷卡', class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg mb-5 ml-5" %>
 
 <% end %>
 
- <%= current_cart.total_price%> 
