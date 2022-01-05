@@ -1,6 +1,6 @@
 class Seat < ApplicationRecord
   include AASM
-
+  
   aasm column: 'state' do
     state :vaccant, initial: true
     state :occupied, :booked

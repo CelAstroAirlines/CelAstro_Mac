@@ -15,12 +15,12 @@ Rails.application.routes.draw do
  
   resources :tickets, only: [:index]
   resources :searches
+  resources :seats
 
 
-
-  get '/tickets/:id/seats', to: 'api/v1/seats#index'
-  post '/api/v1/tickets/:id/seats/update' , to: 'api/v1/seats#update_seat'
-  post '/api/v1/tickets/:id/seats/check', to: 'api/v1/seats#check'
+  
+  post '/seats/:id/confirm' , to: 'seats#confirm'
+  post '/seats/:id/check', to: 'seats#check'
   post '/orders/receivempg', to: 'orders#receivempg'
   # post '/receipts/index', to: 'receipts#index
 

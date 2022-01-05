@@ -10,7 +10,7 @@ export default class extends Controller {
     const seat_id = this.seat_infoTarget.dataset.seat_id
     let api_seat_check = {}
     api_seat_check["seat"] = seat_id
-    httpClient.post(`/api/v1/tickets/ATEST123/seats/check`, api_seat_check).then(({ data }) => { })
+    httpClient.post(`/seats/ATEST123/check`, api_seat_check).then(({ data }) => { })
   }
 
   connect() {
