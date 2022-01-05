@@ -13,9 +13,6 @@ Rails.application.routes.draw do
   resources :tickets
   get 'search', to:'tickets#search'
  
- 
-  # google map
-  resources :maps, only: [:index]
   resources :tickets, only: [:index]
   resources :searches
 
@@ -38,8 +35,5 @@ Rails.application.routes.draw do
       post :add, path: 'add/:id' #for ticket 加入購物車按鍵
     end
   end
-
-  # google map
-  resources :maps, only: [:index]
 
 end
