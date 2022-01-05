@@ -39,7 +39,7 @@ module Newebpay
       info[:MerchantID] = @merchant_id
       info[:MerchantOrderNo] = serial_generator
       info[:Amt] = @payment_amt
-      info[:ItemDesc] = "test" 
+      info[:ItemDesc] = "Air Tickets" 
       info[:Email] = "k_sky369@yahoo.com.tw"
       info[:TimeStamp] = Time.now.to_i 
       info[:RespondType] = "JSON"
