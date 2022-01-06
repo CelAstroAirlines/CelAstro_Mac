@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2022_01_06_114408) do
     t.string "return_departure_time"
     t.string "return_arrival_time"
     t.integer "quantity"
+    t.string "cabin_class"
   end
 
   create_table "users", force: :cascade do |t|
