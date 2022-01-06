@@ -1,5 +1,6 @@
 
-    <div data-controller = "seat" data-seat-target="seat_info" data-action="click->seat#check" data-seat_id="<%= f.id %>">
+    <div data-controller = "seat" data-seat-target="seat_info" data-action="click->seat#check" data-seat_id="<%= f.id %>"
+    data-ticket_serial="<%= f.ticket_serial%>">
       <% if f.vaccant? %>
         <img src="https://img.icons8.com/fluency-systems-regular/20/000000/baby-car-seat.png" />
       <% elsif f.occupied? %>

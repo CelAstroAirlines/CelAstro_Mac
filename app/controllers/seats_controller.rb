@@ -1,10 +1,11 @@
 class SeatsController < ApplicationController
   # before_action :authenticate_user!
   def create
-    ticket_id = Seat.find_by(ticket_id: params[:id])
-    if ticket_id == 'true'
+    ticket_id = Seat.find_by(ticket_serial: params[:id])
+    if ticket_id
       redirect_to action: "show", id: params[:id]
     else
+
     end
       
   end

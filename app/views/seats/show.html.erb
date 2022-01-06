@@ -1,18 +1,17 @@
 <div class=" h-500"></div>
 <h1>seats</h1>
-<div id="ticket-id" data-ticket-id="ATEST123"  >
 
-  <div id="seats" class="w-full h-32 flex " >
-    <div class="w-4/5 h-25 flex " >
-      <% @seat.each do |f| %>
-      <div></div>
+
+  <div id="seats" class="w-full h-32  " >
+    <div class="w-4/5 h-25  " >
+      <% @seat.each do |f| %>    
         <%if f.area=="A" %>
           <%= render partial: "seat", locals:{f: f}%>
         <% end %>
       <% end %>
     </div>
 
-    <div  class="w-4/5 h-25 flex flex-wrap " >
+    <div  class="w-4/5 h-25 " >
       <% @seat.each do |f| %>
         <%if f.area=="B" %>
           <%= render partial: "seat", locals:{f: f}%>
@@ -21,7 +20,7 @@
     </div>
 
 
-    <div  class="w-4/5 h-25 flex flex-wrap " >
+    <div  class="w-4/5 h-25" >
       <% @seat.each do |f| %>
         <%if f.area=="C" %>
           <%= render partial: "seat", locals:{f: f}%>
