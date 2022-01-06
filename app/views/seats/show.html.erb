@@ -1,7 +1,5 @@
 <div class=" h-500"></div>
 <h1>seats</h1>
-
-
   <div id="seats" class="w-full h-32  " >
     <div class="w-4/5 h-25  " >
       <% @seat.each do |f| %>    
@@ -26,9 +24,7 @@
           <%= render partial: "seat", locals:{f: f}%>
         <% end %>
       <% end %>
-    </div>
-
-    
+    </div>  
   </div>
 </div>
 

@@ -2,7 +2,6 @@ import { Controller } from "stimulus"
 import httpClient from "lib/http/client"
 import consumer from "../channels/consumer"
 
-
 export default class extends Controller {
   static targets = ["seat_info", "seatstatus"]
 
@@ -26,5 +25,4 @@ export default class extends Controller {
     const seat = document.querySelector(`[data-seat_id='${data.seat_params.id}']`)
     seat.innerHTML = data.message
   }
-
 }

@@ -5,35 +5,22 @@ Rails.application.routes.draw do
 
   root "pages#index"
   get 'index', to:'pages#index'
-
   get "/payment", to: "orders#payment"
-  # post "/receipt",  to: "orders#receipt"
 
-  # ticket
   resources :tickets
   get 'search', to:'tickets#search'
- 
-  resources :tickets, only: [:index]
-  resources :searches
   resources :seats
-
-
-  
+ 
   post '/seats/:id/confirm' , to: 'seats#confirm'
   post '/seats/:id/check', to: 'seats#check'
   post '/orders/receivempg', to: 'orders#receivempg'
-  # post '/receipts/index', to: 'receipts#index
 
-
- 
   resources :receipts
   resources :members
 
-  # cart
   resources :cart, only: [:show, :destroy] do
     collection do
       post :add, path: 'add/:id' #for ticket 加入購物車按鍵
     end
   end
-
 end
