@@ -10,13 +10,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body> 
-      <%= render 'devise/shared/header' %> 
-      <%= yield %> 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= render 'devise/shared/footer' %> 
-      <%= javascript_pack_tag 'application' %>
+
+  <body>
+    
+    <%= yield %> 
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= render 'devise/shared/header' %>   
+    <%= render 'devise/shared/footer' %> 
+    <%= javascript_pack_tag 'application' %>
+  
   </body>
 
 </html>
