@@ -16,7 +16,5 @@ class Seat < ApplicationRecord
     event :booked do
       transitions from: :occupied, to: :booked
     end
-
   end
-
 end
