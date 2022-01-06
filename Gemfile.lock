@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (4.12.3)
+      concurrent-ruby (~> 1.0)
     actioncable (6.1.4.1)
       actionpack (= 6.1.4.1)
       activesupport (= 6.1.4.1)
@@ -295,6 +297,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm (~> 4.11)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
@@ -310,6 +313,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rails_admin (~> 2.2)
   ransack
+  redis (~> 4.5, >= 4.5.1)
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
