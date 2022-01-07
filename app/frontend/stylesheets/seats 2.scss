@@ -1,11 +1,24 @@
 .aircraft {
   position: relative;
+<<<<<<< HEAD
+  margin-top: 40px;
+  padding-bottom: 40px;
+=======
   margin-top: 110px;
+>>>>>>> 44a9cb5 (occupied seat booked process)
   margin-left: 180px;
   margin-right: 220px;
   background:rgb(255 247 237);;
   transform: scale(0.8);
   &-body {
+<<<<<<< HEAD
+    border: 3px solid #c5c5c7;
+    min-height: 300px;
+    border-right: none;
+    border-left: none;
+    background: rgb(255 247 237);
+  }
+=======
     // display: flex;
     // flex-direction: column;
     // justify-content: space-between;
@@ -91,6 +104,7 @@
     }
   }
   
+>>>>>>> 44a9cb5 (occupied seat booked process)
       
   &-head {
     position: absolute;
@@ -109,7 +123,11 @@
       padding-left: 115px;
       border-radius: 50%;
       right: -300px;
+<<<<<<< HEAD
+      border: 3px solid #c5c5c7;
+=======
       border: 2px solid #c5c5c7;
+>>>>>>> 44a9cb5 (occupied seat booked process)
       margin-top: 4px;
       .windows {
         position: absolute;
@@ -119,7 +137,11 @@
       .front-lavatory {
         position: absolute;
         bottom: 15px;
+<<<<<<< HEAD
+        left: 210px;
+=======
         left: 220px;
+>>>>>>> 44a9cb5 (occupied seat booked process)
       }
     }
   }
@@ -131,7 +153,11 @@
     // overflow: hidden;
     top: -1px;
     right: -320px;
+<<<<<<< HEAD
+    padding-left: 70px;
+=======
     padding-left: 120px;
+>>>>>>> 44a9cb5 (occupied seat booked process)
     z-index: -1;
     &-body {
       position: absolute;
@@ -139,7 +165,11 @@
       width: 548px;
       padding-left: 135px;
       border-radius: 50%;
+<<<<<<< HEAD
+      border: 3px solid #c5c5c7;
+=======
       border: 2px solid #c5c5c7;
+>>>>>>> 44a9cb5 (occupied seat booked process)
 
       .back-lavatory {
         width: 40px;
@@ -147,7 +177,11 @@
         display: flex;
         justify-content: space-around;
         flex-direction: column;
+<<<<<<< HEAD
+        margin-left: 180px;
+=======
         margin-left: 250px;
+>>>>>>> 44a9cb5 (occupied seat booked process)
       }
     }
   }
