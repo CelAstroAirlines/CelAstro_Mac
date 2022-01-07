@@ -7,6 +7,7 @@
         <div class="relative flex-grow  my-14 mx-10">
           <%= search_form_for @q, url: search_path do |s| %>
           <div id="form_container">
+            <p>往日本航班固定為每週一，四，及週六。</p>
             <div class="field border border-gray-600 ">
               <%= s.label :ticket_type_cont, "請選擇航程" %>
               <%= s.select :ticket_type_cont, ['one_way','roundtrip'], include_blank: true, class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %>
@@ -35,10 +36,9 @@
               flatpickr_min_date: Time.zone.now
               }%>
             </div>
-          <div><%= s.submit '搜尋' %></div>  
+            <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-100 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-4"><%= s.submit '搜尋' %></button>  
           <% end %>
       </div>
-      <%= link_to 'HOME', root_path %>
     </div>
   </div>
 </section>
