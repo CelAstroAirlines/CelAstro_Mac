@@ -1,53 +1,67 @@
-<div class="mt-32">
-  <h1> Ticket Info</h1>
+<section class="text-gray-600 body-font bg-indigo-700 mt-28">
+  <div class="flex flex-col ml-28 pt-5 mb-5">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">查詢結果</h1>
+  </div>  
+    <div class="py-11  bg-indigo-900 ">
+      <div class="flex lg:w-5/6 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
+        <div class="relative flex-grow  my-14 mx-10">
+          <%= search_form_for @q, url: search_path do |s| %>
+          <div id="form_container">
+            <Table>
+              <thead>
+                <tr>
+                  <td >Ticket Type</td>
+                  <td >Ticket ID</td>
+                  <td>Departure Airport</td>
+                  <td>Arrival Airport</td>
+                  <td>Departure Date</td>
+                  <td>Departure Time</td>
+                  <td>Arrival Time</td>
+                  <td>Return Date</td>
+                  <td>Return Departure Time</td>
+                  <td>Return Arrival Time</td>
+                  <td>Ticket Price</td>
+                  <td>ID</td>
+                  <td>Quantity</td>
+                </tr>
+              </thead>
+              <tbody style="background-color: rgb(237, 237, 237); border-bottom: 2px solid black;">
+                <% if not @ticket %>
+                  <h2> 查無紀錄 </h2>
+                <% else %>
+                  <tr>
+                    <td><%= @ticket.ticket_type %></td>
+                    <td><%= @ticket.ticket_serial %></td>
+                    <td><%= @ticket.departure %></td>
+                    <td><%= @ticket.arrival %></td>
+                    <td><%= @ticket.departure_date %></td>
+                    <td><%= @ticket.departure_time %></td>
+                    <td><%= @ticket.arrival_time %></td>
+                    <td><%= @ticket.returning_date %></td>
+                    <td><%= @ticket.return_departure_time %></td>
+                    <td><%= @ticket.return_arrival_time %></td>
+                    <td><%= @ticket.ticket_amount %></td>
+                    <td><%= @ticket.id %></td>
+                    <td><%= button_to "加入購物車", add_cart_index_path(@ticket), method: "post" %></td>
+                  </tr>  
+                <% end %>
+              </tbody>
+            </Table>
+            <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-24"><%= link_to "返回搜尋", tickets_path %></button>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <Table style="background-color: rgb(211, 211, 211);">
-    <thead>
-      <tr>
-        <td >Ticket Type</td>
-        <td >Ticket ID</td>
-        <td>Departure Airport</td>
-        <td>Arrival Airport</td>
-        <td>Departure Date</td>
-        <td>Departure Time</td>
-        <td>Arrival Time</td>
-        <td>Return Date</td>
-        <td>Return Departure Time</td>
-        <td>Return Arrival Time</td>
-        <td>Ticket Price</td>
-        <td>ID</td>
-        <td>Quantity</td>
-      </tr>
-    </thead>
-    <tbody style="background-color: rgb(237, 237, 237); border-bottom: 2px solid black;">
-      <% if not @ticket %>
-        <h2> 查無紀錄 </h2>
-      <% else %>
-        <tr>
-          <td><%= @ticket.ticket_type %></td>
-          <td><%= @ticket.ticket_serial %></td>
-          <td><%= @ticket.departure %></td>
-          <td><%= @ticket.arrival %></td>
-          <td><%= @ticket.departure_date %></td>
-          <td><%= @ticket.departure_time %></td>
-          <td><%= @ticket.arrival_time %></td>
-          <td><%= @ticket.returning_date %></td>
-          <td><%= @ticket.return_departure_time %></td>
-          <td><%= @ticket.return_arrival_time %></td>
-          <td><%= @ticket.ticket_amount %></td>
-          <td><%= @ticket.id %></td>
-          <td><%= button_to "加入購物車", add_cart_index_path(@ticket), method: "post" %></td>
-        </tr>  
-      <% end %>
-      <%= link_to "返回搜尋", tickets_path %>
-    </tbody>
-  </Table>
-</div>
+<section>
+
 <div>
   
-  <%= params[:q][:departure_date_cont].to_date + 7.days %>
-  <% Ticket.where(departure_date: params[:q][:departure_date_cont].to_date - 3.days..params[:q][:departure_date_cont].to_date + 3.days, departure: params[:q][:departure_cont], ticket_type: params[:q][:ticket_type_cont]).each do |ticket| %>
-    <%= ticket.ticket_serial %>
-  <%end %>
+  <%#= params[:q][:departure_date_cont].to_date + 7.days %>
+  <%# Ticket.where(departure_date: params[:q][:departure_date_cont].to_date - 3.days..params[:q][:departure_date_cont].to_date + 3.days, departure: params[:q][:departure_cont], ticket_type: params[:q][:ticket_type_cont]).each do |ticket| %>
+    <%#= ticket.ticket_serial %>
+  <%#end %>
 
 </div>
