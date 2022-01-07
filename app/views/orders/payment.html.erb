@@ -6,16 +6,15 @@
       <div class=" flex-col pt-10 text-orange-50">前往藍新金流結帳</div>
     </div>
     
-
     <%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post", data: { controller: "payment"} do |form|%>
     
-    <%= form.hidden_field :MerchantID, value: @form_info[:MerchantID], class:"border-4 border-red-300"%>
+    <%= form.hidden_field :MerchantID, value: @form_info[:MerchantID]%>
     
-    <%= form.hidden_field :TradeInfo, value: @form_info[:TradeInfo], class:"border-4 border-red-300"%>
+    <%= form.hidden_field :TradeInfo, value: @form_info[:TradeInfo]%>
 
-    <%= form.hidden_field :TradeSha, value: @form_info[:TradeSha], class:"border-4 border-red-300"%>
+    <%= form.hidden_field :TradeSha, value: @form_info[:TradeSha]%>
 
-    <%= form.hidden_field :Version, value: @form_info[:Version], class:"border-4 border-red-300"%>
+    <%= form.hidden_field :Version, value: @form_info[:Version]%>
 
     <% end %>
 

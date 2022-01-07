@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_01_06_071827) do
+=======
+ActiveRecord::Schema.define(version: 2022_01_07_040933) do
+>>>>>>> c2b03c7 (新增ticket column to order table)
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +35,15 @@ ActiveRecord::Schema.define(version: 2022_01_06_071827) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "ticket_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["ticket_id"], name: "index_order_items_on_ticket_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "ticket_id", null: false
     t.bigint "user_id", null: false
@@ -39,6 +52,15 @@ ActiveRecord::Schema.define(version: 2022_01_06_071827) do
     t.integer "sellign_amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "departure"
+    t.string "arrival"
+    t.string "ticket_serial"
+    t.string "departure_date"
+    t.string "ticket_type"
+    t.string "return_departure_airport"
+    t.string "return_arrival_airport"
+    t.string "return_departure_time"
+    t.string "cabin_class"
     t.index ["ticket_id"], name: "index_orders_on_ticket_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -100,6 +122,8 @@ ActiveRecord::Schema.define(version: 2022_01_06_071827) do
 
   add_foreign_key "carts", "tickets"
   add_foreign_key "carts", "users"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "tickets"
   add_foreign_key "orders", "tickets"
   add_foreign_key "orders", "users"
 end

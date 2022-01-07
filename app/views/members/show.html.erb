@@ -4,8 +4,8 @@
     <div class="flex justify-center bg-indigo-900 w-full rounded-t-lg p-10 ">
       <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-full sm:w-2/3 content-start sm:pr-10 ">
         <div class="w-full sm:p-4 px-4 mb-6">
-          <h1 class="title-font font-medium text-xl mb-2 text-orange-300">Hi, <%= @user.first_name%></h1>
-          <div class="leading-relaxed text-beige-50">上一次登入：<%= @user.last_sign_in_at%></div>
+          <h1 class="title-font font-medium text-xl mb-2 text-orange-300">Hi, <%= current_user.first_name%></h1>
+          <div class="leading-relaxed text-beige-50">上一次登入：<%= current_user.last_sign_in_at%></div>
         </div>
         <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
           <h2 class="title-font font-medium text-md text-beige-50">會員卡級</h2>
