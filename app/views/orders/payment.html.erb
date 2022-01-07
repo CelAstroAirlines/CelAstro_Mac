@@ -1,13 +1,11 @@
 
-
-
-   
-      <div class="flex justify-center items-center pt-20 pb-20 bg-indigo-900 w-screen ">
-        <div class="spinner-border animate-spin inline-block w-20 h-20 border-4 rounded-full text-gray-500 mt-20" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
+    <div class="text-center pt-20 pb-20 bg-indigo-900 w-screen ">
+      <div class="spinner-border animate-spin inline-block w-16 h-16 border-4 rounded-full text-gray-400 mt-20" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
-
+      <div class=" flex-col pt-10 text-orange-50">前往藍新金流結帳</div>
+    </div>
+    
 
     <%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post", data: { controller: "payment"} do |form|%>
     
@@ -22,6 +20,3 @@
     <% end %>
 
 
-  </div>
-</body>
-</html>

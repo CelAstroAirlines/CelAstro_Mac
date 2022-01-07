@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     if @response.status === "SUCCESS"
        flash.now[:notice] = "付款成功！"
     else
-       redirect_to cart_path, notice: '付款過程發生問題'
+      #  redirect_to cart_path, notice: '付款過程發生問題'
     end   
   end
 end
