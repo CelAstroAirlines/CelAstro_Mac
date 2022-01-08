@@ -1,16 +1,21 @@
-<h1 class="mt-32"></h1>
 
-<%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form|%>
-  
-  <%= form.hidden_field :MerchantID, value: @form_info[:MerchantID], class:"border-4 border-red-300"%>
-  
-  <%= form.hidden_field :TradeInfo, value: @form_info[:TradeInfo], class:"border-4 border-red-300"%>
+    <div class="text-center pt-20 pb-20 bg-indigo-900 w-screen ">
+      <div class="spinner-border animate-spin inline-block w-16 h-16 border-4 rounded-full text-gray-400 mt-20" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class=" flex-col pt-10 text-orange-50">前往藍新金流結帳</div>
+    </div>
+    
+    <%=form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post", data: { controller: "payment"} do |form|%>
+    
+    <%= form.hidden_field :MerchantID, value: @form_info[:MerchantID]%>
+    
+    <%= form.hidden_field :TradeInfo, value: @form_info[:TradeInfo]%>
 
-  <%= form.hidden_field :TradeSha, value: @form_info[:TradeSha], class:"border-4 border-red-300"%>
+    <%= form.hidden_field :TradeSha, value: @form_info[:TradeSha]%>
 
-  <%= form.hidden_field :Version, value: @form_info[:Version], class:"border-4 border-red-300"%>
+    <%= form.hidden_field :Version, value: @form_info[:Version]%>
 
-  <%= form.submit'前往藍新金流刷卡', class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg mb-5 ml-5" %>
+    <% end %>
 
-<% end %>
 

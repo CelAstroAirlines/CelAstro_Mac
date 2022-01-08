@@ -9,9 +9,6 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
-  def search
-    @ticket = Ticket.new
-  end
 
   def create
      @ticket = Ticket.new(ticket_params)
@@ -28,7 +25,7 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @ticket = Ticket.find_by(id: params[:id])
+    @ticket = Ticket.find(id: params[:id])
   end 
 
   def update
