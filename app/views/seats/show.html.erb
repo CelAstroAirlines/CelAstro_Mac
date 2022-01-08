@@ -25,6 +25,14 @@
         <% end %>
       <% end %>
     </div>  
+
+      <div  class="w-4/5 h-25" >
+      <% @seat.each do |f| %>
+        <%if f.area=="D" %>
+          <%= render partial: "seat", locals:{f: f}%>
+        <% end %>
+      <% end %>
+    </div> 
   </div>
 </div>
 

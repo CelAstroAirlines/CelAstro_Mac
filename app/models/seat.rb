@@ -1,6 +1,29 @@
 class Seat < ApplicationRecord
+  
+  belongs_to :ticket
+  belongs_to :user
+  
   include AASM
-  after_save_commit :lock
+  
+
+  
+  aasm column: 'state' do
+    state :vaccant, initial: true
+    state :occupied, :booked
+
+    event :empty do
+      transitions from: :occupied, to: :vaccant
+    end
+
+    event :occupy do
+      transitions from: :vaccant, to: :occupied
+    end
+
+    event :book do
+      transitions from: :occupied, to: :booked
+    end
+  end
+
   # def lock(action)
   #   Seat.transaction do
   #     lock!
@@ -8,38 +31,27 @@ class Seat < ApplicationRecord
   #     save!
   #   end
   # end
-  
-  aasm column: 'state' do
-    state :vaccant, initial: true
-    state :occupied, :booked
 
-    event :vaccant do
-      transitions from: :occupy, to: :vaccant
-    end
-
-    event :occupy do
-      transitions from: :vaccant, to: :occupy
-    end
-
-    event :book do
-      transitions from: :occupy, to: :book
+  def hold_seat(action, current_user)
+    Seat.transaction do
+      lock!
+      # send.(#{action}!)
+      update(user_id: current_user)
+      save!
     end
   end
-
-  def lock
-    if seat.occupy?
-      Seat.transaction do
-        seat.lock!
-        seat.user_id = current_user
-        seat.save!
-      end
-    elsif seat.book?
-      Seat.transaction do
-        seat.lock!
-        seat.user_id = current_user
-        seat.save!
-      end
-    end
-  end
+  # def lock
+  #   if occupied?
+  #     Seat.transaction do
+  #       lock!
+  #       save!
+  #     end
+  #   elsif booked?
+  #     Seat.transaction do
+  #       lock!
+  #       save!
+  #     end
+  #   end
+  # end
 
 end

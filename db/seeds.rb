@@ -1,5 +1,3 @@
-
-
 # require 'uri'
 # require 'net/http'
 # require 'openssl'
@@ -2568,5 +2566,29 @@ for date1 in jpdec
         )
       end
     end
+end
+
+
+45.times do |i|
+  Seat.create( 
+    area:"A", 
+    seat_no:i+1 ,
+    ticket_id:"TEST123"
+  )
+  Seat.create( 
+    area:"B", 
+    seat_no:i+1 ,
+    ticket_id:"TEST123"
+  )
+  Seat.create( 
+    area:"C", 
+    seat_no:i+1 ,
+    ticket_id:"TEST123"
+  )
+  Seat.create( 
+    area:"D", 
+    seat_no:i+1 ,
+    ticket_id:"TEST123"
+  )
 end
 
