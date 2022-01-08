@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_01_07_040933) do
-=======
-ActiveRecord::Schema.define(version: 2022_01_06_071827) do
->>>>>>> edited seed, added cabin_class
-=======
 ActiveRecord::Schema.define(version: 2022_01_07_113411) do
->>>>>>> removed seat_no from ticket
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
