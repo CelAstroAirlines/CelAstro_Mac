@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => [:receivempg]
+  before_action  :authenticate_user!, only: [:payment]
   def payment
     @form_info = Newebpay::Mpg.new(current_cart.total_price).form_info
   end
@@ -8,7 +9,7 @@ class OrdersController < ApplicationController
 
   def receivempg
     @response = Newebpay::MpgResponse.new(params[:TradeInfo])
-    if @response.status === "SUCCESS"
+    if @response.success?
        flash.now[:notice] = "付款成功！"
       #  OrderMailer.notify_order('#{current_user.email}').deliver
       OrderMailJob.perform_later

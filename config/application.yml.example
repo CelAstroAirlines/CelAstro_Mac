@@ -5,3 +5,5 @@
 Newebpay_Hashkey = "hash_key"
 Newebpay_HashIV = "hash_iv"
 Newebpay_MerchantID = "merchant_id"
+Newebpay_Email: "Email"
+

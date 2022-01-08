@@ -36,7 +36,7 @@ module Newebpay
       last_word = data[-1].ord
       slastc = last_word.chr
       string_match = /#{slastc}{#{last_word}}/ =~ data
-      if !string_match.nil?
+      if string_match.present?
         data[0, string_match]
       else
         false

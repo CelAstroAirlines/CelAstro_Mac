@@ -313,7 +313,6 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rails_admin (~> 2.2)
   ransack
-  redis (~> 4.5, >= 4.5.1)
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
