@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   def payment
     @form_info = Newebpay::Mpg.new(current_cart.total_price).form_info
   end
-
+  # new(current_cart.total_price)上面要帶進去的參數無法執行
   def receivempg
     @response = Newebpay::MpgResponse.new(params[:TradeInfo])
     if @response.success?
