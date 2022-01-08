@@ -28,8 +28,7 @@
       <div class="seats">
         <div id="seats" class="ml-12 w-full" > 
           <div class=" w-11/12 pt-8 flex">A
-
-            <% @seat.each do |f| %>    
+     <% @seat.each do |f| %>    
               <%if f.area=="A" %>
                 <%= render partial: "seat", locals:{f: f}%>
               <% end %>
@@ -91,8 +90,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div>
+  </div> 
+</div>  
   <button type="confirm"  bg-black data-controller = "seat" data-action="click->seat#confirm" data-seat-target="seat_info" data-ticket_id="<%= params[:id]%>">送出</button>
 </div>
 </div>  
