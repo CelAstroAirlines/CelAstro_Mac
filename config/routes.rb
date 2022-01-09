@@ -3,25 +3,16 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   root "pages#index"
-  resources :tickets do
-    collection do
-      get :search   # GET /tickets/search
-    end
-  end
+  get 'index', to:'pages#index'
+  get "/payment", to: "orders#payment"
 
-  resources :seats do
-    member do
-      post :confirm
-      post :check
-    end
-   end
+  resources :tickets
+  get 'search', to:'tickets#search'
+  resources :seats
  
-  resources :orders, only: [] do
-    collection do
-      get :payment
-      post :receivempg
-    end
-  end
+  post '/seats/:id/confirm' , to: 'seats#confirm'
+  post '/seats/:id/check', to: 'seats#check'
+  post '/orders/receivempg', to: 'orders#receivempg'
 
   resources :receipts
   resources :members
