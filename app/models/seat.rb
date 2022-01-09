@@ -1,7 +1,7 @@
 class Seat < ApplicationRecord
   
   belongs_to :ticket
-  belongs_to :user
+  
   
   include AASM
   
@@ -32,14 +32,13 @@ class Seat < ApplicationRecord
   #   end
   # end
 
-  def hold_seat(action, current_user)
-    Seat.transaction do
-      lock!
-      # send.(#{action}!)
-      update(user_id: current_user)
-      save!
-    end
-  end
+  # def hold_seat(current_user)
+  #   Seat.transaction do
+  #     lock!
+  #     update(user_id: current_user) 
+  #     save!
+  #   end
+  # end
   # def lock
   #   if occupied?
   #     Seat.transaction do

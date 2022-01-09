@@ -1,0 +1,18 @@
+<h1> 確認 </h1>
+<div class="pt-96" data-controller = "seatConfirm">
+
+  <%= @ticket.ticket_serial %>
+  <%= @ticket.departure %>
+  <%= @ticket.arrival %>
+  <% @seat.each do |f| %>
+    <div>    
+      <%= f.area  %>
+      <%= f.seat_no  %>
+    </div>
+  
+  <% end %>
+  <button data-controller = "seatConfirm"
+  data-seatConfirm-target="seatBookedInfo"
+  data-ticket_id="<%= @ticket.id%>"
+  data-action="click->seatConfirm#finish"> <%= link_to '按我', root_path %></button>
+</div>
