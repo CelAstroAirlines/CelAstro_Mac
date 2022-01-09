@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root "pages#index"
   get 'index', to:'pages#index'
-  get "/payment", to: "orders#payment"
+ 
 
   resources :tickets
   get 'search', to:'tickets#search'
@@ -12,7 +12,13 @@ Rails.application.routes.draw do
  
   post '/seats/:id/confirm' , to: 'seats#confirm'
   post '/seats/:id/check', to: 'seats#check'
-  post '/orders/receivempg', to: 'orders#receivempg'
+  
+  resources :orders, only: [] do
+    collection do
+      get :payment
+      post :receivempg
+    end
+  end
 
   resources :receipts
   resources :members

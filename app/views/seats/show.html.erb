@@ -55,12 +55,16 @@
 </head>
 <body>
 <div class="bg-orange-50">
+  <div class="flex mt-28  ">
+  <div class=""><img src="/images/seat_banner2.jpg"></div>
+  <div class=""><img src="/images/seat_banner1.jpg"></div>
+  </div>
   <div class="aircraft">
     <div class="aircraft-body">
       
       <div class="seats">
-        <div id="seats" class="ml-10 w-full " > 
-          <div class=" w-4/5 pt-10 flex">A
+        <div id="seats" class="ml-12 w-full" > 
+          <div class=" w-11/12 pt-8 flex">A
             <% @seat.each do |f| %>    
               <%if f.area=="A" %>
                 <%= render partial: "seat", locals:{f: f}%>
@@ -68,15 +72,23 @@
             <% end %>
           </div>
   
-          <div  class="w-4/5  pt-12 flex " >B
+          <div  class="w-11/12  pt-4 flex ">B
             <% @seat.each do |f| %>
               <%if f.area=="B" %>
                 <%= render partial: "seat", locals:{f: f}%>
               <% end %>
             <% end %>
           </div>
+          
+          <div  class="text-base pl-4 w-screen pt-10 ">
+            <% @seat.each do |f| %>
+              <%if f.area=="C" %>
+              <%= f.seat_no %>
+              <% end %>
+            <% end %> 
+          </div>
     
-          <div  class="w-4/5 pt-3 flex" >C
+          <div  class="w-11/12 pt-10 flex">C
             <% @seat.each do |f| %>
               <%if f.area=="C" %>
                 <%= render partial: "seat", locals:{f: f}%>
@@ -84,13 +96,15 @@
             <% end %>
           </div> 
       
-          <div  class="w-4/5 pt-12 flex" >D
+          <div  class="w-11/12 pt-4 flex">D
             <% @seat.each do |f| %>
               <%if f.area=="D" %>
                 <%= render partial: "seat", locals:{f: f}%>
               <% end %>
             <% end %>
-          </div>  
+          </div>
+
+          
         </div>
       </div>
     </div>

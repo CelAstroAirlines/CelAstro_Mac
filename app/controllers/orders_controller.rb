@@ -14,7 +14,5 @@ class OrdersController < ApplicationController
     else
        redirect_to cart_path, notice: '付款過程發生問題'
     end   
-  end
-
- 
+  end 
 end

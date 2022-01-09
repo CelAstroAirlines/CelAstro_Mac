@@ -2,7 +2,8 @@
 
 .aircraft {
   position: relative;
-  margin-top: 110px;
+  margin-top: 40px;
+  padding-bottom: 40px;
   margin-left: 180px;
   margin-right: 220px;
   background:rgb(255 247 237);;
@@ -11,20 +12,19 @@
     // display: flex;
     // flex-direction: column;
     // justify-content: space-between;
-    position: relative;
+    // position: relative;
     // min-width: min-content;
     // margin: auto;
     
-    border: 2px solid #c5c5c7;
+    border: 3px solid #c5c5c7;
     min-height: 300px;
+    // width: 1000px;
     border-right: none;
     border-left: none;
     // padding: 10px;
     background: rgb(255 247 237);
    
-    #seats{
-      
-    }
+    
     
     .seats {
       display: flex;
@@ -80,7 +80,7 @@
         // width: 30px;
         // height: 26px;
         border: solid 1px #88857c;
-        margin: 2px -2px;
+        margin: 3px -2px;
         border-left: none;
         border-radius: 0 5px 5px 0;
       }
@@ -111,7 +111,7 @@
       padding-left: 115px;
       border-radius: 50%;
       right: -300px;
-      border: 2px solid #c5c5c7;
+      border: 3px solid #c5c5c7;
       margin-top: 4px;
       .windows {
         position: absolute;
@@ -121,7 +121,7 @@
       .front-lavatory {
         position: absolute;
         bottom: 15px;
-        left: 220px;
+        left: 210px;
       }
     }
   }
@@ -133,7 +133,7 @@
     // overflow: hidden;
     top: -1px;
     right: -320px;
-    padding-left: 120px;
+    padding-left: 70px;
     z-index: -1;
     &-body {
       position: absolute;
@@ -141,7 +141,7 @@
       width: 548px;
       padding-left: 135px;
       border-radius: 50%;
-      border: 2px solid #c5c5c7;
+      border: 3px solid #c5c5c7;
 
       .back-lavatory {
         width: 40px;
@@ -149,7 +149,7 @@
         display: flex;
         justify-content: space-around;
         flex-direction: column;
-        margin-left: 250px;
+        margin-left: 180px;
       }
     }
   }
