@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_action :find_ticket, only: [:show, :update, :destroy]
 
   def index
     @q = Ticket.ransack(params[:q])
@@ -12,23 +13,19 @@ class TicketsController < ApplicationController
 
   def create
      @ticket = Ticket.new(ticket_params)
-     if Ticket.find_by(params[:ticket_id]) != @ticket.ticket_id
-       @ticket.update
-     else
-       @ticket.save    
-     end
   end
 
   def search
     @q = Ticket.ransack(params[:q])
     @ticket = @q.result.first
+    # @ticket = Ticket.new
   end
 
   def show
-    @ticket = Ticket.find(id: params[:id])
+    @ticket = Ticket.find(params[:id])
   end 
 
-  def update
+  def update 
     @ticket.update(ticket_params)
   end
 
@@ -40,6 +37,10 @@ class TicketsController < ApplicationController
   private
   def ticket_params
     params.require(:ticket).permit(:departure, :arrival, :ticket_amount, :departure_date)
+  end
+
+  def find_ticket
+     @ticket = Ticket.find(params[:id])
   end
   
 end
