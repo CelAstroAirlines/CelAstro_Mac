@@ -3,12 +3,12 @@ module Newebpay
   class Mpg
     attr_accessor :info
    
-    def initialize(price)
+    def initialize()
       @key = ENV['Newebpay_Hashkey']
       @iv = ENV['Newebpay_HashIV']
       @merchant_id = ENV['Newebpay_MerchantID']
       @info = {} 
-      @payment_amt = price
+      # @payment_amt = price
       set_info
     end
 
@@ -31,14 +31,14 @@ module Newebpay
       sha256_encode(@key, @iv, trade_info)
     end
 
-    def total_amt
-      current_cart.total_price
-    end
+    # def total_amt
+    #   current_cart.total_price
+    # end
 
     def set_info  
       info[:MerchantID] = @merchant_id
       info[:MerchantOrderNo] = serial_generator
-      info[:Amt] = @payment_amt
+      info[:Amt] = "500"
       info[:ItemDesc] = "Air Tickets" 
       info[:Email] = "k_sky369@yahoo.com.tw"
       info[:TimeStamp] = Time.now.to_i 

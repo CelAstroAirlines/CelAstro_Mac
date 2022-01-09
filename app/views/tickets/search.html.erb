@@ -45,11 +45,31 @@
               <option value="5">5</option>
             </select>
           </td>
-          <td style="padding: 50px 10px; border-right: 1px solid black;"><%= button_to "加入購物車", add_cart_index_path(@ticket), method: "post" %></td>
+          <td style="padding: 50px 10px; border-right: 1px solid black;">
+            <%#= link_to "加入購物車", cart_items_path(@ticket), method: "post" %>
+            <%= form_tag cart_items_path, method: :post do %>
+              <%= hidden_field_tag(:ticket_id, @ticket.id) %>
+              <%= hidden_field_tag(:cart_type, Cart.cart_types[:buy_now]) %>
+              <%= hidden_field_tag(:quantity, 1, id: "quantity") %>
+              <button type="submit">加入購物車</button>
+            <% end %>
+          </td>
         </tr>  
       <% end %>
       <%= link_to "返回搜尋", tickets_path %>
     </tbody>
   </Table>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(function(){
+    $("#ticket_quantity").change(function(){
+      // alert($(this).val());
+      const value = $(this).val();
+      $("#quantity").val(value);
+    })
+  })
+</script>
+
 
