@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :tickets
   has_one :cart
+  has_many :seats
 end

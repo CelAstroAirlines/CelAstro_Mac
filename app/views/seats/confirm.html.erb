@@ -1,0 +1,27 @@
+<div class="mt-32">
+  <h1> Confirm your seats</h1>
+
+
+  <div>
+    <p><%= @ticket.ticket_serial %></p>
+    <span><%= @ticket.departure %></span>  to 
+    <span><%= @ticket.arrival %></span> 
+    <p><%= @ticket.departure_date %></p> 
+  </div>
+
+  <% @seat.each do |f| %>
+    <div>
+      <span><%= f.area %></span>
+      <span><%= f.seat_no %></span>
+    </div>
+  <%end%>
+  <div>
+      <button data-controller = "seat"
+      data-seat-target="seatBookedInfo"
+      data-ticket_id="<%= @ticket.id%>"
+      data-action="click->seat#finish"> 
+      <%= link_to '按我', root_path %>
+      </button>
+  </div>
+  
+</div>

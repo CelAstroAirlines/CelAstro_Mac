@@ -1331,7 +1331,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -1359,7 +1359,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1385,7 +1385,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1411,7 +1411,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1437,7 +1437,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1463,7 +1463,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1489,7 +1489,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1515,7 +1515,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1541,7 +1541,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.3  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1574,7 +1574,7 @@ for date1 in jpmay
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -1602,7 +1602,7 @@ for date1 in jpmay
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1628,7 +1628,7 @@ for date1 in jpmay
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1654,7 +1654,7 @@ for date1 in jpmay
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1680,7 +1680,7 @@ for date1 in jpmay
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1706,7 +1706,7 @@ for date1 in jpmay
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2 
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1732,7 +1732,7 @@ for date1 in jpmay
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2 
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1758,7 +1758,7 @@ for date1 in jpmay
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.3  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1791,7 +1791,7 @@ for date1 in jpjune
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -1819,7 +1819,7 @@ for date1 in jpjune
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1845,7 +1845,7 @@ for date1 in jpjune
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1897,7 +1897,7 @@ for date1 in jpjune
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1923,7 +1923,7 @@ for date1 in jpjune
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1949,7 +1949,7 @@ for date1 in jpjune
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.3  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1982,7 +1982,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -2010,7 +2010,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2036,7 +2036,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2062,7 +2062,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2088,7 +2088,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2114,7 +2114,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.3  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2147,7 +2147,7 @@ for date1 in jpaug
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -2175,7 +2175,7 @@ for date1 in jpaug
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2201,7 +2201,7 @@ for date1 in jpaug
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2227,7 +2227,7 @@ for date1 in jpaug
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2253,7 +2253,7 @@ for date1 in jpaug
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.3  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2399,7 +2399,7 @@ for date1 in jpoct
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2  
+        roundtrip_price = ticket_amount*2*0.4  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -2427,7 +2427,7 @@ for date1 in jpoct
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2453,7 +2453,7 @@ for date1 in jpoct
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.3  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2486,7 +2486,7 @@ for date1 in jpnov
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2 
+        roundtrip_price = ticket_amount*2*0.4  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -2514,7 +2514,7 @@ for date1 in jpnov
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2.3  
+        roundtrip_price = ticket_amount*2*0.4  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2545,14 +2545,14 @@ for date1 in jpdec
       ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
       reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
       roundtrip_ticket_id = ticket_id + reticket_id
-      roundtrip_price = ticket_amount*2.3  
+      roundtrip_price = ticket_amount*2*0.4  
       if date1 <= date2
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
             ticket_serial: roundtrip_ticket_id,
             departure: first_airport_code,
-          arrival: second_airport_code,
+            arrival: second_airport_code,
             departure_date: departure_date,
             departure_time:"9:10 AM",
             arrival_time:"11:45 AM",
@@ -2568,3 +2568,29 @@ for date1 in jpdec
     end
 end
 
+
+tickets = Ticket.where(ticket_type: "one_way").pluck(:id)
+tickets.each do |s|
+    45.times do |i|
+    Seat.create( 
+      area:"A", 
+      seat_no:i+1 ,
+      ticket_id:s
+    )
+    Seat.create( 
+      area:"B", 
+      seat_no:i+1 ,
+      ticket_id:s
+    )
+    Seat.create( 
+      area:"C", 
+      seat_no:i+1 ,
+      ticket_id:s
+    )
+    Seat.create( 
+      area:"D", 
+      seat_no:i+1 ,
+      ticket_id:s
+    )
+  end
+end
