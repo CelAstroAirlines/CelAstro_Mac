@@ -1,7 +1,8 @@
 
-["x-rapidapi-host"] = "rapidapi-host"
-["x-rapidapi-key"] = "rapidapi-key"
+"x-rapidapi-host" = "rapidapi-host"
+"x-rapidapi-key" = "rapidapi-key"
 
 Newebpay_Hashkey = "hash_key"
 Newebpay_HashIV = "hash_iv"
 Newebpay_MerchantID = "merchant_id"
+
