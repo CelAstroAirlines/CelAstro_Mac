@@ -2305,7 +2305,7 @@ for date1 in jpsep
               return_departure_time:"7:30 PM",
               return_arrival_time:"10:05 PM",
               cabin_class: "Economy",
-              quantity> 108
+              quantity: 108
           )
         end
       end
