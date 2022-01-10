@@ -34,7 +34,7 @@ module Newebpay
     def set_info  
       info[:MerchantID] = @merchant_id
       info[:MerchantOrderNo] = serial_generator
-      info[:Amt] = "3000"
+      info[:Amt] = "200"
       info[:ItemDesc] = "Air Tickets" 
       info[:Email] = ENV['Newebpay_Email']
       info[:TimeStamp] = Time.now.to_i 
