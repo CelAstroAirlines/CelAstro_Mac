@@ -116,7 +116,9 @@
               <% if @ticket == nil && params[:q][:ticket_type_cont] == "roundtrip" && params[:q][:returning_date_cont] %>
                 <% Ticket.where(
                   departure_date: params[:q][:departure_date_cont].to_date - 3.days..params[:q][:departure_date_cont].to_date + 3.days,
+
                   returning_date: params[:q][:returning_date_cont].to_date - 7.days..params[:q][:departure_date_cont].to_date + 7.days, 
+
                   departure: params[:q][:departure_cont],
                   ticket_type: params[:q][:ticket_type_cont]).each do |ticket| %>
                     <div class="max-w-2xl mx-auto mt-12 flex p-6 bg-gradient-to-b from-orange-100 rounded-lg shadow-xl justify-center hover:shadow-2xl transform hover:scale-105 duration-500">
