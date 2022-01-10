@@ -43,7 +43,7 @@ class SeatsController < ApplicationController
         seat.empty!
         seat.update(user_id: current_user.id)
       else
-        render  json:{message: "failed"}
+        render json: { result: 'failed'}
       end
     else
     end

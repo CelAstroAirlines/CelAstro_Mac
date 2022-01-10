@@ -33,7 +33,7 @@ export default class extends Controller {
       });
   }
   _cableReceived(data) {
-    console.log(data);
+    // console.log(data);
     const seat = document.querySelector(`[data-seat_id='${data.seat_params.id}']`)
     const currentUser = document.querySelector('#current_user')
     if (currentUser.innerHTML != data.seat_params.user_id && data.seat_params.state == "occupied") {

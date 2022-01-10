@@ -2,10 +2,7 @@ class Seat < ApplicationRecord
   
   belongs_to :ticket
   
-  
   include AASM
-  
-
   
   aasm column: 'state' do
     state :vaccant, initial: true
