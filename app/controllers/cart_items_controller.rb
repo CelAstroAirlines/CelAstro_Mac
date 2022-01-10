@@ -32,14 +32,14 @@ class CartItemsController < ApplicationController
   def get_cart
     @cart = current_user.carts.find_by(cart_type: params[:cart_type])
     if !@cart
-      redirect_to cart_items_path, notice: "沒有找到目標購物車"
+      redirect_to cart_items_path, notice: "沒有找到 cart"
     end
   end
 
   def get_cart_item
     @cart_item = CartItem.find(params[:id])
     if !@cart_item || (@cart_item.user != current_user)
-      redirect_to cart_items_path, notice: "沒有找到目標購物車"
+      redirect_to cart_items_path, notice: "沒有找到 cart item"
     end
   end
   

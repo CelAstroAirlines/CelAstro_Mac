@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,  :trackable 
 
-
   after_save :add_carts
 
   has_many :tickets
@@ -13,6 +12,7 @@ class User < ApplicationRecord
   def add_carts
     if carts.blank?
       Cart.buy_now.create(user: self)
+      Cart.buy_next_time.create(user: self)
     end
   end
 

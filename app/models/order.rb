@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-  belongs_to :ticket
+  has_many :tickets
   belongs_to :user
-  belongs_to :cart
 end

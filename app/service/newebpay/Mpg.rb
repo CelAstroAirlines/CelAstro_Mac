@@ -31,10 +31,6 @@ module Newebpay
       sha256_encode(@key, @iv, trade_info)
     end
 
-    # def total_amt
-    #   current_cart.total_price
-    # end
-
     def set_info  
       info[:MerchantID] = @merchant_id
       info[:MerchantOrderNo] = serial_generator
