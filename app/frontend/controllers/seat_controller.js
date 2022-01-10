@@ -3,14 +3,25 @@ import httpClient from "lib/http/client"
 import consumer from "../channels/consumer"
 
 export default class extends Controller {
-  static targets = ["seat_info", "seatstatus"]
+  static targets = ["seat_info", "seatBookedInfo"]
+
+  finish() {
+    const ticketId = this.seatBookedInfoTarget.dataset.ticket_id
+    httpClient.post(`/seats/${ticketId}/finished`)
+  }
 
   check() {
-    const seat_id = this.seat_infoTarget.dataset.seat_id
-    const ticket_serial = this.seat_infoTarget.dataset.ticket_serial
-    let api_seat_check = {}
-    api_seat_check["seat"] = seat_id
-    httpClient.post(`/seats/${ticket_serial}/check`, api_seat_check).then(({ data }) => { })
+    const seatId = this.seat_infoTarget.dataset.seat_id
+    const ticketId = this.seat_infoTarget.dataset.ticket_id
+    let apiSeatCheck = {
+      seat: seatId
+    }
+    httpClient.post(`/seats/${ticketId}/check`, apiSeatCheck)
+  }
+
+  confirm() {
+    const ticketId = this.seat_infoTarget.dataset.ticket_id
+    window.location = `/seats/${ticketId}/confirm`
   }
 
   connect() {
@@ -22,7 +33,13 @@ export default class extends Controller {
       });
   }
   _cableReceived(data) {
+    console.log(data);
     const seat = document.querySelector(`[data-seat_id='${data.seat_params.id}']`)
-    seat.innerHTML = data.message
+    const currentUser = document.querySelector('#current_user')
+    if (currentUser.innerHTML != data.seat_params.user_id && data.seat_params.state == "occupied") {
+      seat.innerHTML = `
+        <img src="/images/green_seat.png">`
+    } else { seat.innerHTML = data.message }
+
   }
 }

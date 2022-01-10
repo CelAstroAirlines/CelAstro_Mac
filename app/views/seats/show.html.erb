@@ -1,33 +1,83 @@
-<div class=" h-500"></div>
-<h1>seats</h1>
-  <div id="seats" class="w-full h-32  " >
-    <div class="w-4/5 h-25  " >
-      <% @seat.each do |f| %>    
-        <%if f.area=="A" %>
-          <%= render partial: "seat", locals:{f: f}%>
-        <% end %>
-      <% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="
+  width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="seats.scss">
+</head>
+<body>
+<div class="bg-orange-50">
+  <div class="aircraft">
+    <div class="aircraft-body">
+      <div data-controller = "seat"  data-seat-target="seat_count" data-ticket_count="123">123</div>
+      <div id ="current_user"><%= current_user.id%></div>
+      <div class="seats">
+        <div id="seats" class="ml-10 w-full " > 
+          <div class=" w-4/5 pt-10 flex">A
+            <% @seat.each do |f| %>    
+              <%if f.area=="A" %>
+                <%= render partial: "seat", locals:{f: f}%>
+              <% end %>
+            <% end %>
+          </div>
+  
+          <div  class="w-4/5  pt-12 flex " >B
+            <% @seat.each do |f| %>
+              <%if f.area=="B" %>
+                <%= render partial: "seat", locals:{f: f}%>
+              <% end %>
+            <% end %>
+          </div>
+    
+          <div  class="w-4/5 pt-3 flex" >C
+            <% @seat.each do |f| %>
+              <%if f.area=="C" %>
+                <%= render partial: "seat", locals:{f: f}%>
+              <% end %>
+            <% end %>
+          </div> 
+      
+          <div  class="w-4/5 pt-12 flex" >D
+            <% @seat.each do |f| %>
+              <%if f.area=="D" %>
+                <%= render partial: "seat", locals:{f: f}%>
+              <% end %>
+            <% end %>
+          </div>  
+        </div>
+      </div>
     </div>
-
-    <div  class="w-4/5 h-25 " >
-      <% @seat.each do |f| %>
-        <%if f.area=="B" %>
-          <%= render partial: "seat", locals:{f: f}%>
-        <% end %>
-      <% end %>
+      
+      
+      
+      
+      <div class="aircraft-head">
+        <div class="aircraft-head-body">
+          <div class="windows">
+            <img src="https://i.ibb.co/F5hp29L/windows.png">
+          </div>
+          <div class="front-lavatory">
+            <img src="https://i.ibb.co/NVT4SZ1/lavatory.png">
+          </div>
+        </div>
+      </div>
+      <div class="aircraft-tail">
+        <div class="aircraft-tail-body">
+          <div class="back-lavatory">
+            <img src="https://i.ibb.co/NVT4SZ1/lavatory.png">
+  
+            <img src="https://i.ibb.co/NVT4SZ1/lavatory.png">
+          </div>
+        </div>
+      </div>
     </div>
-
-
-    <div  class="w-4/5 h-25" >
-      <% @seat.each do |f| %>
-        <%if f.area=="C" %>
-          <%= render partial: "seat", locals:{f: f}%>
-        <% end %>
-      <% end %>
-    </div>  
   </div>
+  <div>
+  <button type="confirm"  bg-black data-controller = "seat" data-action="click->seat#confirm" data-seat-target="seat_info" data-ticket_id="<%= params[:id]%>">送出</button>
 </div>
-
-<div>
-  <button type="Condirm"  bg-black data-action="click->seat#booked">送出</button>
-</div>
+</div>  
+</body>
+</html>

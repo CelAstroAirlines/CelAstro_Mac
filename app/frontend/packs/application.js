@@ -10,10 +10,10 @@ import "channels"
 import "controllers"
 
 
-Rails.start()
+
 Turbolinks.start()
 ActiveStorage.start()
 
-import "stylesheets" 
+import "stylesheets"
 import "scripts"
 import "controllers"

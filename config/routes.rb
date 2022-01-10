@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get 'search', to:'tickets#search'
   resources :seats
  
-  post '/seats/:id/confirm' , to: 'seats#confirm'
+  get '/seats/:id/confirm' , to: 'seats#confirm'
+  post '/seats/:id/finished' , to: 'seats#finished'
   post '/seats/:id/check', to: 'seats#check'
   post '/orders/receivempg', to: 'orders#receivempg'
 

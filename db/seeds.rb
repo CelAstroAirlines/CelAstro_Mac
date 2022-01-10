@@ -2570,3 +2570,29 @@ for date1 in jpdec
     end
 end
 
+
+tickets = Ticket.where(ticket_type: "one_way").pluck(:id)
+tickets.each do |s|
+    45.times do |i|
+    Seat.create( 
+      area:"A", 
+      seat_no:i+1 ,
+      ticket_id:s
+    )
+    Seat.create( 
+      area:"B", 
+      seat_no:i+1 ,
+      ticket_id:s
+    )
+    Seat.create( 
+      area:"C", 
+      seat_no:i+1 ,
+      ticket_id:s
+    )
+    Seat.create( 
+      area:"D", 
+      seat_no:i+1 ,
+      ticket_id:s
+    )
+  end
+end
