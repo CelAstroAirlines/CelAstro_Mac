@@ -1,0 +1,76 @@
+.aircraft {
+  position: relative;
+  margin-top: 40px;
+  padding-bottom: 40px;
+  margin-left: 180px;
+  margin-right: 220px;
+  background:rgb(255 247 237);;
+  transform: scale(0.8);
+  &-body {
+    border: 3px solid #c5c5c7;
+    min-height: 300px;
+    border-right: none;
+    border-left: none;
+    background: rgb(255 247 237);
+  }
+      
+  &-head {
+    position: absolute;
+    height: 310px;
+    width: 330px;
+    margin: auto;
+    overflow: hidden;
+   
+    top: -4px;
+    left: -330px;
+
+    &-body {
+      position: absolute;
+      height: 300px;
+      width: 548px;
+      padding-left: 115px;
+      border-radius: 50%;
+      right: -300px;
+      border: 3px solid #c5c5c7;
+      margin-top: 4px;
+      .windows {
+        position: absolute;
+        top: 70px;
+        left: 50px;
+      }
+      .front-lavatory {
+        position: absolute;
+        bottom: 15px;
+        left: 210px;
+      }
+    }
+  }
+  &-tail {
+    position: absolute;
+    height: 323px;
+    width: 700px;
+    margin: auto;
+    // overflow: hidden;
+    top: -1px;
+    right: -320px;
+    padding-left: 70px;
+    z-index: -1;
+    &-body {
+      position: absolute;
+      height: 302px;
+      width: 548px;
+      padding-left: 135px;
+      border-radius: 50%;
+      border: 3px solid #c5c5c7;
+
+      .back-lavatory {
+        width: 40px;
+        height: 98%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        margin-left: 180px;
+      }
+    }
+  }
+}

@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     end
    end
  
+  post '/seats/:id/confirm' , to: 'seats#confirm'
+  post '/seats/:id/check', to: 'seats#check'
+  
   resources :orders, only: [] do
     collection do
       get :payment
