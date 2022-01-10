@@ -1,11 +1,10 @@
-
-    <div data-controller = "seat" data-seat-target="seat_info" data-action="click->seat#check" data-seat_id="<%= f.id %>"
-    data-ticket_serial="<%= f.ticket_serial%>">
-      <% if f.vaccant? %>
-        <img src="https://img.icons8.com/fluency-systems-regular/20/000000/baby-car-seat.png" />
-      <% elsif f.occupied? %>
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAC7UlEQVQ4jZ2UTWicVRSGn3Nn8teYWqTNdNK0oriwhFp0uhDmG80iROx8n6JY0WoV6c6iQUsRupBUUcGFdqUoCnZRN6m0tBOFKAqTKcXfopBVpWTRzjcToaWUxsl05r4uYkIcTR29y3Pe89z33J9j/I+lTKajvKn7djVMV3ovzw5NzNSXcvZfQOV87gHQfnOslee8GSbYincvDnxeLLYN1Diu8kPwEdCTwL3aXyieA4jD4BlgDOgx7KdUYXpPsh1g9fvcPpmupgulvQYSWBwGh8E669LIrZOly3EUfBbn77uzLaCcHllIJB81EEA1DF4z4/f0qekxgDjK3Y/XFiXodu0Akc2t8c0ti21md8rYsTFTOvhn2+MmHQWODdxT/Lkth87xpryOlMPce4aeV8NGbRxfiYLdEpsFJ3zCSjaOb8th6uT0LzI9begNzO1PfzH926WRkZsRB7pq3S+Dtiap/wrwN4fKZDou9velXLLZj5chNpizbXg9LmxPulD8GqDWXTuE8U7duQZmvamT31aXgYu3lt1t2HMV6HO6HjvZHA55cUlixl1fM5yemroGUA2D7R62bzxVeqkSZXdJ9s2SoSRANR+8D0o0aD67uXDm4o3aL0fD670aH3unpwxUkT0ps9eXBRceHB4s54Opds6yEmXvjcPcd9V8MAIQR9mhOAy+WqlJyi/MW9J1rQxWH8rd5eVHJRs0s3WgPqTb5O2cQ0+kJkvnBRZ7e9fMDq6sNYByGBzF/BG3cNNpdc5/AvSaOIZzs/jGnBdX072bLtjERHPZbT73gjfdMVAojf3FIUCH04GGt4K65ssSg8Ch9GTp+GqtLz5u/9i1xtrR1tzycCjvzO7AubutyQkS+hH0tmT11gKHrZfpFXkXLU2YfwQCzOwa6ryltu5LyZ1Gml3NoTmSQCTP8YHJ0oer6ahEuYfLYfDWqoKWzSthcLY13vpTNhhkK1Hwwb8SayBI3xDomf8U9ZyV2vEI4A63Rv4AsW9C7o+lHc8AAAAASUVORK5CYII=">
-      <%else%>
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABfklEQVQ4jZ3UMUuXURTH8U/9E6wIkSIdwiFcikgjawoUNFtawrYQbGrIV+A7aBB9A9XSEIIO1RJEEG4NNTQ4RIQQNiQomoFi2XDPA9dr2vP3Bxfuvc8933PuOec+DYdTC7rRhg38PiTHTbzBFnYC9BJnmgUdxeOAVOM9ruEhpsNZbY0XsBn042u2t4mOusC3meE73MDPwskOrtQFzobBMnrxvQA9x5CUmlq6ilXckYqQw55iJKJuSm2YKGDfcElqne5mYKcxZW/O7kXEy2jAsczoeFxpEJ04iyNSj3XFPNc81nEbzxTNPRxeygj2GytSXr/EeiSHnYwDdWEbuIUXsf5c3NT5mqBVqaEv4km2P5bDqrxUz0gceoU5LGItzrViAPcjCPiI69hWqEdK8B+M4gE++PdrqMZaRLtLeeX6cFmq3iP8KA8XdrN4XX5oZPOluEIrzuHUAcBtKaefItp91S51f92KTx4Eg7tNwKqfxS6V3X8CF/7nNdMvLOQbfwFHM57dTYsOSwAAAABJRU5ErkJggg==">
-      <% end %>
-    </div>
+<div data-controller = "seat" data-seat-target="seat_info" data-action="click->seat#check" data-seat_id="<%= f.id %>"
+    data-ticket_serial="<%= f.ticket_serial%>", class="">  
+  <% if f.vaccant? %>  
+    <img src="/images/black_seat_big.png">
+  <% elsif f.occupied? %>
+    <img src="/images/red_seat_big.png">
+  <%else%>
+    <img src="/images/full_black_seat.png">
+  <% end %>
+</div>    
