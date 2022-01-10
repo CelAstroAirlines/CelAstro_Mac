@@ -4,6 +4,7 @@ class Seat < ApplicationRecord
   
   
   include AASM
+
   
 
   
