@@ -4,61 +4,156 @@
   </div>  
     <div class="py-11  bg-indigo-900 ">
       <div class="flex lg:w-5/6 w-full sm:flex-row mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
+        <div class=" relative flex-grow  my-10 mx-10">
+          <div id="form_container">
+                <% if not @ticket %>
+                <div>
+                  <div class="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl">
+                    <div class="flex">
+                      <div class="h-12 w-12"><%= image_tag 'membership_logo.png'%>
+                      </div>
+                      <div class="ml-8 pt-1">
+                        <h4 class="text-xl text-gray-900">查無紀錄</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none my-6 hover:shadow-2xl transform hover:scale-105 duration-500"><%= link_to "返回搜尋", tickets_path %></button>
+                </div>
+                <% else %>
+                <div class="inline-block mx-24">
+                  <div class="max-w-2xl mx-auto flex p-6 bg-white rounded-lg shadow-xl justify-center hover:shadow-2xl transform hover:scale-105 duration-500">
+                    <div class="flex">
+                      <div class="h-12 w-12"><%= image_tag 'membership_logo.png'%>
+                      </div>
+                      <div class="ml-8 pt-1">
+                        <div class="flex">
+                          <h4 class="text-2xl text-gray-900"><%= @ticket.departure %> to <%= @ticket.arrival %> </h4>
+                          <p class="ml-12 text-sm text-gay-600"><%= @ticket.ticket_type %></p>
+                        </div>
+                        <p class="text-sm text-gay-600"><%= @ticket.ticket_serial %></p>
+                        <p class="text-base italic text-gay-600">NTD <%= number_with_delimiter(@ticket.ticket_amount) %></p>
+                        <div class="flex">
+                          <p class="text-sm text-gray-800 pr-2">出發日期<%= @ticket.departure_date %></p>
+                          <p class="text-sm text-gray-800 pr-2">出發時間<%= @ticket.departure_time %></p>
+                          <p class="text-sm text-gray-800 px-2 mr-8">抵達時間<%= @ticket.arrival_time %></p>
+                          <select name= "ticket[quantity]" >
+                            <option value="1" selected="selected">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select>
+                          <button class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none">
+                            <% if @ticket%>
+                            <%= link_to "加入購物車", add_cart_index_path(@ticket), method: "post" %>
+                            <% end %>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none my-6 hover:shadow-2xl transform hover:scale-105 duration-500"><%= link_to "返回搜尋", tickets_path %></button>
+                </div>
+                <% end %>
+          </div>
+        </div>
+      </div>
+    </div>      
+</section>
+<section class="text-gray-600 body-font bg-indigo-700">
+  <div class="flex flex-col ml-28 pt-5 mb-5">
+        <h1 class=" sm:text-3xl text-2xl font-medium title-font  text-orange-50">相關航班</h1>
+  </div>  
+    <div class="py-11  bg-indigo-900 ">
+      <div class="flex lg:w-5/6 w-full sm:flex-row mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
         <div class=" relative flex-grow  my-14 mx-10">
           <div id="form_container">
-            <Table>
-              <thead>
-                <tr>
-                  <td >Ticket Type</td>
-                  <td >Ticket ID</td>
-                  <td>Departure Airport</td>
-                  <td>Arrival Airport</td>
-                  <td>Departure Date</td>
-                  <td>Departure Time</td>
-                  <td>Arrival Time</td>
-                  <td>Return Date</td>
-                  <td>Return Departure Time</td>
-                  <td>Return Arrival Time</td>
-                  <td>Ticket Price</td>
-                  <td>Quantity</td>
-                </tr>
-              </thead>
-              <tbody style="background-color: rgb(237, 237, 237)">
-                <% if not @ticket %>
-                  <h2> 查無紀錄 </h2>
-                <% else %>
-                  <tr>
-                    <td><%= @ticket.ticket_type %></td>
-                    <td><%= @ticket.ticket_serial %></td>
-                    <td><%= @ticket.departure %></td>
-                    <td><%= @ticket.arrival %></td>
-                    <td><%= @ticket.departure_date %></td>
-                    <td><%= @ticket.departure_time %></td>
-                    <td><%= @ticket.arrival_time %></td>
-                    <td><%= @ticket.returning_date %></td>
-                    <td><%= @ticket.return_departure_time %></td>
-                    <td><%= @ticket.return_arrival_time %></td>
-                    <td><%= number_with_delimiter(@ticket.ticket_amount) %></td>
-                    <td>
-                      <select name= "ticket[quantity]" >
-                        <option value="1" selected="selected">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                      </select>
-                    </td>
-                    <% if @ticket%>
-                    <%= button_to "加入購物車", add_cart_index_path(@ticket), method: "post" %>
-                    <% end %>
-                  </tr>  
+            <div>
+              <%if @ticket%>
+              no recommendation
+              <% elsif @ticket == nil && params[:q][:ticket_type_cont] == "one_way" %>
+                <% Ticket.where(
+                  departure_date: params[:q][:departure_date_cont].to_date - 3.days..params[:q][:departure_date_cont].to_date + 3.days,
+                  departure: params[:q][:departure_cont], 
+                  ticket_type: params[:q][:ticket_type_cont]).each do |ticket| %>
+                <% if ticket.departure_date != params[:q][:departure_date_cont] %>
+                    <div class="inline-block mx-24">
+                      <div class="max-w-2xl mx-auto mt-12 flex p-6 bg-gradient-to-b from-blue-50 rounded-lg shadow-xl justify-center hover:shadow-2xl transform hover:scale-105 duration-500">
+                        <div class="flex">
+                          <div class="h-12 w-12"><%= image_tag 'membership_logo.png'%>
+                          </div>
+                          <div class="ml-8 pt-1">
+                            <div class="flex">
+                              <h4 class="text-2xl text-gray-900"><%= ticket.departure %> to <%= ticket.arrival %> </h4>
+                              <p class="ml-12 text-sm text-gay-600"><%= ticket.ticket_type %></p>
+                            </div>
+                            <p class="text-sm text-gay-600"><%= ticket.ticket_serial %></p>
+                            <p class="text-base italic text-gay-600">NTD <%= number_with_delimiter(ticket.ticket_amount) %></p>
+                            <div class="flex">
+                              <p class="text-sm text-gray-800 pr-2">出發日期<%= ticket.departure_date %></p>
+                              <p class="text-sm text-gray-800 pr-2">出發時間<%= ticket.departure_time %></p>
+                              <p class="text-sm text-gray-800 px-2 mr-8">抵達時間<%= ticket.arrival_time %></p>
+                              <select name= "ticket[quantity]" >
+                                <option value="1" selected="selected">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                              </select>
+                              <button class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none">
+                                <%= link_to "加入購物車", add_cart_index_path(ticket.id), method: "post" %>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
                 <% end %>
-              </tbody>
-            </Table>
-            <div class="flex">
-              <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-24"><%= link_to "返回搜尋", tickets_path %></button>
-              <% if @ticket %>
-              <%= button_to "加入購物車", add_cart_index_path(@ticket), method: "post" %>
+              <% end %>    
+            </div>
+            <div>
+              <% if @ticket == nil && params[:q][:ticket_type_cont] == "roundtrip" && params[:q][:returning_date_cont] %>
+                <% Ticket.where(
+                  departure_date: params[:q][:departure_date_cont].to_date - 3.days..params[:q][:departure_date_cont].to_date + 3.days,
+                  returning_date: params[:q][:returning_date_cont].to_date - 3.days..params[:q][:departure_date_cont].to_date + 3.days, 
+                  departure: params[:q][:departure_cont],
+                  ticket_type: params[:q][:ticket_type_cont]).each do |ticket| %>
+                    <div class="max-w-2xl mx-auto mt-12 flex p-6 bg-gradient-to-b from-orange-100 rounded-lg shadow-xl justify-center hover:shadow-2xl transform hover:scale-105 duration-500">
+                      <div class="flex">
+                        <div class="h-12 w-12"><%= image_tag 'membership_logo.png'%>
+                        </div>
+                        <div class="ml-8 pt-1">
+                          <div class="flex">
+                            <h4 class="text-2xl text-gray-900"><%= ticket.departure %> to <%= ticket.arrival %> </h4>
+                            <p class="ml-12 text-sm text-gay-600"><%= ticket.ticket_type %></p>
+                          </div>
+                          <p class="text-sm text-gay-600"><%= ticket.ticket_serial %></p>
+                          <p class="text-base italic text-gay-600">NTD <%= number_with_delimiter(ticket.ticket_amount) %></p>
+                          <div class="flex">
+                            <p class="text-sm text-gray-800 pr-2">出發日期<%= ticket.departure_date %></p>
+                            <p class="text-sm text-gray-800 pr-2">出發時間<%= ticket.departure_time %></p>
+                            <p class="text-sm text-gray-800 px-2 mr-8">抵達時間<%= ticket.arrival_time %></p>
+                          </div>
+                          <div class="flex">
+                            <p class="text-sm text-gray-800 pr-4">回程日期<%= ticket.returning_date %></p>
+                            <p class="text-sm text-gray-800 pr-4">出發時間<%= ticket.return_departure_time %></p>
+                            <p class="text-sm text-gray-800 px-4 mr-12">抵達時間<%= ticket.return_arrival_time %></p>
+                            <select name= "ticket[quantity]" >
+                              <option value="1" selected="selected">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                            </select>
+                            <button class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none">
+                              <%= link_to "加入購物車", add_cart_index_path(ticket.id), method: "post" %>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                <% end %>
               <% end %>
             </div>
           </div>
@@ -66,66 +161,13 @@
       </div>
     </div>      
 </section>
-<section>
-  <div class="py-11  bg-indigo-900 ">
-    <div class="flex lg:w-5/6 w-full sm:flex-row mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
-      <div class=" relative flex-grow  my-14 mx-10">
-        <div>
-          <%#= params[:q][:departure_date_cont].to_date + 7.days %>
-            <% Ticket.where(departure_date: params[:q][:departure_date_cont].to_date - 3.days..params[:q][:departure_date_cont].to_date + 3.days, departure: params[:q][:departure_cont], ticket_type: params[:q][:ticket_type_cont]).each do |ticket| %>
-              <%# if ticket.departure_date != @ticket.departure_date %>
-            <Table>
-              <thead>
-                <tr>
-                  <td >Ticket Type</td>
-                  <td >Ticket ID</td>
-                  <td>Departure Airport</td>
-                  <td>Arrival Airport</td>
-                  <td>Departure Date</td>
-                  <td>Departure Time</td>
-                  <td>Arrival Time</td>
-                  <td>Return Date</td>
-                  <td>Return Departure Time</td>
-                  <td>Return Arrival Time</td>
-                  <td>Ticket Price</td>
-                  <td>Quantity</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><%= ticket.ticket_type %></td>
-                  <td><%= ticket.ticket_serial %></td>
-                  <td><%= ticket.departure %></td>
-                  <td><%= ticket.arrival %></td>
-                  <td><%= ticket.departure_date %></td>
-                  <td><%= ticket.departure_time %></td>
-                  <td><%= ticket.arrival_time %></td>
-                  <td><%= ticket.returning_date %></td>
-                  <td><%= ticket.return_departure_time %></td>
-                  <td><%= ticket.return_arrival_time %></td>
-                  <td><%= number_with_delimiter(ticket.ticket_amount) %></td>
-                  <td>
-                    <select name= "ticket[quantity]" >
-                      <option value="1" selected="selected">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select>
-                  </td>
-                  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-100 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-4">
-                    <%= link_to "加入購物車", add_cart_index_path(ticket.id), method: "post" %>
-                  </button>
-                </tr>  
-              <%# end %>
-            </tbody>
-          </Table>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+
+</div>
+
+
+
+<%#= params[:q][:departure_date_cont].to_date + 7.days %>
 
 
 
