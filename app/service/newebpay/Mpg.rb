@@ -8,7 +8,7 @@ module Newebpay
       @iv = ENV['Newebpay_HashIV']
       @merchant_id = ENV['Newebpay_MerchantID']
       @info = {} 
-      @payment_amt = price
+      # @payment_amt = price
       set_info
     end
 
