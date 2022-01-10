@@ -47,7 +47,7 @@
           </td>
           <td style="padding: 50px 10px; border-right: 1px solid black;">
             <%#= link_to "加入購物車", cart_items_path(@ticket), method: "post" %>
-            <%= form_tag cart_items_path, method: :post do %>
+            <%= form_tag cart_items_path(@ticket), method: :post do %>
               <%= hidden_field_tag(:ticket_id, @ticket.id) %>
               <%= hidden_field_tag(:cart_type, Cart.cart_types[:buy_now]) %>
               <%= hidden_field_tag(:quantity, 1, id: "quantity") %>
