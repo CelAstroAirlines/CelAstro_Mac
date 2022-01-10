@@ -4,11 +4,11 @@ class SeatsController < ApplicationController
     @seat = Seat.where(ticket_id: params[:id]).order(:id)
     @ticket = Ticket.where(ticket_id: params[:id]) 
   end
+
   def finished
     Seat.where(ticket_id: params[:id], user_id: current_user.id).each do |s|
       if s.occupied?
         s.book!
-        params[:id]
         RenewSeatJob.perform_later(params[:id], s)
       end
     end
@@ -39,9 +39,9 @@ class SeatsController < ApplicationController
       seat.update(user_id: current_user.id)
       seat.occupy!
     when seat.occupied?
-      if current_user.id == seat.user_id 
+      if current_user.id == seat.user_id || seat.user_id == nil
         seat.empty!
-        seat.update(user_id: nil)
+        seat.update(user_id: current_user.id)
       else
         render  json:{message: "failed"}
       end

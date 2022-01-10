@@ -1,7 +1,7 @@
 
     <div data-controller = "seat" data-seat-target="seat_info" data-action="click->seat#check" data-seat_id="<%= f.id %>"
     data-ticket_id="<%= f.ticket_id%>">
-       <% if f.vaccant? %>  
+      <% if f.vaccant? %>  
         <img src="/images/black_seat_big.png">
       <% elsif f.occupied? %>
         <img src="/images/red_seat_big.png">

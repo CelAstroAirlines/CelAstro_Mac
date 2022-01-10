@@ -3,7 +3,12 @@ import httpClient from "lib/http/client"
 import consumer from "../channels/consumer"
 
 export default class extends Controller {
-  static targets = ["seat_info"]
+  static targets = ["seat_info", "seatBookedInfo"]
+
+  finish() {
+    const ticketId = this.seatBookedInfoTarget.dataset.ticket_id
+    httpClient.post(`/seats/${ticketId}/finished`)
+  }
 
   check() {
     const seatId = this.seat_infoTarget.dataset.seat_id
@@ -28,10 +33,13 @@ export default class extends Controller {
       });
   }
   _cableReceived(data) {
-
+    console.log(data);
     const seat = document.querySelector(`[data-seat_id='${data.seat_params.id}']`)
-    seat.innerHTML = data.message
-    // console.log(data.seat_params.user_id)
+    const currentUser = document.querySelector('#current_user')
+    if (currentUser.innerHTML != data.seat_params.user_id && data.seat_params.state == "occupied") {
+      seat.innerHTML = `
+        <img src="/images/green_seat.png">`
+    } else { seat.innerHTML = data.message }
 
   }
 }
