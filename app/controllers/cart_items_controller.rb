@@ -11,7 +11,7 @@ class CartItemsController < ApplicationController
   def create
     ticket = Ticket.find(params[:ticket_id])
     if !ticket
-      redirect_to ticket_path, notice: "沒有這個商品"
+      redirect_to ticket_path, notice: "新增票失敗"
       return
     end
 
