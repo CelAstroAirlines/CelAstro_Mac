@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
     @form_info = Newebpay::Mpg.new(current_cart.total_price).form_info
   end
 
+  
+
   def receivempg
     @response = Newebpay::MpgResponse.new(params[:TradeInfo])
     if @response.status === "SUCCESS"
