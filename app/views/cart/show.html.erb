@@ -1,5 +1,5 @@
-<div class="mt-40 px-20"> 
-  <h1 class="text-xl text-center font-bold mb-4">票價資訊</h1>
+<div class="mt-32 px-20"> 
+  <h1 class="text-xl text-center font-bold">票價資訊</h1>
 
   <div class="flex flex-col">
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -26,21 +26,20 @@
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                   總計
                 </th>
-                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                  
-                </th>
               </tr>
             </thead>
             <tbody>
-              <% @buy_now_items.each do |item| %>
+              <% current_cart.items.each do |item| %>
                 <tr class="border-b">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <%#= item.ticket.ticket_serial %>
                     <%= "#{item.ticket.departure} → #{item.ticket.arrival}" %>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     <%= item.quantity %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <%#= "TWD #{item.price}" %>
                     <%= "TWD " + number_with_delimiter(item.price) %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -52,17 +51,14 @@
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     <%= "TWD " + number_with_delimiter(item.tax_price) %>
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <%= link_to '刪除', cart_item_path(item), method: "delete", data: { confirm: '確認刪除？' } %>
-                  </td>
                 </tr>
                 <% end %>
                 <tr class="bg-white border-b">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     總價
                   </td>
-                  <td colspan="6" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <%= "TWD " + number_with_delimiter(@total_price) %>
+                  <td colspan="5" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <%= "TWD " + number_with_delimiter(current_cart.total_price) %>
                   </td>
                 </tr>
             </tbody>
@@ -71,6 +67,9 @@
       </div>
     </div>
   </div>
-  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '回上一頁', tickets_path %></button>
-  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '結帳', payment_orders_path %></button>
+
+  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8"><%= link_to '回上一頁', tickets_path %></button>
+  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-24"><%= link_to '清除購物車', cart_path, method: "delete" %></button>
+  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8"><%= link_to '結帳', payment_orders_path %></button>
+
 </div>

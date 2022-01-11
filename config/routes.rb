@@ -30,7 +30,10 @@ Rails.application.routes.draw do
   resources :receipts
   resources :members
 
-  resources :cart_items, only: [:index, :create, :destroy]
-
+  resources :cart, only: [:show, :destroy] do
+    collection do
+      post :add, path: 'add/:id' #for ticket 加入購物車按鍵
+    end
+  end
 end
   

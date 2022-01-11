@@ -3,7 +3,7 @@ module Newebpay
   class Mpg
     attr_accessor :info
    
-    def initialize()
+    def initialize(price)
       @key = ENV['Newebpay_Hashkey']
       @iv = ENV['Newebpay_HashIV']
       @merchant_id = ENV['Newebpay_MerchantID']
