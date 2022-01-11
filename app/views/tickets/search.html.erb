@@ -149,7 +149,7 @@
                               <option value="5">5</option>
                             </select>
                             <button class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none">
-                              <%= link_to "加入購物車", add_cart_index_path(ticket.id), method: "post" %>
+                              <%= link_to "加入購物車", add_cart_index_path(ticket.id, ticket.departure_date), method: "post" %>
                             </button>
                           </div>
                         </div>
@@ -166,8 +166,6 @@
 
 
 </div>
-
-
 
 <%#= params[:q][:departure_date_cont].to_date + 7.days %>
 
