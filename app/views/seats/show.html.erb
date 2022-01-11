@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="
+  width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="seats.scss">
+</head>
+<body>
+<div class="bg-orange-50 pb-28">
+  <div class="flex mt-28  ">
+  <div class=""><img src="/images/seat_banner2.jpg"></div>
+  <div class=""><img src="/images/seat_banner1.jpg"></div>
+  </div>
+  <div class="aircraft">
+    <div class="aircraft-body"> 
+      
+      <div class="seats">
+        <div id="seats" class="ml-12 w-full" > 
+          <div class=" w-11/12 pt-8 flex">A
+            <% @seat.each do |f| %>    
+              <%if f.area=="A" %>
+                <%= render partial: "seat", locals:{f: f}%>
+              <% end %>
+            <% end %>
+          </div>
+  
+          <div  class="w-11/12  pt-4 flex ">B
+            <% @seat.each do |f| %>
+              <%if f.area=="B" %>
+                <%= render partial: "seat", locals:{f: f}%>
+              <% end %>
+            <% end %>
+          </div>
+          
+          <div  class="text-base pl-4 w-screen pt-10 ">
+            <% @seat.each do |f| %>
+              <%if f.area=="C" %>
+              <%= f.seat_no %>
+              <% end %>
+            <% end %> 
+          </div>
+    
+          <div  class="w-11/12 pt-10 flex">C
+            <% @seat.each do |f| %>
+              <%if f.area=="C" %>
+                <%= render partial: "seat", locals:{f: f}%>
+              <% end %>
+            <% end %>
+          </div> 
+      
+          <div  class="w-11/12 pt-4 flex">D
+            <% @seat.each do |f| %>
+              <%if f.area=="D" %>
+                <%= render partial: "seat", locals:{f: f}%>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+       
+      <div class="aircraft-head">
+        <div class="aircraft-head-body">
+          <div class="windows">
+            <img src="https://i.ibb.co/F5hp29L/windows.png">
+          </div>
+          <div class="front-lavatory">
+            <img src="https://i.ibb.co/NVT4SZ1/lavatory.png">
+          </div>
+        </div>
+      </div>
+      <div class="aircraft-tail">
+        <div class="aircraft-tail-body">
+          <div class="back-lavatory">
+            <img src="https://i.ibb.co/NVT4SZ1/lavatory.png">
+  
+            <img src="https://i.ibb.co/NVT4SZ1/lavatory.png">
+          </div>
+        </div>
+      </div>
+      <button type="confirm"  bg-black data-controller = "seat" data-action="click->seat#confirm" data-seat-target="seat_info" data-ticket_id="<%= params[:id]%>" class="text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg absolute right-0 mt-14 ">送出</button> 
+    </div>
+    
+  </div>
+</div>  
+</body>
+</html>
+
+<!-- <div id="current_user"><#%=current_user.id%></div> -->
