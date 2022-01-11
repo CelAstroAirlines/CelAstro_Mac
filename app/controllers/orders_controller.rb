@@ -1,5 +1,15 @@
 class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => [:receivempg]
+
+  def create
+    @cart = current_cart
+    @order = current_user.orders.new(order_params)
+    @order.sellign_amount = current_cart.total_price
+    @order.serial 
+    @order.order_timestamp = Time.now.strftime('%Y/%m/%d %H:%M:%S')
+    @order.save
+  end
+
   def payment
     @form_info = Newebpay::Mpg.new(current_cart.total_price).form_info
   end
@@ -15,13 +25,7 @@ class OrdersController < ApplicationController
     end   
   end
 
-  def create
-    @order = current_user.orders.new(order_params)
-    @order.sellign_amount = current_cart.total_price
-    @order.serial 
-    @order.order_timestamp = Time.now.strftime('%Y/%m/%d %H:%M:%S')
-    @order.save
-  end
+
   
   def destroy 
     @order = Order.find(params[:id])
