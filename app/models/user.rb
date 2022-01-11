@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,  :trackable 
 
   after_save :add_carts
-
   has_many :tickets
   has_many :carts
+  has_many :seats
 
   def add_carts
     if carts.blank?

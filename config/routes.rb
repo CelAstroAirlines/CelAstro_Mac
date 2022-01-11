@@ -1,19 +1,31 @@
 Rails.application.routes.draw do
   # mount RailsAdmin::Engine => '/pbadmin', as: 'rails_admin'
-  devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   root "pages#index"
-  get 'index', to:'pages#index'
-  get "/payment", to: "orders#payment"
+  resources :tickets do
+    collection do
+      get :search   # GET /tickets/search
+    end
+  end
 
-  resources :tickets
-  get 'search', to:'tickets#search'
-  resources :seats
+  resources :seats do
+    member do
+      post :confirm
+      post :check
+    end
+   end
  
-  post '/seats/:id/confirm' , to: 'seats#confirm'
+  get '/seats/:id/confirm' , to: 'seats#confirm'
+  post '/seats/:id/finished' , to: 'seats#finished'
   post '/seats/:id/check', to: 'seats#check'
-  post '/orders/receivempg', to: 'orders#receivempg'
+  
+  resources :orders, only: [] do
+    collection do
+      get :payment
+      post :receivempg
+    end
+  end
 
   resources :receipts
   resources :members
