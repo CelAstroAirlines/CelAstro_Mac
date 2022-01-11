@@ -4,12 +4,15 @@ class TicketsController < ApplicationController
   def index
     @q = Ticket.ransack(params[:q])
     @tickets = @q.result(distinct: true)
+    if @q == "one_way"
+      redirect_to root_path
+    end
   end 
   
   def new
-    @ticket = Ticket.new
+  @ticket = Ticket.new
   end
-
+ 
 
   def create
      @ticket = Ticket.new(ticket_params)

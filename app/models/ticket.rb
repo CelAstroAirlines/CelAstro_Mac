@@ -13,7 +13,7 @@ class Ticket < ApplicationRecord
     if ticket.ticket_type == "one_way"
       Ticket.transaction do
         ticket.lock!
-        ticket.quantity -= 1
+        ticket.quantity -= 1 
         ticket.order.save
         ticket.save!
       end
