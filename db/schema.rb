@@ -63,13 +63,13 @@ ActiveRecord::Schema.define(version: 2022_01_09_063459) do
   end
 
   create_table "seats", force: :cascade do |t|
-    t.string "ticket_serial"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "seat_no"
     t.string "state"
     t.string "area"
-    t.string "user_id"
+    t.integer "ticket_id"
+    t.integer "user_id"
   end
 
   create_table "tickets", force: :cascade do |t|

@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     end
    end
  
-  post '/seats/:id/confirm' , to: 'seats#confirm'
+  get '/seats/:id/confirm' , to: 'seats#confirm'
+  post '/seats/:id/finished' , to: 'seats#finished'
   post '/seats/:id/check', to: 'seats#check'
   
   resources :orders, only: [] do
