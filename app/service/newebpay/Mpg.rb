@@ -8,7 +8,7 @@ module Newebpay
       @iv = ENV['Newebpay_HashIV']
       @merchant_id = ENV['Newebpay_MerchantID']
       @info = {} 
-      # @payment_amt = price
+      @payment_amt = price
       set_info
     end
 
@@ -34,7 +34,7 @@ module Newebpay
     def set_info  
       info[:MerchantID] = @merchant_id
       info[:MerchantOrderNo] = serial_generator
-      info[:Amt] = "200"
+      info[:Amt] = @payment_amt
       info[:ItemDesc] = "Air Tickets" 
       info[:Email] = ENV['Newebpay_Email']
       info[:TimeStamp] = Time.now.to_i 

@@ -13,6 +13,7 @@
   <div class="flex mt-28  ">
   <div class=""><img src="/images/seat_banner2.jpg"></div>
   <div class=""><img src="/images/seat_banner1.jpg"></div>
+  <div id="current_user" class ="hidden"><%= current_user.id%></div>
   </div>
   <div class="aircraft">
     <div class="aircraft-body"> 
@@ -34,13 +35,13 @@
               <% end %>
             <% end %>
           </div>
-          
-          <div  class="text-base pl-4 w-screen pt-10 ">
-            <% @seat.each do |f| %>
-              <%if f.area=="C" %>
-              <%= f.seat_no %>
-              <% end %>
-            <% end %> 
+          <div  class="text-base pl-2 w-screen pt-10 flex ">
+            <% 10.times do |f| %>
+            <div class="text-sm pl-1.5"><%="#{(f+1)}".rjust(2,"0")%></div>
+            <% end %>
+            <% 35.times do |f| %>
+            <div class="text-sm pl-1"><%="#{(f+11)}".rjust(2,"0")%></div>
+            <% end %>
           </div>
     
           <div  class="w-11/12 pt-10 flex">C
@@ -88,5 +89,3 @@
 </div>  
 </body>
 </html>
-
-<!-- <div id="current_user"><#%=current_user.id%></div> -->

@@ -9,7 +9,7 @@ class SeatsController < ApplicationController
     Seat.where(ticket_id: params[:id], user_id: current_user.id).each do |s|
       if s.occupied?
         s.book!
-        RenewSeatJob.perform_later(params[:id], s)
+        RenewSeatJob.perform_now(params[:ticket_id], s)
       end
     end
   end
@@ -17,7 +17,8 @@ class SeatsController < ApplicationController
   def confirm
     @seat = Seat.where(
       ticket_id: params[:id], 
-      user_id: current_user.id
+      user_id: current_user.id,
+      state: "occupied"
     ).order(:id)
     @user = User.find_by(id: current_user.id)
     @ticket = Ticket.find_by(id: params[:id])
@@ -48,7 +49,7 @@ class SeatsController < ApplicationController
     else
     end
 
-    RenewSeatJob.perform_later(ticket_id, seat)
+    RenewSeatJob.perform_now(params[:ticket_id], seat)
   end
 
   
