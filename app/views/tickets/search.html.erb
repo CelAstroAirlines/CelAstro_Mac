@@ -36,16 +36,21 @@
                           <p class="text-sm text-gray-800 pr-2">出發日期<%= @ticket.departure_date %></p>
                           <p class="text-sm text-gray-800 pr-2">出發時間<%= @ticket.departure_time %></p>
                           <p class="text-sm text-gray-800 px-2 mr-8">抵達時間<%= @ticket.arrival_time %></p>
-                          <select name= "ticket[quantity]" >
+                          <select name= "ticket[quantity]" class= "quantity_selection">
                             <option value="1" selected="selected">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                           </select>
-                          <button class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none">
+                          <button>
                             <% if @ticket%>
-                            <%= link_to "加入購物車", add_cart_index_path(@ticket), method: "post" %>
+                              <%= form_tag cart_items_path, method: :post do %>
+                                <%= hidden_field_tag(:ticket_id, @ticket.id, id: nil) %>
+                                <%= hidden_field_tag(:cart_type, Cart.cart_types[:buy_now], id: nil) %>
+                                <%= hidden_field_tag(:quantity, 1, class: "quantity") %>
+                                <button type="submit" class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none ml-4">加入購物車</button>
+                              <% end %>
                             <% end %>
                           </button>
                         </div>
@@ -93,15 +98,20 @@
                               <p class="text-sm text-gray-800 pr-2">出發日期<%= ticket.departure_date %></p>
                               <p class="text-sm text-gray-800 pr-2">出發時間<%= ticket.departure_time %></p>
                               <p class="text-sm text-gray-800 px-2 mr-8">抵達時間<%= ticket.arrival_time %></p>
-                              <select name= "ticket[quantity]" >
+                              <select name= "ticket[quantity]" class= "quantity_selection" >
                                 <option value="1" selected="selected">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                               </select>
-                              <button class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none">
-                                <%= link_to "加入購物車", add_cart_index_path(ticket.id), method: "post" %>
+                              <button>
+                                <%= form_tag cart_items_path, method: :post do %>
+                                  <%= hidden_field_tag(:ticket_id, ticket.id, id: nil) %>
+                                  <%= hidden_field_tag(:cart_type, Cart.cart_types[:buy_now], id: nil) %>
+                                  <%= hidden_field_tag(:quantity, 1, class: "quantity") %>
+                                  <button type="submit" class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none ml-4">加入購物車</button>
+                                <% end %>
                               </button>
                             </div>
                           </div>
@@ -141,15 +151,20 @@
                             <p class="text-sm text-gray-800 pr-4">回程日期<%= ticket.returning_date %></p>
                             <p class="text-sm text-gray-800 pr-4">出發時間<%= ticket.return_departure_time %></p>
                             <p class="text-sm text-gray-800 px-4 mr-12">抵達時間<%= ticket.return_arrival_time %></p>
-                            <select name= "ticket[quantity]" >
+                            <select name= "ticket[quantity]" class= "quantity_selection">
                               <option value="1" selected="selected">1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
                               <option value="4">4</option>
                               <option value="5">5</option>
                             </select>
-                            <button class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none">
-                              <%= link_to "加入購物車", add_cart_index_path(ticket.id), method: "post" %>
+                            <button>
+                              <%= form_tag cart_items_path, method: :post do %>
+                                <%= hidden_field_tag(:ticket_id, ticket.id, id: nil) %>
+                                <%= hidden_field_tag(:cart_type, Cart.cart_types[:buy_now], id: nil) %>
+                                <%= hidden_field_tag(:quantity, 1, class: "quantity") %>
+                                <button type="submit" class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none ml-4">加入購物車</button>
+                              <% end %>
                             </button>
                           </div>
                         </div>
@@ -163,14 +178,15 @@
       </div>
     </div>      
 </section>
-
-
 </div>
 
-
-
 <%#= params[:q][:departure_date_cont].to_date + 7.days %>
-
-
-
-  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(function () {
+    $(".quantity_selection").change(function () {
+      const value = $(this).val();
+      $(".quantity").val(value);
+    })
+  })
+</script>
