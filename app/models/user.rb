@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :tickets
   has_many :carts
   has_many :seats
+  has_many :orders
 
   def add_carts
     if carts.blank?

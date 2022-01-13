@@ -21,7 +21,7 @@
                 </div>
                 <% else %>
                 <div class="inline-block mx-24">
-                  <div class="max-w-2xl mx-auto flex p-6 bg-white rounded-lg shadow-xl justify-center hover:shadow-2xl transform hover:scale-105 duration-500">
+                  <div class="max-w-2xl ml-40 flex p-6 bg-white rounded-lg shadow-xl justify-center hover:shadow-2xl transform hover:scale-105 duration-500">
                     <div class="flex">
                       <div class="h-12 w-12"><%= image_tag 'membership_logo.png'%>
                       </div>
@@ -70,7 +70,7 @@
         <h1 class=" sm:text-3xl text-2xl font-medium title-font  text-orange-50">相關航班</h1>
   </div>  
     <div class="py-11  bg-indigo-900 ">
-      <div class="flex lg:w-5/6 w-full sm:flex-row mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
+      <div class="flex justify-center lg:w-5/6 w-full sm:flex-row mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
         <div class=" relative flex-grow  my-14 mx-10">
           <div id="form_container">
             <div>
@@ -83,7 +83,7 @@
                   ticket_type: params[:q][:ticket_type_cont]).each do |ticket| %>
                 <% if ticket.departure_date != params[:q][:departure_date_cont] %>
                     <div class="inline-block mx-24">
-                      <div class="max-w-2xl mx-auto mt-12 flex p-6 bg-gradient-to-b from-blue-50 rounded-lg shadow-xl justify-center hover:shadow-2xl transform hover:scale-105 duration-500">
+                      <div class="max-w-2xl ml-40 mt-12 flex p-6 bg-gradient-to-b from-blue-50 rounded-lg shadow-xl justify-center hover:shadow-2xl transform hover:scale-105 duration-500">
                         <div class="flex">
                           <div class="h-12 w-12"><%= image_tag 'membership_logo.png'%>
                           </div>
@@ -122,7 +122,7 @@
                 <% end %>
               <% end %>    
             </div>
-            <div>
+            <div class="justify-items-center">
               <% if @ticket == nil && params[:q][:ticket_type_cont] == "roundtrip" && params[:q][:returning_date_cont] %>
                 <% Ticket.where(
                   departure_date: params[:q][:departure_date_cont].to_date - 3.days..params[:q][:departure_date_cont].to_date + 3.days,
