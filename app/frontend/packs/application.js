@@ -17,3 +17,4 @@ ActiveStorage.start()
 import "stylesheets"
 import "scripts"
 import "controllers"
+require("jquery")
