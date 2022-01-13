@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :carts
   has_many :seats
   has_many :orders
+  has_many :carts, :dependent => :destroy
+  has_many :seats, :dependent => :destroy
 
   def add_carts
     if carts.blank?
