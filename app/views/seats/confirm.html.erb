@@ -1,40 +1,49 @@
-<div class="mt-32">
-  <h1> Confirm your seats</h1>
 
-
-  <div>
-    <p><%= @ticket.ticket_serial %></p>
-    <span><%= @ticket.departure %></span>  to 
-    <span><%= @ticket.arrival %></span> 
-    <p><%= @ticket.departure_date %></p> 
-  </div>
-
-  <% @seat.each do |f| %>
-    <div>
-      <span><%= f.area %></span>
-      <span><%= f.seat_no %></span>
-    </div>
-  <%end%>
-  <div>
-      <button data-controller = "seat"
-      data-seat-target="seatBookedInfo"
-      data-ticket_id="<%= @ticket.id%>"
-      data-action="click->seat#finish"> 
-      <%= link_to '按我', root_path %>
-      </button>
-  </div>
-  
-</div>
 
 
 <section class="text-gray-600 body-font bg-indigo-700 mt-28">
   <div class="flex flex-col ml-28 pt-10 mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">劃位資訊</h1>
   </div>  
+
   <div class="py-11  bg-indigo-900 ">
-    <div class="flex lg:w-5/6 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
-      
-   
-    </div>
+    <div class=" lg:w-5/6 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md">
+      <div class=" my-14 mx-10"> 
+        <div class="">
+          <div class=" pt-10 lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row  ">
+            <% @seat.each do |f| %>
+              <div class="flex pb-10"> 
+                <div class=" sm:w-28 sm:h-28 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-orange-100 text-yellow-500 flex-shrink-0">
+                    <img src="/images/CelAstrologo_copy.png">
+                </div>
+          
+                <div class="sm:text-left text-center  sm:mt-0 ml-10 ">
+                  <h1 class="text-gray-900 text-xl title-font font-medium pb-5">您已購買的航班與座位 </h1>
+                  <p class="pb-2">航程 : <span class="text-yellow-600"><%= @ticket.departure %> --> <%= @ticket.arrival %></span></p>
+                  <p class="pb-2">日期 : <span class="text-yellow-600"><%= @ticket.departure_date %></span></p>  
+                  <p class="pb-2">出發時間 : <span class="text-yellow-600"><%= @ticket.departure_time %></span></p> 
+                  <p class="pb-2">抵達時間 : <span class="text-yellow-600"><%= @ticket.arrival_time %></span></p>  
+                    <div class="pb-2">座位 : 
+                      <span class="text-yellow-600"><%= f.area %>
+                      <%= f.seat_no %></span>
+                    </div>   
+                </div>
+              </div>
+               <div class="flex items-center lg:w-3/5 mx-auto border-b pb-5 mb-10 border-gray-200 sm:flex-row flex-col"> </div>
+            <%end%>
+ 
+              <div>
+                <button data-controller = "seat"
+                data-seat-target="seatBookedInfo"
+                data-ticket_id="<%= @ticket.id%>"
+                data-action="click->seat#finish"> 
+                <%= link_to '完成劃位', root_path, class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg 
+                " %>
+                </button>
+              </div> 
+          </div>
+        </div>
+      </div>
+    </div>       
   </div>
 </section>

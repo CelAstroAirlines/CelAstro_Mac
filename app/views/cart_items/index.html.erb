@@ -1,0 +1,84 @@
+<section class="text-gray-600 body-font bg-indigo-700 mt-28">
+  <div class="ml-28 pt-10 mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">票價資訊</h1>
+  </div>
+  <div class="py-11 bg-indigo-900 ">
+    <div class="lg:w-5/6 sm:flex-row flex-col px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0  bg-orange-50 rounded-md m-auto py-3">
+      <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+  <div class="flex flex-col ">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full">
+            <thead class="border-b">
+              <tr>
+                <th scope="col" class="text-base text-gray-600 text-center">
+                  航班資訊
+                </th>
+                <th scope="col" class="text-base text-gray-600 text-center">
+                  數量
+                </th>
+                <th scope="col" class="text-base text-gray-600 text-center">
+                  票價
+                </th>
+                <th scope="col" class="text-base text-gray-600 text-center">
+                  燃油附加費
+                </th>
+                <th scope="col" class="text-base text-gray-600 text-center">
+                  機場服務費
+                </th>
+                <th scope="col" class="text-base text-gray-600 text-center">
+                  總計
+                </th>
+                <th scope="col" class="text-base text-gray-600 text-center">
+                  
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @buy_now_items.each do |item| %>
+                <tr class="border-b">
+                  <td class="text-center whitespace-nowrap text-sm font-medium text-gray-900">
+                    <%= "#{item.ticket.departure} → #{item.ticket.arrival}" %>
+                  </td>
+                  <td class="text-center whitespace-nowrap text-sm font-medium text-gray-900">
+                    <%= item.quantity %>
+                  </td>
+                  <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+                    <%= "TWD " + number_with_delimiter(item.price) %>
+                  </td>
+                  <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+                    <%= "TWD " + number_with_delimiter(item.fuel_surcharge)%>
+                  </td>
+                  <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+                    <%= "TWD " + number_with_delimiter(item.airport_service_fee) %>
+                  </td>
+                  <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+                    <%= "TWD " + number_with_delimiter(item.tax_price) %>
+                  </td>
+                  <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+                    <%= link_to '刪除', cart_item_path(item), method: "delete", data: { confirm: '確認刪除？' } %>
+                  </td>
+                </tr>
+                <% end %>
+                <tr class="bg-white border-b">
+                  <td class="text-center whitespace-nowrap text-sm font-medium text-gray-900">
+                    總價
+                  </td>
+                  <td colspan="6" class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+                    <%= "TWD " + number_with_delimiter(@total_price) %>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '回上一頁', tickets_path %></button>
+  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '結帳', payment_orders_path %></button>
+</div>
+</div>
+</div>
+</div>
+</section>
