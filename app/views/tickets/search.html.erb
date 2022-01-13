@@ -43,11 +43,6 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                           </select>
-<<<<<<< HEAD
-                          
-                            <% if @ticket %>
-                            <%= button_to "加入購物車", add_cart_index_path(@ticket), method: "post" %>
-=======
                           <button>
                             <% if @ticket%>
                               <%= form_tag cart_items_path, method: :post do %>
@@ -56,7 +51,6 @@
                                 <%= hidden_field_tag(:quantity, 1, class: "quantity") %>
                                 <button type="submit" class="inline-flex items-center h-12 px-6 text-sm tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none ml-4">加入購物車</button>
                               <% end %>
->>>>>>> 9b426ca9fecbdddfd861b49db5d54d83f56e033a
                             <% end %>
                           </button>
                         </div>
