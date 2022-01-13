@@ -88,4 +88,15 @@ Rails.application.configure do
     open_timeout:         5,
     read_timeout:         5 }
 
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+    address:              'smtp.mailgun.org',
+    port:                 587,
+    domain:               'CelAstroAirlines@gmail.com',
+    user_name:            ENV['mailgun_user_name'],
+    password:             ENV['mailgun_password'],
+    authentication:       'plain',
+    enable_starttls_auto: true,
+    open_timeout:         5,
+    read_timeout:         5 }
 end
