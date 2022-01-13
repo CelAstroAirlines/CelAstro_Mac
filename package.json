@@ -10,6 +10,7 @@
     "dotenv": "^10.0.0",
     "figaro-js": "^3.0.2",
     "flatpickr": "^4.6.9",
+    "jquery": "^3.6.0",
     "stimulus": "^3.0.1",
     "stimulus-flatpickr": "^1.4.0",
     "turbolinks": "^5.2.0",
