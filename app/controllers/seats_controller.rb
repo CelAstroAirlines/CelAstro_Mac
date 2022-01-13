@@ -2,7 +2,8 @@ class SeatsController < ApplicationController
   # before_action :authenticate_user!
   def show  
     @seat = Seat.where(ticket_id: params[:id]).order(:id)
-    @ticket = Ticket.where(ticket_id: params[:id]) 
+    @ticket = Ticket.where(ticket_id: params[:id])
+    @user_id = current_user.id 
   end
 
   def finished
