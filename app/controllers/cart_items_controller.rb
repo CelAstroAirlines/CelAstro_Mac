@@ -5,7 +5,7 @@ class CartItemsController < ApplicationController
   before_action :get_cart_item, only: [:destroy]
 
   def index
-    @buy_now_items = current_user.buy_now_cart_items
+    @buy_now_items = current_user.buy_now_cart_items.order(id: :desc)
     @total_price = current_user.buy_now_cart.total_price
   end
 
