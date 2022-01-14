@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,  :trackable 
 
+  validates :terms_of_service, acceptance: 'false'
+  # validates :terms_of_service, acceptance: { message: 'must be abided' }
+  
   after_save :add_carts
   has_many :tickets
   has_many :carts
