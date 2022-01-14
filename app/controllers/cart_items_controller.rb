@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
   
   before_action :authenticate_user!
-  before_action :get_cart, except: [:index, :destroy]
+  before_action :get_cart, except: [:index, :update, :destroy]
   before_action :get_cart_item, only: [:destroy]
 
   def index
@@ -18,7 +18,16 @@ class CartItemsController < ApplicationController
 
     CartItem.create(ticket: ticket, quantity: params[:quantity], cart: @cart)
     redirect_to cart_items_path
+  end
 
+  def update
+    @cart_item = CartItem.find(params[:id])
+    if @cart_item.update(cart_item_permit)
+      redirect_to cart_items_path
+      return
+    else
+      redirect_to cart_items_path, notice: "更新失敗"
+    end
   end
 
   def destroy
@@ -42,6 +51,10 @@ class CartItemsController < ApplicationController
     if !@cart_item || (@cart_item.user != current_user)
       redirect_to cart_items_path, notice: "沒有找到 cart item"
     end
+  end
+
+  def cart_item_permit
+    params.require(:cart_item).permit(:quantity)
   end
 
 end

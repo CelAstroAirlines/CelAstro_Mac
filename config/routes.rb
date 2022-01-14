@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :receipts
   resources :members
 
-  resources :cart_items, only: [:index, :create, :destroy]
+  resources :cart_items, only: [:index, :update, :create, :destroy]
   
 end
   
