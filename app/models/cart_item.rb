@@ -8,11 +8,11 @@ class CartItem < ApplicationRecord
   end
 
   def fuel_surcharge
-    (price * 0.01).ceil
+    (price * 0.09).ceil
   end
 
   def airport_service_fee
-    (price * 0.02).ceil
+    (price * 0.1).ceil
   end
 
   def tax_price
