@@ -3,23 +3,23 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items 
 
-  # include AASM
+  include AASM
 
-  # aasm column: "state" do 
-  #   state :pending, initial: true
-  #   state :paid, :cancelled, :refunded 
+  aasm column: "state" do 
+    state :pending, initial: true
+    state :paid, :cancelled, :refunded 
 
-  #   event :pay do
-  #     transitions from: :pending, to: :paid
-  #   end
+    event :pay do
+      transitions from: :pending, to: :paid
+    end
 
-  #   event :cancel do
-  #     transitions from: [:pending, :paid], to: :cancelled
-  #   end
+    event :cancel do
+      transitions from: [:pending, :paid], to: :cancelled
+    end
 
-  #   event :refund do
-  #     transitions from: [:paid, :cancelled], to: :refunded 
-  #   end
-  # end
+    event :refund do
+      transitions from: [:paid, :cancelled], to: :refunded
+    end
+  end
 end
 

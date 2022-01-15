@@ -37,14 +37,14 @@ class OrdersController < ApplicationController
     @response = Newebpay::MpgResponse.new(params[:TradeInfo])
     @order = Order.find_by(order_timestamp: @response.order_no)
     sign_in @order.user
-    # if @status === "SUCCESS"
-    #    flash.now[:notice] = "付款成功！"
+    if @response.status === "SUCCESS"    
+       flash.now[:notice] = "付款成功！"
+       @order.pay!
       # OrderMailer.notify_order('#{current_user.email}').deliver
       # OrderMailJob.perform_later
-    #   sign_in @order.user
-    # else
-    #    redirect_to cart_path, notice: '付款過程發生問題'
-    # end   
+    else
+       redirect_to search_tickets_path, notice: '付款過程發生問題'
+    end 
   end
 
 
