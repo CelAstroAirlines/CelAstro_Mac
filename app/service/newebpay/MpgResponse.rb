@@ -9,9 +9,9 @@ module Newebpay
       @status = response['Status']
       @message = response['Message']
       @result = response['Result']
-      @order_no = @result["MerchantOrderNo"]
       @trans_no = @result["TradeNo"]  
       @amt = response['Amt']
+      @order_no = response.dig("Result", "MerchantOrderNo")
     end
 
     def success?
