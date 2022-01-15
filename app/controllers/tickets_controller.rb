@@ -20,7 +20,8 @@ class TicketsController < ApplicationController
     @q = Ticket.ransack(params[:q])
     @ticket = @q.result.first
     if @q.ticket_type_cont == "roundtrip" && !@q.returning_date_cont
-      render :index, notice: '請輸入回程日期'
+      flash[:alert] = "購買來回票，請輸入回程日期。"
+      render :index
     end
   end
 
