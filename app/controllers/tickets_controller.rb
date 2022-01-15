@@ -4,9 +4,7 @@ class TicketsController < ApplicationController
   def index
     @q = Ticket.ransack(params[:q])
     @tickets = @q.result(distinct: true)
-    if @q == "one_way"
-      redirect_to root_path
-    end
+    
   end 
   
   def new
@@ -21,7 +19,9 @@ class TicketsController < ApplicationController
   def search
     @q = Ticket.ransack(params[:q])
     @ticket = @q.result.first
-    # @ticket = Ticket.new
+    if @q.ticket_type_cont == "roundtrip" && !@q.returning_date_cont
+      render :index, notice: '請輸入回程日期'
+    end
   end
 
   def show

@@ -1,7 +1,9 @@
 class Order < ApplicationRecord
-  has_many :tickets
   belongs_to :user
   has_many :order_items 
+  
+  enum cart_type: [:not_paid, :paid, :cancelled]
+
 
   include AASM
 
