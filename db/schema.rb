@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_100929) do
+ActiveRecord::Schema.define(version: 2022_01_14_050124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,25 +45,11 @@ ActiveRecord::Schema.define(version: 2022_01_13_100929) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "ticket_id", null: false
     t.bigint "user_id", null: false
     t.string "order_timestamp"
-    t.string "slug"
     t.integer "sellign_amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "departure"
-    t.string "arrival"
-    t.string "ticket_serial"
-    t.string "departure_date"
-    t.string "ticket_type"
-    t.string "return_departure_airport"
-    t.string "return_arrival_airport"
-    t.string "return_departure_time"
-    t.string "cabin_class"
-    t.integer "order_ticket_count"
-    t.string "serial"
-    t.index ["ticket_id"], name: "index_orders_on_ticket_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -124,6 +110,5 @@ ActiveRecord::Schema.define(version: 2022_01_13_100929) do
   add_foreign_key "carts", "users"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "tickets"
-  add_foreign_key "orders", "tickets"
   add_foreign_key "orders", "users"
 end
