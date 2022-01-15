@@ -1,9 +1,13 @@
 class SeatsController < ApplicationController
   # before_action :authenticate_user!
   def show  
-    @seat = Seat.where(ticket_id: params[:id]).order(:id)
-    @ticket = Ticket.where(ticket_id: params[:id])
-    @user_id = current_user.id 
+    if user_tickets(current_user).include?(params[:id].to_i)
+      @seat = Seat.where(ticket_id: params[:id]).order(:id)
+      @ticket = Ticket.where(ticket_id: params[:id])
+      @user_id = current_user.id 
+    else
+      redirect_to :root, alert:"請先購買機票"
+    end
   end
 
   def finished
@@ -28,29 +32,75 @@ class SeatsController < ApplicationController
 
   def check    
     seat = Seat.find_by(
-      ticket_id: params[:id], 
-      id: params[:seat]
-    )
+          ticket_id: params[:id], 
+          id: params[:seat]
+        )
     ticket_id = params[:ticket_id]
-    # render json:{current_user: current_user.id}
-    # seat.hold_seat(current_user.id)
-    # if seat.user_id == current_user.id && seat.user_id != nil
     case
     when seat.vaccant?
-      # seat.hold_seat(current_user)
-      seat.update(user_id: current_user.id)
-      seat.occupy!
+      if seats_count < order_seat_quantity(current_user, params[:id])
+        seat.update(user_id: current_user.id)
+        seat.occupy!
+      else
+      end
     when seat.occupied?
       if current_user.id == seat.user_id || seat.user_id == nil
         seat.empty!
         seat.update(user_id: current_user.id)
       else
-        render json: { result: 'failed'}
+        ender json: { result: 'failed'}
       end
     else
     end
+    RenewSeatJob.perform_now(params[:ticket_id], seat)  
+  end
 
-    RenewSeatJob.perform_now(params[:ticket_id], seat)
+  private
+  
+  def check_order_info(user)
+    order_items_ids = []
+    all_orders = user.orders.all
+    all_orders.each do |order|
+      if order.state === 'paid'
+        order_items_id = order.order_items.ids
+        order_items_ids << order_items_id
+      end
+    end
+    order_items_ids = order_items_ids.flatten
+  end
+
+  def order_seat_quantity(user, ticket_id)
+    total_count = 0  
+    check_order_info(user).each do |item_id|
+      if ticket_id.to_i === OrderItem.find(item_id).ticket_id
+        total_count +=  OrderItem.find(item_id).quantity.to_i
+      end
+    end
+    total_count
+  end
+
+  def user_tickets(user)
+    ticket_ids = []
+    check_order_info(user).each do |item_id|
+      ticket_id = OrderItem.find(item_id).ticket_id
+      ticket_ids << ticket_id
+    end
+    ticket_ids
+  end
+
+  def seats_count
+    occupied_seat = Seat.where(
+      ticket_id: params[:id],
+      state: "occupied",
+      user_id: current_user.id
+    )
+
+    booked_seat = Seat.where(
+      ticket_id: params[:id],
+      state: "booked",
+      user_id: current_user.id
+    )
+    user_occupied_booked_count = occupied_seat.count + booked_seat.count
   end
 
   
