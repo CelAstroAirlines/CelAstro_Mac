@@ -12,10 +12,13 @@ import Turbolinks from "turbolinks"
 
 
 
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
 
 import "stylesheets"
 import "scripts"
+<<<<<<< HEAD
 import "controllers"
 require("jquery")
+=======
+>>>>>>> complete search views
