@@ -1,43 +1,50 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:receivempg]
   before_action :set_order, only: [:show, :edit, :destroy]
   # before_action :verify_auth
   skip_before_action :verify_authenticity_token, :only => [:receivempg]
 
   def create
-    @cart = current_cart
+    # @cart = current_cart
     @order = Order.create(
-      ticket_id: current_user.cart.cart_items.ticket.ticket_id,
       user_id: current_user.id,
-      order_timestamp: Time.now.strftime('%Y/%m/%d %H:%M:%S')
+      order_timestamp: Time.now.strftime('%Y%m%d%H%M%S'),
+      sellign_amount: current_user.buy_now_cart.total_price
     )
-    # current_user.buy_now_cart_items.each do |order_item|
-    #   OrderItem.create (
-    #     order_id: @order,
-    #     ticket_id: cart_items.ticket.ticket_id,
-    #     quantity: cart_items.quantity,
-    #     price: cart_items.ticket.ticket_amount
-    #   )
-    # end
-    # current_user.buy_now_cart_items.destroy_all
+    
+    current_user.buy_now_cart_items.each do |order_item|
+      OrderItem.create(
+        order_id: @order.id,
+        ticket_id: order_item.ticket_id,
+        quantity: order_item.quantity,
+        price: Ticket.find(order_item.ticket_id).ticket_amount.to_i 
+      )
+    end
+    current_user.buy_now_cart.cart_items.destroy_all
+
+    redirect_to payment_orders_path
+
   end
   
 
   def payment
-    @form_info = Newebpay::Mpg.new(current_user.buy_now_cart.total_price).form_info
-    @order = Order.create(order_params)
+    @form_info = Newebpay::Mpg.new(current_user.orders.last.sellign_amount, current_user.orders.last.order_timestamp, current_user.id).form_info
+  
   end
 
   def receivempg
+    
     @response = Newebpay::MpgResponse.new(params[:TradeInfo])
-    if @response.status === "SUCCESS"
-       flash.now[:notice] = "付款成功！"
-       OrderMailer.notify_order('#{current_user.email}').deliver
-      OrderMailJob.perform_later
-      # sign_in current_user 
-    else
-       redirect_to cart_items_path, notice: '付款過程發生問題'
-    end   
+    @order = Order.find_by(order_timestamp: @response.order_no)
+    sign_in @order.user
+    # if @status === "SUCCESS"
+    #    flash.now[:notice] = "付款成功！"
+      # OrderMailer.notify_order('#{current_user.email}').deliver
+      # OrderMailJob.perform_later
+    #   sign_in @order.user
+    # else
+    #    redirect_to cart_path, notice: '付款過程發生問題'
+    # end   
   end
 
 
