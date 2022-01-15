@@ -17,8 +17,5 @@ ActiveStorage.start()
 
 import "stylesheets"
 import "scripts"
-<<<<<<< HEAD
 import "controllers"
 require("jquery")
-=======
->>>>>>> complete search views
