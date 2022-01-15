@@ -11,8 +11,8 @@
               <div class="overflow-hidden">
                 <%= render "items" %>
                 <div class="flex justify-between">
-                  <button class="h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '回上一頁', tickets_path %></button>
-                  <button class="h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '結帳', payment_orders_path %></button>
+                    <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '回上一頁', tickets_path %></button>
+                    <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '結帳',orders_path ,method: :post%></button>
                 </div>
               </div>
             </div>
@@ -22,12 +22,6 @@
       
     </div>
   </div>
-  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '回上一頁', tickets_path %></button>
-  <button class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '結帳',orders_path ,method: :post%></button>
-</div>
-</div>
-</div>
-</div>
 </section>
 
 
