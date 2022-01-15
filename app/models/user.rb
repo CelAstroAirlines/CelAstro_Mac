@@ -33,5 +33,8 @@ class User < ApplicationRecord
   def buy_now_info
     carts.buy_now.first.cart_items.first
   end
+
   
+  
+
 end
