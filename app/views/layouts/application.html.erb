@@ -9,16 +9,13 @@
     <%= stylesheet_pack_tag  media: 'all', 'data-turbolinks-track': 'reload' %>
     
   </head>
-
-
   <body>
-    <p class="alert bg-red-500 text-center"><%= alert %></p>
-    <%= yield %> 
+    <%= yield %>  
     <p class="notice"><%= notice %></p>
-    <%= render 'devise/shared/header' %> 
+    <p class="alert bg-red-500 text-center"><%= alert %></p>
+    <%= render 'devise/shared/header' %>  
     <%= render 'devise/shared/footer' %> 
     <%= javascript_pack_tag 'application' %>
   
   </body>
-
 </html>

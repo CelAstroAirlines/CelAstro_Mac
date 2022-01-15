@@ -2,6 +2,7 @@
   <div class="flex flex-col ml-28 pt-5 mb-5">
         <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">機票查詢</h1>
   </div>  
+  <p class="text-lg font-semibold text-orange-50 text-center"><%= flash[:alert] %></p>
   <div class="rounded-lg shadow-lg bg-gray-600 w-full flex flex-row flex-wrap p-3 antialiased" style="
     background-image: url('https://images.unsplash.com/photo-1578836537282-3171d77f8632?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
     background-repeat: no-repat;
@@ -10,8 +11,9 @@
     ">
     <div class="md:w-full px-3 flex flex-row flex-wrap">
       <div class="w-full text-right text-gray-700 font-semibold relative pt-3 md:pt-0">
-        <div class="text-2xl text-white leading-tight">Hello <%= current_user.first_name%>！Welcome to CelAstro Airlines</div>
+        <div class="text-2xl text-white leading-tight">你好 <%= current_user.first_name%>！歡迎搭乘星辰航空</div>
         <div class="text-normal text-gray-300 hover:text-gray-400 cursor-pointer"><span class="border-b border-dashed border-gray-500 pb-1"><%= current_user.email%></span></div>
+        <div class="text-normal text-gray-300 hover:text-gray-400 cursor-pointer"><span class="border-b border-dashed border-gray-500 pb-1">✈CelAstro Airlines</span></div>
           <div class="flex mt-12 lg:w-5/6 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-gradient-to-b from-gray-700 rounded-md ">
           <div class="relative flex-grow  my-14 mx-10">
             <%= search_form_for @q, url: search_tickets_path do |s| %>
@@ -62,7 +64,7 @@
         </div>
       </div>
     </div>
-        <div class="text-sm text-gray-300 hover:text-gray-400 cursor-pointer md:absolute pt-3 md:pt-0 bottom-0 right-0">Last Seen: <%= current_user.last_sign_in_at%></div>
+        <div class="text-sm text-gray-300 hover:text-gray-400 cursor-pointer md:absolute pt-3 md:pt-0 bottom-0 right-0">上次登入: <%= current_user.last_sign_in_at%></div>
         </div>
     </div>
   </div>
