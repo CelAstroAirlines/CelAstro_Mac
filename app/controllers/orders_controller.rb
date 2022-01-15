@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
       OrderMailJob.perform_later
       # sign_in current_user 
     else
-       redirect_to cart_path, notice: '付款過程發生問題'
+       redirect_to cart_items_path, notice: '付款過程發生問題'
     end   
   end
 
