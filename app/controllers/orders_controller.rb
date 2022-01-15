@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
       order_timestamp: Time.now.strftime('%Y%m%d%H%M%S'),
       sellign_amount: current_user.buy_now_cart.total_price
     )
+    
     current_user.buy_now_cart_items.each do |order_item|
       OrderItem.create(
         order_id: @order.id,
@@ -38,8 +39,8 @@ class OrdersController < ApplicationController
     sign_in @order.user
     # if @status === "SUCCESS"
     #    flash.now[:notice] = "付款成功！"
-      OrderMailer.notify_order('#{current_user.email}').deliver
-      OrderMailJob.perform_later
+      # OrderMailer.notify_order('#{current_user.email}').deliver
+      # OrderMailJob.perform_later
     #   sign_in @order.user
     # else
     #    redirect_to cart_path, notice: '付款過程發生問題'
