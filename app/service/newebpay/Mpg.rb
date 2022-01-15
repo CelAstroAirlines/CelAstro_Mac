@@ -3,12 +3,14 @@ module Newebpay
   class Mpg
     attr_accessor :info
    
-    def initialize(price)
+    def initialize(price, merchantOrderNo, user_id)
       @key = ENV['Newebpay_Hashkey']
       @iv = ENV['Newebpay_HashIV']
       @merchant_id = ENV['Newebpay_MerchantID']
       @info = {} 
       @payment_amt = price
+      @merchantOrderNo = merchantOrderNo
+      @user_id = user_id
       set_info
     end
 
@@ -33,15 +35,15 @@ module Newebpay
 
     def set_info  
       info[:MerchantID] = @merchant_id
-      info[:MerchantOrderNo] = serial_generator
+      info[:MerchantOrderNo] = @merchantOrderNo
       info[:Amt] = @payment_amt
       info[:ItemDesc] = "Air Tickets" 
       info[:Email] = ENV['Newebpay_Email']
       info[:TimeStamp] = Time.now.to_i 
       info[:RespondType] = "JSON"
       info[:Version] = "1.5"
-      info[:ReturnURL] = "http://localhost:3000/orders/receivempg"
-      info[:NotifyURL] = "https://ccore.newebpay.com/MPG/mpg_gateway"
+      info[:ReturnURL] = "http://localhost:3000/orders/#{@user_id}/receivempg"
+      info[:NotifyURL] = ""
       info[:LoginType] = 0 
       info[:CREDIT] =  1
       info[:TradeLimit] = "300"
@@ -72,15 +74,15 @@ module Newebpay
       Digest::SHA256.hexdigest(encode_string).upcase
     end
 
-    private
-    def serial_generator
-      serial = "AIR#{Time.current.strftime("%Y%m%d")}#{code_generator(7)}"
-    end
+    # private
+    # def serial_generator
+    #   serial = "AIR#{Time.current.strftime("%Y%m%d")}#{code_generator(7)}"
+    # end
 
-    def code_generator(n = 7)
-      all_chars = [*'A'..'Z', *'0'..'9']
-      confused_chars = ['X', 'O', '0', 'B', 'P', 'M', 'N', 'D', 'T']
-      (all_chars - confused_chars).sample(n).join
-    end
+    # def code_generator(n = 7)
+    #   all_chars = [*'A'..'Z', *'0'..'9']
+    #   confused_chars = ['X', 'O', '0', 'B', 'P', 'M', 'N', 'D', 'T']
+    #   (all_chars - confused_chars).sample(n).join
+    # end
   end
 end
