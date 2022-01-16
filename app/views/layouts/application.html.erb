@@ -6,20 +6,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-
-  <body>
+    <%= stylesheet_pack_tag  media: 'all', 'data-turbolinks-track': 'reload' %>
     
-    <%= yield %> 
+  </head>
+  <body>
+    <%= yield %>  
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render 'devise/shared/header' %>   
+    <p class="alert bg-red-500 text-center"><%= alert %></p>
+    <%= render 'devise/shared/header' %>  
     <%= render 'devise/shared/footer' %> 
     <%= javascript_pack_tag 'application' %>
   
   </body>
-
 </html>

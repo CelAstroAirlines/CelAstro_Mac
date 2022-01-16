@@ -1,3 +1,5 @@
+
+
 # require 'uri'
 # require 'net/http'
 # require 'openssl'
@@ -1331,7 +1333,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.2  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -1359,7 +1361,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1385,7 +1387,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1411,7 +1413,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1437,415 +1439,7 @@ for date1 in jpapr
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n == 9
-      for date2 in jpsep 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n == 10
-      for date2 in jpoct 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n == 11
-      for date2 in jpnov 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n ==12
-      for date2 in jpdec 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    end
-  end
-end
-
-for date1 in jpmay 
-  i = 5
-  for n in 5..12 do
-    if n == 5
-      for date2 in jpmay 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        if date1 <= date2
-          Ticket.create(
-              ticket_type: "roundtrip",
-              ticket_amount: roundtrip_price,
-              ticket_serial: roundtrip_ticket_id,
-              departure: first_airport_code,
-              arrival: second_airport_code,
-              departure_date: departure_date,
-              departure_time:"9:10 AM",
-              arrival_time:"11:45 AM",
-              return_departure_airport: second_airport_code,
-              return_arrival_airport: first_airport_code,
-              returning_date: re_date,
-              return_departure_time:"7:30 PM",
-              return_arrival_time:"10:05 PM",
-              cabin_class: "Economy",
-              quantity: 108
-          )
-        end
-      end
-    elsif n == 6
-      for date2 in jpjune 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n == 7
-      for date2 in jpjuly 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n == 8
-      for date2 in jpaug 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n == 9
-      for date2 in jpsep 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n == 10
-      for date2 in jpoct 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n == 11
-      for date2 in jpnov 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n ==12
-      for date2 in jpdec 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    end
-  end
-end
-
-for date1 in jpjune 
-  i = 6
-  for n in 6..12 do
-    if n == 6
-      for date2 in jpjune 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        if date1 <= date2
-          Ticket.create(
-              ticket_type: "roundtrip",
-              ticket_amount: roundtrip_price,
-              ticket_serial: roundtrip_ticket_id,
-              departure: first_airport_code,
-              arrival: second_airport_code,
-              departure_date: departure_date,
-              departure_time:"9:10 AM",
-              arrival_time:"11:45 AM",
-              return_departure_airport: second_airport_code,
-              return_arrival_airport: first_airport_code,
-              returning_date: re_date,
-              return_departure_time:"7:30 PM",
-              return_arrival_time:"10:05 PM",
-              cabin_class: "Economy",
-              quantity: 108
-          )
-        end
-      end
-    elsif n == 7
-      for date2 in jpjuly 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
-        Ticket.create(
-            ticket_type: "roundtrip",
-            ticket_amount: roundtrip_price,
-            ticket_serial: roundtrip_ticket_id,
-            departure: first_airport_code,
-            arrival: second_airport_code,
-            departure_date: departure_date,
-            departure_time:"9:10 AM",
-            arrival_time:"11:45 AM",
-            return_departure_airport: second_airport_code,
-            return_arrival_airport: first_airport_code,
-            returning_date: re_date,
-            return_departure_time:"7:30 PM",
-            return_arrival_time:"10:05 PM",
-            cabin_class: "Economy",
-            quantity: 108
-        )
-      end
-    elsif n == 8
-      for date2 in jpaug 
-        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
-        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
-        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
-        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
-        roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1897,7 +1491,7 @@ for date1 in jpjune
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1923,7 +1517,7 @@ for date1 in jpjune
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1949,7 +1543,415 @@ for date1 in jpjune
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.3  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    end
+  end
+end
+
+for date1 in jpmay 
+  i = 5
+  for n in 5..12 do
+    if n == 5
+      for date2 in jpmay 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.2  
+        if date1 <= date2
+          Ticket.create(
+              ticket_type: "roundtrip",
+              ticket_amount: roundtrip_price,
+              ticket_serial: roundtrip_ticket_id,
+              departure: first_airport_code,
+              arrival: second_airport_code,
+              departure_date: departure_date,
+              departure_time:"9:10 AM",
+              arrival_time:"11:45 AM",
+              return_departure_airport: second_airport_code,
+              return_arrival_airport: first_airport_code,
+              returning_date: re_date,
+              return_departure_time:"7:30 PM",
+              return_arrival_time:"10:05 PM",
+              cabin_class: "Economy",
+              quantity: 108
+          )
+        end
+      end
+    elsif n == 6
+      for date2 in jpjune 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.2  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n == 7
+      for date2 in jpjuly 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.2  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n == 8
+      for date2 in jpaug 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.2  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n == 9
+      for date2 in jpsep 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.2  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n == 10
+      for date2 in jpoct 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2 
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n == 11
+      for date2 in jpnov 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2 
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n ==12
+      for date2 in jpdec 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.3  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    end
+  end
+end
+
+for date1 in jpjune 
+  i = 6
+  for n in 6..12 do
+    if n == 6
+      for date2 in jpjune 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.2  
+        if date1 <= date2
+          Ticket.create(
+              ticket_type: "roundtrip",
+              ticket_amount: roundtrip_price,
+              ticket_serial: roundtrip_ticket_id,
+              departure: first_airport_code,
+              arrival: second_airport_code,
+              departure_date: departure_date,
+              departure_time:"9:10 AM",
+              arrival_time:"11:45 AM",
+              return_departure_airport: second_airport_code,
+              return_arrival_airport: first_airport_code,
+              returning_date: re_date,
+              return_departure_time:"7:30 PM",
+              return_arrival_time:"10:05 PM",
+              cabin_class: "Economy",
+              quantity: 108
+          )
+        end
+      end
+    elsif n == 7
+      for date2 in jpjuly 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.2  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n == 8
+      for date2 in jpaug 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.2  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n == 9
+      for date2 in jpsep 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.2  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n == 10
+      for date2 in jpoct 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n == 11
+      for date2 in jpnov 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2  
+        Ticket.create(
+            ticket_type: "roundtrip",
+            ticket_amount: roundtrip_price,
+            ticket_serial: roundtrip_ticket_id,
+            departure: first_airport_code,
+            arrival: second_airport_code,
+            departure_date: departure_date,
+            departure_time:"9:10 AM",
+            arrival_time:"11:45 AM",
+            return_departure_airport: second_airport_code,
+            return_arrival_airport: first_airport_code,
+            returning_date: re_date,
+            return_departure_time:"7:30 PM",
+            return_arrival_time:"10:05 PM",
+            cabin_class: "Economy",
+            quantity: 108
+        )
+      end
+    elsif n ==12
+      for date2 in jpdec 
+        departure_date = "2022-#{i.to_s.rjust(2,"0")}-#{date1.to_s.rjust(2,"0")}"
+        re_date = "2022-#{n.to_s.rjust(2,"0")}-#{date2.to_s.rjust(2, "0")}"
+        ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
+        reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
+        roundtrip_ticket_id = ticket_id + reticket_id
+        roundtrip_price = ticket_amount*2.3  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -1982,7 +1984,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.2  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -2010,7 +2012,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2036,7 +2038,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2062,7 +2064,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2088,7 +2090,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2114,7 +2116,7 @@ for date1 in jpjuly
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.3  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2147,7 +2149,7 @@ for date1 in jpaug
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.2  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -2175,7 +2177,7 @@ for date1 in jpaug
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2201,7 +2203,7 @@ for date1 in jpaug
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2227,7 +2229,7 @@ for date1 in jpaug
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2253,7 +2255,7 @@ for date1 in jpaug
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.3  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2399,7 +2401,7 @@ for date1 in jpoct
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2  
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -2427,7 +2429,7 @@ for date1 in jpoct
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2453,7 +2455,7 @@ for date1 in jpoct
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.3  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2486,7 +2488,7 @@ for date1 in jpnov
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2 
         if date1 <= date2
           Ticket.create(
               ticket_type: "roundtrip",
@@ -2514,7 +2516,7 @@ for date1 in jpnov
         ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
         reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
         roundtrip_ticket_id = ticket_id + reticket_id
-        roundtrip_price = ticket_amount*2*0.4  
+        roundtrip_price = ticket_amount*2.3  
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
@@ -2545,14 +2547,14 @@ for date1 in jpdec
       ticket_id = first_airport_code + second_airport_code + (departure_date).split('-').join
       reticket_id = second_airport_code + first_airport_code + (re_date).split('-').join
       roundtrip_ticket_id = ticket_id + reticket_id
-      roundtrip_price = ticket_amount*2*0.4  
+      roundtrip_price = ticket_amount*2.3  
       if date1 <= date2
         Ticket.create(
             ticket_type: "roundtrip",
             ticket_amount: roundtrip_price,
             ticket_serial: roundtrip_ticket_id,
             departure: first_airport_code,
-            arrival: second_airport_code,
+          arrival: second_airport_code,
             departure_date: departure_date,
             departure_time:"9:10 AM",
             arrival_time:"11:45 AM",

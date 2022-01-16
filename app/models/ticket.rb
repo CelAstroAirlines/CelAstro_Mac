@@ -1,7 +1,7 @@
 class Ticket < ApplicationRecord
   has_many :cart_items
   has_many :seats
-  has_many :users
+  # has_many :users
 
   # 開了 rails db:seed 會失敗
   # belongs_to :user
