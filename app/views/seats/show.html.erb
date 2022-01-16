@@ -8,6 +8,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="seats.scss">
 </head>
+
 <body>
 <div class="bg-orange-50 pb-28">
   <div class="flex mt-28  ">
@@ -20,11 +21,13 @@
       
       <div class="seats">
         <div id="seats" class="ml-12 w-full" > 
-          <div class=" w-11/12 pt-8 flex">A
-            <% @seat.each do |f| %>    
+          <div class=" w-11/12 pt-10 flex">A
+         
+            <% @seat.each do |f| %>  
               <%if f.area=="A" %>
                 <%= render partial: "seat", locals:{f: f}%>
               <% end %>
+             
             <% end %>
           </div>
   
@@ -35,15 +38,13 @@
               <% end %>
             <% end %>
           </div>
-          <div  class="text-base pl-2 w-screen pt-10 flex ">
-            <% 10.times do |f| %>
-            <div class="text-sm pl-1.5"><%="#{(f+1)}".rjust(2,"0")%></div>
-            <% end %>
-            <% 35.times do |f| %>
-            <div class="text-sm pl-1"><%="#{(f+11)}".rjust(2,"0")%></div>
-            <% end %>
+
+          <div  class=" text-xs pl-2 w-11/12 pt-10 flex justify-between">
+            <p>01</p>
+            <p>23</p>
+            <p>45</p>
           </div>
-    
+      
           <div  class="w-11/12 pt-10 flex">C
             <% @seat.each do |f| %>
               <%if f.area=="C" %>

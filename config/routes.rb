@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   root "pages#index"
+  get "/experience", to: "pages#experience"
   resources :tickets do
     collection do
       get :search   # GET /tickets/search
