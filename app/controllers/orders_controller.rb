@@ -21,31 +21,38 @@ class OrdersController < ApplicationController
       )
     end
     current_user.buy_now_cart.cart_items.destroy_all
-
     redirect_to payment_orders_path
-
   end
   
 
   def payment
     @form_info = Newebpay::Mpg.new(current_user.orders.last.sellign_amount, current_user.orders.last.order_timestamp, current_user.id).form_info
-  
   end
 
   def receivempg
-    
     @response = Newebpay::MpgResponse.new(params[:TradeInfo])
     @order = Order.find_by(order_timestamp: @response.order_no)
     sign_in @order.user
     if @response.status === "SUCCESS"    
        flash.now[:notice] = "付款成功！"
        @order.pay!
-      # OrderMailer.notify_order('#{current_user.email}').deliver
+      OrderMailer.notify_order('#{current_user.email}').deliver
       # OrderMailJob.perform_later
     else
-       redirect_to search_tickets_path, notice: '付款過程發生問題'
+      @order.cancel!
+      redirect_to search_tickets_path, notice: '付款過程發生問題'
     end 
   end
+
+  def show
+  end
+
+  def destroy
+    @order.refund!
+    #金流流程
+    RefundMailer.notify_order('#{current_user.email}').deliver
+  end
+  
 
 
   private 
