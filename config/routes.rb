@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root "pages#index"
   get "/experience", to: "pages#experience"
+  get "/support", to: "pages#support"
+  get "/ready", to: "pages#ready"
   resources :tickets do
     collection do
       get :search   # GET /tickets/search

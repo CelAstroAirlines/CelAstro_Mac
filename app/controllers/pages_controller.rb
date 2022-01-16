@@ -4,4 +4,10 @@ class PagesController < ApplicationController
   
   def experience
   end
+
+  def support
+  end
+
+  def ready
+  end
 end
