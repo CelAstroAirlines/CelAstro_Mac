@@ -172,11 +172,12 @@
 </div>
 <section class="p-20 bg-indigo-700"></section>
 <%#= params[:q][:departure_date_cont].to_date + 7.days %>
+
 <script>
-  $(function () {
-    $(".quantity_selection").change(function () {
-      const value = $(this).val();
-      $(".quantity").val(value);
-    })
+window.onload = function() {
+  $(".quantity_selection").change(function () {
+    const value = $(this).val();
+    $(".quantity").val(value);
   })
+}
 </script>
