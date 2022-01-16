@@ -22,11 +22,12 @@ class Ticket < ApplicationRecord
           ticket.save!
         end
         if ticket.ticket_serial == Ticket.where(ticket_serial: ticket[:ticket_serial][0..13], ticket_type: "roundtrip").or(Ticket.where(ticket_serial: ticket[:ticket_serial][14..], ticket_type: "roundtrip"))
-        roundtrip_ticket = Ticket.where(ticket_serial: ticket[:ticket_serial][0..13], ticket_type: "roundtrip").or(Ticket.where(ticket_serial: ticket[:ticket_serial][14..], ticket_type: "roundtrip"))
-        Ticket.transaction do
-          roundtrip_ticket.lock!
-          roundtrip_ticket.quantity -= 1
-          roundtrip_ticket.save!
+          roundtrip_ticket = Ticket.where(ticket_serial: ticket[:ticket_serial][0..13], ticket_type: "roundtrip").or(Ticket.where(ticket_serial: ticket[:ticket_serial][14..], ticket_type: "roundtrip"))
+          Ticket.transaction do
+            roundtrip_ticket.lock!
+            roundtrip_ticket.quantity -= 1
+            roundtrip_ticket.save!
+          end
         end
       elsif ticket.ticket_type == "roundtrip"
         Ticket.transaction do
@@ -61,11 +62,12 @@ class Ticket < ApplicationRecord
           ticket.save!
         end
         if ticket.ticket_serial == Ticket.where(ticket_serial: ticket[:ticket_serial][0..13], ticket_type: "roundtrip").or(Ticket.where(ticket_serial: ticket[:ticket_serial][14..], ticket_type: "roundtrip"))
-        roundtrip_ticket = Ticket.where(ticket_serial: ticket[:ticket_serial][0..13], ticket_type: "roundtrip").or(Ticket.where(ticket_serial: ticket[:ticket_serial][14..], ticket_type: "roundtrip"))
-        Ticket.transaction do
-          roundtrip_ticket.lock!
-          roundtrip_ticket.quantity += 1
-          roundtrip_ticket.save!
+          roundtrip_ticket = Ticket.where(ticket_serial: ticket[:ticket_serial][0..13], ticket_type: "roundtrip").or(Ticket.where(ticket_serial: ticket[:ticket_serial][14..], ticket_type: "roundtrip"))
+          Ticket.transaction do
+            roundtrip_ticket.lock!
+            roundtrip_ticket.quantity += 1
+            roundtrip_ticket.save!
+          end
         end
       elsif ticket.ticket_type == "roundtrip"
         Ticket.transaction do
@@ -87,5 +89,6 @@ class Ticket < ApplicationRecord
         end
       end
     end
+  end
 end
 

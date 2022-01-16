@@ -4,7 +4,6 @@ class TicketsController < ApplicationController
   def index
     @q = Ticket.ransack(params[:q])
     @tickets = @q.result(distinct: true)
-    
   end 
   
   def new
