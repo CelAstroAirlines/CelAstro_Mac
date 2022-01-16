@@ -3,6 +3,19 @@
       <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">票價資訊</h1>
   </div>
   <div class="py-11 bg-indigo-900 ">
+    <div class="lg:w-5/6 sm:flex-row flex-col px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0  bg-orange-50 rounded-md m-auto py-3 mb-8">
+      <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+        <div class="flex flex-col ">
+          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+              <div class="overflow-hidden">
+                <%= render "ticket_items" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="lg:w-5/6 sm:flex-row flex-col px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0  bg-orange-50 rounded-md m-auto py-3">
       <div class="lg:w-2/3 w-full mx-auto overflow-auto">
         <div class="flex flex-col ">
@@ -11,15 +24,14 @@
               <div class="overflow-hidden">
                 <%= render "items" %>
                 <div class="flex justify-between">
-                  <button class="h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '回上一頁', tickets_path %></button>
-                  <button class="h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '結帳', payment_orders_path %></button>
+                  <button class="h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '返回搜尋', tickets_path %></button>
+                  <button class="h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-8 mb-8"><%= link_to '前往付款', payment_orders_path %></button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
   </div>
 </section>
