@@ -1,13 +1,14 @@
 <section class="text-gray-600 body-font bg-indigo-700 mt-28">
   <div class="ml-28 pt-10 mb-12">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">票價資訊</h1>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font text-orange-50">產品明細</h1>
   </div>
   <div class="py-11 bg-indigo-900 ">
-    <div class="lg:w-5/6 sm:flex-row flex-col px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0  bg-orange-50 rounded-md m-auto py-3 mb-8">
-      <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+    <div class="bg-gray-600 text-gray-200 text-center lg:w-5/6 m-auto rounded-t-lg text-xl">航班資訊</div>
+    <div class="lg:w-5/6 sm:flex-row flex-col px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0  bg-orange-50 rounded-b-lg m-auto mb-8">
+      <div class=" w-full mx-auto overflow-auto text-center ">
         <div class="flex flex-col ">
-          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 ">
+            <div class="m-auto py-2 inline-block min-w-full sm:px-6 lg:px-8">
               <div class="overflow-hidden">
                 <%= render "ticket_items" %>
               </div>
@@ -16,7 +17,8 @@
         </div>
       </div>
     </div>
-    <div class="lg:w-5/6 sm:flex-row flex-col px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0  bg-orange-50 rounded-md m-auto py-3">
+    <div class="lg:w-5/6 bg-gray-600 text-gray-200 text-center rounded-t-lg m-auto text-xl">票價資訊</div>
+    <div class="lg:w-5/6 sm:flex-row flex-col px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0  bg-orange-50 rounded-b-lg m-auto">
       <div class="lg:w-2/3 w-full mx-auto overflow-auto">
         <div class="flex flex-col ">
           <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -32,7 +34,6 @@
           </div>
         </div>
       </div>
-      
     </div>
   </div>
 </section>
