@@ -3,4 +3,4 @@
   <p>
     <%= @greeting %>付款成功，感謝您，對星辰航空CelAstro Airlines的支持，請連結以下網址進行劃位，再次感謝您的購買！
   </p>
-  <a href="www.celastroairlines.com">劃位連結</a>
+  <a href="www.celastroairlines.com/seats/#{current_user.order.order_item.ticket_id}">劃位連結</a>

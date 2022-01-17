@@ -7,3 +7,5 @@ Newebpay_HashIV = "hash_iv"
 Newebpay_MerchantID = "merchant_id"
 Newebpay_Email: "Email"
 
+username: 'gmail_username'
+password: 'gmail_password'

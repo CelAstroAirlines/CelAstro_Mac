@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/experience", to: "pages#experience"
   get "/support", to: "pages#support"
   get "/ready", to: "pages#ready"
+  get "/about", to: "pages#about"
   resources :tickets do
     collection do
       get :search   # GET /tickets/search
@@ -14,18 +15,19 @@ Rails.application.routes.draw do
 
   resources :seats do
     member do
-      post :confirm
+      get :confirm
       post :check
+      post :finished
     end
    end
- 
-  get '/seats/:id/confirm' , to: 'seats#confirm'
-  post '/seats/:id/finished' , to: 'seats#finished'
-  post '/seats/:id/check', to: 'seats#check'
   
-  resources :orders, only: [] do
+  resources :orders do
     collection do
+      post :create
+      post :refund
       get :payment
+    end
+    member do
       post :receivempg
     end
   end

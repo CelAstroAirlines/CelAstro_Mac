@@ -33,13 +33,16 @@ export default class extends Controller {
       });
   }
   _cableReceived(data) {
-    // console.log(data);
     const seat = document.querySelector(`[data-seat_id='${data.seat_params.id}']`)
     const currentUser = document.querySelector('#current_user')
     if (currentUser.innerHTML != data.seat_params.user_id && data.seat_params.state == "occupied") {
       seat.innerHTML = `
-        <img src="/images/green_seat.png">`
-    } else { seat.innerHTML = data.message }
+        <img src="/images/red_seat_big.png">`
+    } else if (currentUser.innerHTML == data.seat_params.user_id && data.seat_params.state == "occupied") {
+      seat.innerHTML = `<img src="/images/green_seat.png">`
+
+    }
+    else { seat.innerHTML = data.message }
 
   }
 }

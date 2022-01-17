@@ -29,7 +29,11 @@
       <% if f.vaccant? %>
         <img id="wrapper" src="/images/black_seat_big.png">
       <% elsif f.occupied? %>
-        <img src="/images/red_seat_big.png">
+        <% if @user_id == f.user_id%>
+          <img src="/images/green_seat.png">
+        <%else%>
+          <img src="/images/red_seat_big.png">          
+        <% end %>
       <%else%>
         <img src="/images/full_black_seat.png">
       <% end %>
