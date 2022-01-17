@@ -1,0 +1,108 @@
+<% @buy_now_items.each do |item| %>
+  <% if(item.ticket.ticket_type == "one_way")%>
+    <table class="min-w-full">
+      <thead class="border-b">
+        <tr>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            航班
+          </th>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            搭乘日期
+          </th>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            搭乘時間
+          </th>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            抵達時間
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b">
+          <td class="text-center whitespace-nowrap text-sm font-medium text-gray-900">
+            <%= "#{item.ticket.departure} → #{item.ticket.arrival}" %>
+          </td>
+          <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+            <%= item.ticket.departure_date %>
+          </td>
+          <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+            <%= item.ticket.departure_time %>
+          </td>
+          <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+            <%= item.ticket.arrival_time %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% else %>
+    <table class="min-w-full">
+      <thead class="border-b">
+        <tr>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            航班
+          </th>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            搭乘日期
+          </th>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            搭乘時間
+          </th>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            抵達時間
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b">
+          <td class="text-center whitespace-nowrap text-sm font-medium text-gray-900">
+            <%= "#{item.ticket.departure} → #{item.ticket.arrival}" %>
+          </td>
+          <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+            <%= item.ticket.departure_date %>
+          </td>
+          <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+            <%= item.ticket.departure_time %>
+          </td>
+          <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+            <%= item.ticket.arrival_time %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="min-w-full">
+      <thead class="border-b">
+        <tr>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            航班
+          </th>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            搭乘日期
+          </th>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            搭乘時間
+          </th>
+          <th scope="col" class="text-base text-gray-600 text-center">
+            抵達時間
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b">
+          <td class="text-center whitespace-nowrap text-sm font-medium text-gray-900">
+            <%= "#{item.ticket.return_departure_airport} → #{item.ticket.return_arrival_airport}" %>
+          </td>
+          <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+            <%= item.ticket.returning_date %>
+          </td>
+          <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+            <%= item.ticket.return_departure_time %>
+          </td>
+          <td class="text-sm text-gray-900 font-light text-center whitespace-nowrap">
+            <%= item.ticket.return_arrival_time %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>

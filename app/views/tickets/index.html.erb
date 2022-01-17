@@ -2,48 +2,77 @@
   <div class="flex flex-col ml-28 pt-5 mb-5">
         <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">機票查詢</h1>
   </div>  
-    <div class="flex py-11  bg-indigo-900 ">
-      <div>
-        <%= image_tag 'Celastro Map.png' %>
-      </div>
-      <div class="flex lg:w-5/6 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
-        <div class="relative flex-grow  my-14 mx-10">
-          <%= search_form_for @q, url: search_tickets_path do |s| %>
-          <div id="form_container">
-            <p>往日本航班固定為每週一，四，及週六。</p>
-            <div class="field border border-gray-600 ">
-              <%= s.label :ticket_type_cont, "請選擇航程" %>
-              <%= s.select :ticket_type_cont, ['one_way','roundtrip'], class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %>
-            </div>
-            <div class="field border border-gray-600 ">
-              <%= s.label :departure_cont, "Departure Airport 出發地" %>
-              <%= s.select :departure_cont, ['TPE','HND'], class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %>
-            </div>
-            <div class="field border border-gray-600 ">
-              <%= s.label :arrival_cont, "Arrival Airport 目的地" %>
-              <%= s.select :arrival_cont, ['HND', 'TPE'], class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %>
-            </div>
-            <div class="field border border-gray-600 ">
-              <%= s.label :departure_date_cont, "Departure Date 出發日期" %>
-              <%= s.text_field :departure_date_cont, placeholder: "yyyy-mm-dd", value: "2022-01-17", 
-              data: {
-              controller: "flatpickr",
-              flatpickr_date_format: "Y-m-d",
-              flatpickr_min_date: Time.zone.now
-              } %>
-              <%= s.label :returning_date_cont, "Return Date 回程日期" %>
-              <%= s.text_field :returning_date_cont, placeholder: "yyyy-mm-dd", 
-              data: {
-              controller: "flatpickr",
-              flatpickr_date_format: "Y-m-d",
-              flatpickr_min_date: Time.zone.now
-              }%>
-            </div>
-            
-            <button class= "text-white bg-brown-500 mr-0 mt-8 border-0 py-1 px-10 focus:outline-none hover:bg-brown-800 rounded text-lg">搜尋</button>  
-          <% end %>
+  <p class="text-lg font-semibold text-orange-50 text-center"><%= flash[:alert] %></p>
+  <div class="rounded-lg shadow-lg bg-gray-600 w-full flex flex-row flex-wrap p-3 antialiased" style="
+    background-image: url('https://images.unsplash.com/photo-1578836537282-3171d77f8632?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+    background-repeat: no-repat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    ">
+    <div class="md:w-full px-3 flex flex-row flex-wrap">
+      <div class="w-full text-right text-gray-700 font-semibold relative pt-3 md:pt-0">
+        <div class="text-2xl text-white leading-tight">你好 <% if current_user%><%= current_user.first_name%><%end%>！歡迎搭乘星辰航空</div>
+        <div class="text-normal text-gray-300 hover:text-gray-400 cursor-pointer"><span class="border-b border-dashed border-gray-500 pb-1"><% if current_user%><%= current_user.email%><%end%></span></div>
+        <div class="text-normal text-gray-300 hover:text-gray-400 cursor-pointer"><span class="border-b border-dashed border-gray-500 pb-1">✈CelAstro Airlines</span></div>
+          <div class="flex mt-12 lg:w-5/6 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-gradient-to-b from-gray-700 rounded-md ">
+          <div class="relative flex-grow  my-14 mx-10">
+            <%= search_form_for @q, url: search_tickets_path do |s| %>
+            <div id="form_container">
+              <p class="text-xl text-white">台北TPE ➞ 日本HND航班固定為每週一，四，及週六。</p>
+              <div class="form-control relative flex-auto min-w-0 block my-2 w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id= "ticket_type">
+                <div class="flex justify-between">
+                  <div class="text-xl font-semibold italic text-black"><%= s.label :ticket_type_cont, "請選擇航程" %></div>
+                  <div class="text-xl"><%= s.select :ticket_type_cont, ['one_way','roundtrip'], class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %></div>
+                </div>
+              </div>
+              <div class="form-control relative flex-auto min-w-0 block my-2 w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                <div class="flex justify-between">
+                  <div class="text-xl font-semibold italic text-black"><%= s.label :departure_cont, "Departure Airport 出發地" %></div>
+                  <div class="text-xl"><%= s.select :departure_cont, ['TPE','HND'], class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %></div>
+                </div>
+              </div>
+              <div class="form-control relative flex-auto min-w-0 block my-2 w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+              <div class="flex justify-between">  
+                <div class="text-xl font-semibold italic text-black"><%= s.label :arrival_cont, "Arrival Airport 目的地" %></div>
+                <div class="text-xl"><%= s.select :arrival_cont, ['HND', 'TPE'], class:' bg-orange-50 bg-opacity-50 rounded border border-gray-500 focus:border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-80 mb-5 ' %></div>
+              </div>
+              </div>
+              <div class="form-control relative flex-auto min-w-0 block my-2 w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+              <div class="flex justify-between">
+                <div class="text-xl font-semibold italic text-black"><%= s.label :departure_date_cont, "Departure Date 出發日期" %></div>
+                <div class="text-xl italic"><%= s.text_field :departure_date_cont, placeholder: "yyyy-mm-dd", value: "#{Date.today}", 
+                data: {
+                controller: "flatpickr",
+                flatpickr_date_format: "Y-m-d",
+                flatpickr_min_date: Time.zone.now
+                } %></div>
+              </div>
+              </div>
+              <div class="form-control relative flex-auto min-w-0 block my-2 w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="return_date" style="display: none;"> 
+              <div class="flex justify-between">
+              <div class="text-xl font-semibold italic text-black"><%= s.label :returning_date_cont, "Return Date 回程日期" %></div>
+              <div class="text-xl italic"><%= s.text_field :returning_date_cont, placeholder: "#{Date.today}",   
+                data: {
+                controller: "flatpickr",
+                flatpickr_date_format: "Y-m-d",
+                flatpickr_min_date: Time.zone.now
+                } %></div>
+              </div>
+              </div>
+              <button class= "text-white bg-brown-500 mr-0 mt-8 border-0 py-1 px-10 focus:outline-none hover:bg-orange-400 rounded text-lg" id="srcButton">搜尋</button>  
+            <% end %>
+        </div>
       </div>
     </div>
+        <div class="text-sm text-gray-300 hover:text-gray-400 cursor-pointer md:absolute pt-3 md:pt-0 bottom-0 right-0">上次登入: <% if current_user%><%= current_user.last_sign_in_at%><%end%></div>
+        </div>
+    </div>
   </div>
-</section>
+  <div class="bg-indigo-700 py-12">
+  <div class="flex flex-col ml-28 pt-5 mb-5">
+    <h1 class="sm:text-3xl text-2xl font-medium title-font  text-orange-50">航程路線圖</h1>
+  </div>
+  <div class="flex justify-center"><%= image_tag 'Celastro Map.png'%></div>
+  </div>
+</section> 
 
