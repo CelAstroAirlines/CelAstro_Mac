@@ -9,7 +9,7 @@ class Seat < ApplicationRecord
     state :occupied, :booked
 
     event :empty do
-      transitions from: :occupied, to: :vaccant
+      transitions from: [:occupied, :booked], to: :vaccant
     end
 
     event :occupy do
