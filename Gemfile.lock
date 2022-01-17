@@ -316,6 +316,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rails_admin (~> 2.2)
   ransack
+  redis (~> 4.0)
   sass-rails (>= 6)
   selenium-webdriver
   sidekiq

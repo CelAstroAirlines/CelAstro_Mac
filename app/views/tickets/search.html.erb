@@ -68,9 +68,6 @@
   <div class="lg:w-5/6 w-full sm:flex-row mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md ">
     <div class="justify-items-center p-8">
       <div>
-        <div class="mx-auto">
-          <p class="text-xl">來回機票若間隔超過兩週，請聯絡客服。</p>
-        </div>
         <%if @ticket%>
         no recommendation
         <% elsif @ticket == nil && params[:q][:ticket_type_cont] == "one_way" %>
@@ -119,6 +116,7 @@
       </div>
       <div class="justify-items-center">
         <% if !@ticket && params[:q][:ticket_type_cont] == "roundtrip" && params[:q][:returning_date_cont] %>
+        來回機票若間隔超過兩週，請聯絡客服。
           <% Ticket.where(
             departure_date: params[:q][:departure_date_cont].to_date - 3.days..params[:q][:departure_date_cont].to_date + 3.days,
             returning_date: params[:q][:returning_date_cont].to_date - 7.days..params[:q][:departure_date_cont].to_date + 7.days, 

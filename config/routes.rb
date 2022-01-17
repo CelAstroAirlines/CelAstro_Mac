@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   root "pages#index"
+  get "/experience", to: "pages#experience"
+  get "/support", to: "pages#support"
+  get "/ready", to: "pages#ready"
+  get "/about", to: "pages#about"
   resources :tickets do
     collection do
       get :search   # GET /tickets/search
@@ -15,11 +19,11 @@ Rails.application.routes.draw do
       post :finished
     end
    end
- 
   
-  resources :orders, only: [] do
+  resources :orders do
     collection do
       post :create
+      post :refund
       get :payment
     end
     member do

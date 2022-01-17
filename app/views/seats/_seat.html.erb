@@ -1,8 +1,33 @@
 
-    <div data-controller = "seat" data-seat-target="seat_info" data-action="click->seat#check" data-seat_id="<%= f.id %>"
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #wrapper .text{
+  position:relative;
+  bottom:30px;
+  left:0px;
+  visibility:hidden;
+  }
+
+  #wrapper:hover .text{
+  visibility:visible;
+  }
+
+</style>
+<body>
+
+  <div data-controller = "seat" data-seat-target="seat_info" data-action="click->seat#check" data-seat_id="<%= f.id %>"
     data-ticket_id="<%= f.ticket_id%>">
-      <% if f.vaccant? %>  
-        <img src="/images/black_seat_big.png">
+      
+      <% if f.vaccant? %>
+        <img id="wrapper" src="/images/black_seat_big.png">
       <% elsif f.occupied? %>
         <% if @user_id == f.user_id%>
           <img src="/images/green_seat.png">
@@ -12,4 +37,10 @@
       <%else%>
         <img src="/images/full_black_seat.png">
       <% end %>
+      
     </div>
+
+    
+  
+</body>
+</html>
