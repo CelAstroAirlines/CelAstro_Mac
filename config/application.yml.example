@@ -9,3 +9,6 @@ Newebpay_Email: "Email"
 
 username: 'gmail_username'
 password: 'gmail_password'
+
+mailgun_user_name: mailgun_user_name
+mailgun_password: mailgun_password
