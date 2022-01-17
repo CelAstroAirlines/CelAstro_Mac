@@ -66,7 +66,8 @@ class OrdersController < ApplicationController
     if @response.status === "SUCCESS"    
        flash.now[:notice] = "付款成功！"
        @order.pay!
-      OrderMailer.notify_order('#{@user.email}').deliver
+       @user = current_user
+       OrderMailer.notify_order(@user).deliver
       # OrderMailJob.perform_later
     else
       @order.cancel!
