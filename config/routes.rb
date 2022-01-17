@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   root "pages#index"
+  get "/experience", to: "pages#experience"
+  get "/support", to: "pages#support"
+  get "/ready", to: "pages#ready"
   get "/about", to: "pages#about"
   resources :tickets do
     collection do
@@ -17,7 +20,6 @@ Rails.application.routes.draw do
       post :finished
     end
    end
- 
   
   resources :orders do
     collection do
