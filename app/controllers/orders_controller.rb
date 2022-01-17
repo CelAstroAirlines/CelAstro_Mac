@@ -49,22 +49,14 @@ class OrdersController < ApplicationController
     
     end
     current_user.buy_now_cart.cart_items.destroy_all
-<<<<<<< HEAD
-    redirect_to payment_orders_path
-=======
     redirect_to payment_orders_path(order_timestamp: current_user.orders.last.order_timestamp)
->>>>>>> 4b200d0 (order and seat system)
   end
   
 
   def payment
-<<<<<<< HEAD
-    @form_info = Newebpay::Mpg.new(current_user.orders.last.sellign_amount, current_user.orders.last.order_timestamp, current_user.id).form_info
-=======
     order_timestamp = params["order_timestamp"]
     sellign_amount = current_user.orders.find_by(order_timestamp: params["order_timestamp"]).sellign_amount
     @form_info = Newebpay::Mpg.new(sellign_amount, order_timestamp, current_user.id).form_info
->>>>>>> 4b200d0 (order and seat system)
   end
 
   def receivempg
@@ -82,18 +74,6 @@ class OrdersController < ApplicationController
     end 
   end
 
-<<<<<<< HEAD
-  def show
-  end
-
-  def destroy
-    @order.refund!
-    #金流流程
-    RefundMailer.notify_order('#{current_user.email}').deliver
-  end
-  
-
-=======
   def refund
     @order = Order.find_by(order_timestamp: params["order_timestamp"])
     if @order.paid?
@@ -104,7 +84,6 @@ class OrdersController < ApplicationController
     redirect_to "/orders", method: :get
   end
 
->>>>>>> 4b200d0 (order and seat system)
 
   private 
   def set_order
