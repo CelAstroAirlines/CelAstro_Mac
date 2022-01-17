@@ -16,13 +16,13 @@
     "turbolinks": "^5.2.0",
     "tw-elements": "^1.0.0-alpha3",
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "autoprefixer": "^10.0.2",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.7"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "autoprefixer": "^10.0.2",
-    "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.7",
     "webpack-dev-server": "^3"
   }
 }
