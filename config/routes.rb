@@ -19,9 +19,10 @@ Rails.application.routes.draw do
    end
  
   
-  resources :orders, only: [] do
+  resources :orders do
     collection do
       post :create
+      post :refund
       get :payment
     end
     member do
