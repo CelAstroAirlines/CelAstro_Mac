@@ -67,6 +67,7 @@ class SeatsController < ApplicationController
       end
     end
     order_items_ids = order_items_ids.flatten
+    order_items_ids
   end
 
   def order_seat_quantity(user, ticket_id)
@@ -86,6 +87,7 @@ class SeatsController < ApplicationController
       ticket_ids << ticket_id
     end
     ticket_ids
+
   end
 
   def seats_count
