@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("turbolinks:load", function(){
   const tripType = document.getElementById('ticket_type');
   const returnDateForm = document.getElementById('return_date');
   const returnValue = document.getElementById('returnDateField');
