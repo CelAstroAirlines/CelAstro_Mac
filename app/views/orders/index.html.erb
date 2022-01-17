@@ -7,36 +7,41 @@
     <div class=" lg:w-5/6 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end bg-orange-50 rounded-md">
       <div class=" my-14 mx-10"> 
         <div class="">
-          <div class=" pt-10 lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row  ">
+          <div class=" pt-20 lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row  ">
             <% @order.each do |f| %>
               <div class="flex pb-10"> 
                 <div class=" sm:w-28 sm:h-28 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-orange-100 text-yellow-500 flex-shrink-0">
                     <img src="/images/CelAstrologo_copy.png">
-                </div>          
+                </div>
                 <div class="sm:text-left text-center  sm:mt-0 ml-10 ">
                   <h1 class="text-gray-900 text-xl title-font font-medium pb-5">您已購買的航班與座位 </h1>
                   <p class="pb-2">訂單編號 : <span class="text-yellow-600"><%= f.order_timestamp %></span></p>
-                  <p class="pb-2">金額 : <span class="text-yellow-600"><%= f.sellign_amount %></span></p>  
-                  <p class="pb-2">訂單狀態 : <span class="text-yellow-600"><%= f.state %></span></p> 
-                </div>
-                <div>
-                  <button> 
-                    <% if f.state === "paid" %>
-                      <%= link_to '詳細內容', "/orders/#{f.id}", class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg 
-                      " %>
-                      <%= link_to '取消訂單', refund_orders_path(request.parameters.merge({order_timestamp: "#{f.order_timestamp}"})),method: :post, class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg 
-                      " %>
-                    <%elsif f.state === "pending"%>
-                      <%= link_to '付款', payment_orders_path(request.parameters.merge({order_timestamp: "#{f.order_timestamp}"})),method: :get, class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg 
-                    " %>
-                    <%end%>
-                  </button>
-                </div> 
-               <div class="flex items-center lg:w-3/5 mx-auto border-b pb-5 mb-10 border-gray-200 sm:flex-row flex-col"> </div>
-            <%end%>
+                  <p class="pb-2">金額 : <span class="text-yellow-600"><%= f.sellign_amount %></span></p> 
+                  <p class="pb-2">訂單狀態 : <span class="text-yellow-600"><%= f.state %></span></p>    
+                </div>     
+              </div>                 
+              <div class="flex justify-end ">
+                <% if f.state === "paid" %>
+                  <div class="mr-5 "><button> <%= link_to '詳細內容', "/orders/#{f.id}", class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg" %> </button></div>
+                  <div class="mr-5"><button> <%= link_to '取消訂單', refund_orders_path(request.parameters.merge({order_timestamp: "#{f.order_timestamp}"})),method: :post, class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg 
+                  " %> </button></div>
+                <%elsif f.state === "pending"%>
+                  <div class="mr-5"><button><%= link_to '付款', payment_orders_path(request.parameters.merge({order_timestamp: "#{f.order_timestamp}"})),method: :get, class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg 
+                " %></button></div>
+                <%end%>
+              </div>
+              <div class="flex items-center lg:w-full mx-auto border-b pb-5 mb-10 border-gray-200 sm:flex-row flex-col"> </div>   
+            <%end%>    
           </div>
         </div>
       </div>
     </div>       
   </div>
 </section>
+
+
+
+
+
+
+
