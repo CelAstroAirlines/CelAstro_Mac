@@ -9,12 +9,6 @@ document.addEventListener("turbolinks:load", function(){
         if (returnDateForm.style.display === "none") {
           returnDateForm.style.display = "block"
         }}
-        // button.addEventListener('click', (e)=> {
-        //   if (returnValue.innerText === ""){
-        //     alert("請輸入回程日期")
-        //     returnValue.innerText = '${Date.today}'
-        //   }
-        //  })
     })
   }
   }
