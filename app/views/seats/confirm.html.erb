@@ -30,11 +30,8 @@
             <%end%>
  
               <div>
-                <button data-controller = "seatconfirm"
-                data-seatconfirm-target="seatBookedInfo"
-                data-ticket_id="<%= @ticket.id%>"
-                data-action="click->seatconfirm#finish"> 
-                <%= link_to '完成劃位', root_path, class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg 
+                <button> 
+                <%= link_to '完成劃位', "/seats/#{@ticket.id}/finished?order_item=#{params[:order_item]}",method: "post", class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg 
                 " %>
                 </button>
               </div> 

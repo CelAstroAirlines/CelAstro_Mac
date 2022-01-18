@@ -1,11 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, except: [:receivempg]
   before_action :set_order, only: [:show, :edit, :destroy]
-  # before_action :verify_auth
   skip_before_action :verify_authenticity_token, :only => [:receivempg]
 
   def index
-    @order = current_user.orders.all.order(:id)
+    @order = current_user.orders.all.order(:id).reverse_each
   end
 
   def show
@@ -13,7 +12,6 @@ class OrdersController < ApplicationController
     @ticket_info = tickets_info
   end
   def create
-    # @cart = current_cart
     @order = Order.create(
       user_id: current_user.id,
       order_timestamp: Time.now.strftime('%Y%m%d%H%M%S'),

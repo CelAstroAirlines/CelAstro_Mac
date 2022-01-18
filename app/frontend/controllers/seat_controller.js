@@ -16,11 +16,6 @@ export default class extends Controller {
     httpClient.post(`/seats/${ticketId}/check`, apiSeatCheck)
   }
 
-  confirm() {
-    const ticketId = this.seat_infoTarget.dataset.ticket_id
-    window.location = `/seats/${ticketId}/confirm`
-  }
-
   connect() {
     this.channel = consumer.subscriptions.create({
       channel: 'SeatsRoomChannel'
