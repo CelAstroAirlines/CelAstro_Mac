@@ -30,10 +30,10 @@
             <%end%>
  
               <div>
-                <button data-controller = "seat"
-                data-seat-target="seatBookedInfo"
+                <button data-controller = "seatconfirm"
+                data-seatconfirm-target="seatBookedInfo"
                 data-ticket_id="<%= @ticket.id%>"
-                data-action="click->seat#finish"> 
+                data-action="click->seatconfirm#finish"> 
                 <%= link_to '完成劃位', root_path, class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg 
                 " %>
                 </button>
