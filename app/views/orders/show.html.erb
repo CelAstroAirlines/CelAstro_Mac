@@ -20,16 +20,22 @@
                     <p class="pb-2">日期 : <span class="text-yellow-600"><%= f.departure_date %></span></p>  
                     <p class="pb-2">出發時間 : <span class="text-yellow-600"><%= f.departure_time %></span></p> 
                     <p class="pb-2">抵達時間 : <span class="text-yellow-600"><%= f.arrival_time %></span></p>  
-                    <%f.seats.where(user_id: current_user.id, state: "booked").each do |seat|%>
+                    <%f.seats.where(user_id: current_user.id, state: "booked", order_item_id: @order_item.where(ticket_id: f.id).first.id).each do |seat|%>
                       <p>座位 : <span class="text-yellow-600"><%= seat.area %><%= seat.seat_no%></span></p>
                     <%end%>         
                   </div>
               </div> 
                   
               <div class="flex justify-end">
+                <% if @order_item.where(ticket_id: f.id).first.quantity != @order_item.where(ticket_id: f.id).first.seats.count %>
                 <button>
-                  <%= link_to '前往劃位', "/seats/#{f.id}", class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg" %>
+                  <%= link_to '前往劃位', "/seats/#{f.id}?order_item=#{@order_item.where(ticket_id: f.id).first.id}", class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg" %>
                 </button>
+                <%else%>
+                  <button>
+                  <%= link_to '已劃位完成', class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg" %>
+                </button>
+                <%end%>
               </div>
               
               <div class="flex items-center lg:w-3/5 mx-auto border-b pb-5 mb-10 border-gray-200 sm:flex-row flex-col"> </div>  

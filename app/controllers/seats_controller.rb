@@ -13,10 +13,12 @@ class SeatsController < ApplicationController
   def finished
     Seat.where(ticket_id: params[:id], user_id: current_user.id).each do |s|
       if s.occupied?
+        s.update(order_item_id: params[:order_item])
         s.book!
         RenewSeatJob.perform_now(params[:ticket_id], s)
-      end
+      end    
     end
+    redirect_to :root
   end
 
   def confirm
