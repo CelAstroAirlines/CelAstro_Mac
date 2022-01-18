@@ -7,4 +7,4 @@ import './japan'
 import './korea'
 import './singaproe'
 import './ticket_search'
-import './about'
+
