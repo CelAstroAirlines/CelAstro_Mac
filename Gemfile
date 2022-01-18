@@ -32,14 +32,12 @@ gem 'devise', '~> 4.8'
 gem 'ransack'
 gem 'sidekiq'
 gem 'aasm', '~> 4.11'
+gem 'foreman', '~> 0.87.2'
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'foreman', '~> 0.87.2'
-  gem 'rails_admin', '~> 2.2'
-  
 
 end
 
