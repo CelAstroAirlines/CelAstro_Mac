@@ -3,12 +3,9 @@ import httpClient from "lib/http/client"
 import consumer from "../channels/consumer"
 
 export default class extends Controller {
-  static targets = ["seat_info", "seatBookedInfo"]
+  static targets = ["seat_info"]
 
-  finish() {
-    const ticketId = this.seatBookedInfoTarget.dataset.ticket_id
-    httpClient.post(`/seats/${ticketId}/finished`)
-  }
+
 
   check() {
     const seatId = this.seat_infoTarget.dataset.seat_id

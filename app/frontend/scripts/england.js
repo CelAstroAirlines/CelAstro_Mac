@@ -1,22 +1,22 @@
-document.addEventListener("turbolinks:load", () => {
- var modal = document.getElementById("Modal");
- var img_ENGLAND = document.getElementById("img_ENGLAND");
- var close_btn = document.getElementsByClassName("close_btn")[0];
- 
- if(img_ENGLAND){
- img_ENGLAND.addEventListener('click',() => {
-  modal.style.display = "block";
- });
+document.addEventListener("DOMContentLoaded", () => {
+  var modal = document.getElementById("Modal");
+  var img_ENGLAND = document.getElementById("img_ENGLAND");
+  var close_btn = document.getElementsByClassName("close_btn")[0];
 
- close_btn.addEventListener('click',() => {
-    modal.style.display = "none";
-  });
+  if (img_ENGLAND) {
+    img_ENGLAND.addEventListener('click', () => {
+      modal.style.display = "block";
+    });
 
- window.addEventListener('click',(event) => {
-  if (event.target == modal) {
-    modal.style.display = "none";
+    close_btn.addEventListener('click', () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener('click', (event) => {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
   }
- });
-}
 });
 
