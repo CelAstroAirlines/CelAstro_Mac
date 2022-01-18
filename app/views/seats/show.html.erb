@@ -93,7 +93,9 @@
           </div>
         </div>
       </div>
-      <button type="confirm"  bg-black data-controller = "seat" data-action="click->seat#confirm" data-seat-target="seat_info" data-ticket_id="<%= params[:id]%>" class="text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg absolute right-0 mt-14 ">送出</button> 
+      <button>
+      <%= link_to '送出', "/seats/#{params[:id]}/confirm?order_item=#{params[:order_item]}", class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg absolute right-0 mt-14 " %>
+      </button> 
     </div>
     
   </div>
