@@ -1,5 +1,5 @@
 class Seat < ApplicationRecord
-  
+  belongs_to :order_item
   belongs_to :ticket
   
   include AASM
