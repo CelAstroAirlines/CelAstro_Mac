@@ -48,7 +48,7 @@ class SeatsController < ApplicationController
         seat.empty!
         seat.update(user_id: current_user.id)
       else
-        ender json: { result: 'failed'}
+        render json: { result: 'failed'}
       end
     else
     end
