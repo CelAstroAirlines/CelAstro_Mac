@@ -5,6 +5,6 @@ export default class extends Controller {
   connect(){
     setTimeout(() => {
       this.element.submit()
-    }, 1000); 
+    }, 200); 
   }
 }

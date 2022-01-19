@@ -21,35 +21,51 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    @cart_item = CartItem.find(params[:id])
-    if @cart_item.update(cart_item_permit)
+    begin
+      @cart_item = CartItem.find(params[:id])
+      if @cart_item.update(cart_item_permit)
+        redirect_to cart_items_path
+        return
+      else
+        redirect_to cart_items_path, notice: "更新失敗"
+      end
+    rescue => exception
       redirect_to cart_items_path
-      return
-    else
-      redirect_to cart_items_path, notice: "更新失敗"
     end
   end
 
   def destroy
-    @cart_item = CartItem.find(params[:id])
-    if @cart_item.present?
-      @cart_item.destroy
+    begin
+      @cart_item = CartItem.find(params[:id])
+      if @cart_item.present?
+        @cart_item.destroy
+      end
+      redirect_to cart_items_path
+    rescue => exception
+      redirect_to cart_items_path
     end
-    redirect_to cart_items_path
   end
 
   private
   def get_cart
-    @cart = current_user.carts.find_by(cart_type: params[:cart_type])
-    if !@cart
-      redirect_to cart_items_path, notice: "沒有找到 cart"
+    begin
+      @cart = current_user.carts.find_by(cart_type: params[:cart_type])
+      if !@cart
+        redirect_to cart_items_path, notice: "沒有找到 cart"
+      end
+    rescue => exception
+      redirect_to cart_items_path
     end
   end
 
   def get_cart_item
-    @cart_item = CartItem.find(params[:id])
-    if !@cart_item || (@cart_item.user != current_user)
-      redirect_to cart_items_path, notice: "沒有找到 cart item"
+    begin
+      @cart_item = CartItem.find(params[:id])
+      if !@cart_item || (@cart_item.user != current_user)
+        redirect_to cart_items_path, notice: "沒有找到 cart item"
+      end
+    rescue => exception
+      redirect_to cart_items_path
     end
   end
 

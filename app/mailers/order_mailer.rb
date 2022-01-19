@@ -4,8 +4,7 @@ class OrderMailer < ApplicationMailer
   #
   #   en.order_mailer.notify_order.subject
   #
-  def notify_order(email)
-    @user = current_user
-    mail to: "#{@user.email}", Subject:"Your CelAstro Airlines Ticket Order Status"
+  def notify_order(user)
+    mail to: "#{user.email}", Subject:"Your CelAstro Airlines Ticket Order Status"
   end
 end
