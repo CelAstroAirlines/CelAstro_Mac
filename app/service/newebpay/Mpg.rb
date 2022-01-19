@@ -38,7 +38,6 @@ module Newebpay
       info[:MerchantOrderNo] = @merchantOrderNo
       info[:Amt] = @payment_amt
       info[:ItemDesc] = "Air Tickets" 
-      # info[:Email] = ENV['Newebpay_Email']
       info[:TimeStamp] = Time.now.to_i 
       info[:RespondType] = "JSON"
       info[:Version] = "1.5"
