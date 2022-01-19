@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const modal5 = document.getElementById("Modal5");
   const img_SINGAPROE = document.getElementById("img_SINGAPROE");
   const close_btn5 = document.getElementsByClassName("close_btn5")[0];

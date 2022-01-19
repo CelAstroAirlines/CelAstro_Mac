@@ -12,7 +12,7 @@ import Turbolinks from "turbolinks"
 
 
 
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
 
 import "stylesheets"
