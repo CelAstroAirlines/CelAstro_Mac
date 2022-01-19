@@ -3,12 +3,9 @@ import httpClient from "lib/http/client"
 import consumer from "../channels/consumer"
 
 export default class extends Controller {
-  static targets = ["seat_info", "seatBookedInfo"]
+  static targets = ["seat_info"]
 
-  finish() {
-    const ticketId = this.seatBookedInfoTarget.dataset.ticket_id
-    httpClient.post(`/seats/${ticketId}/finished`)
-  }
+
 
   check() {
     const seatId = this.seat_infoTarget.dataset.seat_id
@@ -17,11 +14,6 @@ export default class extends Controller {
       seat: seatId
     }
     httpClient.post(`/seats/${ticketId}/check`, apiSeatCheck)
-  }
-
-  confirm() {
-    const ticketId = this.seat_infoTarget.dataset.ticket_id
-    window.location = `/seats/${ticketId}/confirm`
   }
 
   connect() {

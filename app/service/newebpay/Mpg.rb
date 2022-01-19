@@ -38,11 +38,10 @@ module Newebpay
       info[:MerchantOrderNo] = @merchantOrderNo
       info[:Amt] = @payment_amt
       info[:ItemDesc] = "Air Tickets" 
-      # info[:Email] = ENV['Newebpay_Email']
       info[:TimeStamp] = Time.now.to_i 
       info[:RespondType] = "JSON"
       info[:Version] = "1.5"
-      info[:ReturnURL] = "http://www.celastroairlines.com/#{@user_id}/receivempg"
+      info[:ReturnURL] = "http://www.celastroairlines.com/orders/#{@user_id}/receivempg"
       info[:NotifyURL] = ""
       info[:LoginType] = 0 
       info[:CREDIT] =  1

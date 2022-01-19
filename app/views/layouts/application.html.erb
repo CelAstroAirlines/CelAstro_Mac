@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+    <script type="text/javascript">
+    var elm=document.getElementsByTagName("html")[0];
+    elm.style.display="none";
+    document.addEventListener("DOMContentLoaded",function(event) { elm.style.display="block"; });
+    </script>    
   </head>
   <body>
+  
     <%= yield %>  
     <p class="notice"><%= notice %></p>
     <p class="alert bg-red-500 text-center"><%= alert %></p>
