@@ -42,7 +42,7 @@ module Newebpay
       info[:TimeStamp] = Time.now.to_i 
       info[:RespondType] = "JSON"
       info[:Version] = "1.5"
-      info[:ReturnURL] = "http://localhost:3000/orders/#{@user_id}/receivempg"
+      info[:ReturnURL] = "http://www.celastroairlines.com/#{@user_id}/receivempg"
       info[:NotifyURL] = ""
       info[:LoginType] = 0 
       info[:CREDIT] =  1
