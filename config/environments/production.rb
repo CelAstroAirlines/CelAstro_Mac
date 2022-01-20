@@ -69,7 +69,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'example.com',
+    domain:               'https://www.celastroairlines.com/',
     user_name:            ENV['gmail_username'],
     password:             ENV['gmail_password'],
     authentication:       'plain',
@@ -81,7 +81,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.mailgun.org',
     port:                 587,
-    domain:               'CelAstroAirlines@gmail.com',
+    domain:               'https://www.celastroairlines.com/',
     user_name:            ENV['mailgun_user_name'],
     password:             ENV['mailgun_password'],
     authentication:       'plain',
