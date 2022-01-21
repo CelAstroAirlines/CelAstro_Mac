@@ -7,29 +7,30 @@
       <div class=" my-14 mx-10"> 
         <div class="">
           <div class=" pt-10 lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row  ">
-            <% @ticket_info.each do |f| %>
+            <% @order_items.each do |order_item| %>
               <div class="flex"> 
                 <div class=" sm:w-28 sm:h-28 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-orange-100 text-yellow-500 flex-shrink-0">
                     <img src="/images/CelAstrologo_copy.png">
                 </div>
                   <div class="sm:text-left text-center  sm:mt-0 ml-10 ">
                     <h1 class="text-gray-900 text-xl title-font font-medium pb-5">您已購買的航班與座位 </h1>
-                    <p class="pb-2">選位數 : <span class="text-yellow-600"><%= @order_item.where(ticket_id: f.id).first.quantity %>
-                    <p class="pb-2">機票序號 : <span class="text-yellow-600"><%= f.ticket_serial%></span></p>
-                    <p class="pb-2">航程 : <span class="text-yellow-600"><%= f.departure %> --> <%= f.arrival %></span></p>
-                    <p class="pb-2">日期 : <span class="text-yellow-600"><%= f.departure_date %></span></p>  
-                    <p class="pb-2">出發時間 : <span class="text-yellow-600"><%= f.departure_time %></span></p> 
-                    <p class="pb-2">抵達時間 : <span class="text-yellow-600"><%= f.arrival_time %></span></p>  
-                    <%f.seats.where(user_id: current_user.id, state: "booked", order_item_id: @order_item.where(ticket_id: f.id).first.id).each do |seat|%>
+                    <p class="pb-2">選位數 : <span class="text-yellow-600"><%= order_item.quantity %>
+                    <p class="pb-2">機票序號 : <span class="text-yellow-600"><%= Ticket.find(order_item.ticket_id).ticket_serial%></span></p>
+                    <p class="pb-2">航程 : <span class="text-yellow-600"><%= Ticket.find(order_item.ticket_id).departure %> --> <%= Ticket.find(order_item.ticket_id).arrival %></span></p>
+                    <p class="pb-2">日期 : <span class="text-yellow-600"><%= Ticket.find(order_item.ticket_id).departure_date %></span></p>  
+                    <p class="pb-2">出發時間 : <span class="text-yellow-600"><%= Ticket.find(order_item.ticket_id).departure_time %></span></p> 
+                    <p class="pb-2">抵達時間 : <span class="text-yellow-600"><%= Ticket.find(order_item.ticket_id).arrival_time %></span></p>  
+                    <%Ticket.find(order_item.ticket_id).seats.where(user_id: current_user.id, state: "booked", order_item_id: order_item.id).each do |seat|%>
                       <p>座位 : <span class="text-yellow-600"><%= seat.area %><%= seat.seat_no%></span></p>
                     <%end%>         
                   </div>
-              </div> 
+                </div> 
                   
               <div class="flex justify-end">
-                <% if @order_item.where(ticket_id: f.id).first.quantity != @order_item.where(ticket_id: f.id).first.seats.count %>
+                <% if order_item.
+                quantity != order_item.seats.count %>
                 <button>
-                  <%= link_to '前往劃位', "/seats/#{f.id}?order_item=#{@order_item.where(ticket_id: f.id).first.id}", class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg" %>
+                  <%= link_to '前往劃位', "/seats/#{order_item.ticket_id}?order_item=#{order_item.id}", class:"text-white bg-brown-500 border-0 py-1 px-8 focus:outline-none hover:bg-brown-800 rounded text-lg" %>
                 </button>
                 <%else%>
                   <button>
@@ -39,7 +40,7 @@
               </div>
               
               <div class="flex items-center lg:w-full mx-auto border-b pb-5 mb-10 border-gray-200 sm:flex-row flex-col"> </div>  
-              <%end%> 
+            <%end%> 
                      
           </div>
         </div>
