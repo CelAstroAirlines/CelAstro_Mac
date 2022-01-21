@@ -8,7 +8,9 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order_item = Order.find(params[:id]).order_items.all
+    @order_items = Order.find(params[:id]).order_items.all 
+    
+
     @ticket_info = tickets_info
   end
   def create
@@ -42,10 +44,28 @@ class OrdersController < ApplicationController
           quantity: order_item.quantity,
           price: Ticket.find(order_item.ticket_id).ticket_amount.to_i 
         )
-      end
-
-    
+      end    
     end
+    order_items = @order.order_items.all
+    ticket_ids = find_ticket_ids(order_items).uniq
+    ticket_ids.each do |ticket_id|
+      OrderItem.create(
+        order_id:@order.id,
+        ticket_id:ticket_id,
+        quantity:@order.order_items.where(ticket_id: ticket_id).sum{|order_item| order_item[:quantity]},
+        price:Ticket.find(ticket_id).ticket_amount.to_i 
+      )
+    end
+
+    ticket_ids = find_ticket_ids(order_items).uniq
+
+
+    ticket_ids.each do |ticket_id|
+      orders =  @order.order_items.where(ticket_id: ticket_id)
+      orders_count = orders.count
+      orders.delete([orders.first(orders_count-1)])
+    end
+
     current_user.buy_now_cart.cart_items.destroy_all
     redirect_to payment_orders_path(order_timestamp: current_user.orders.last.order_timestamp)
   end
@@ -134,6 +154,14 @@ class OrdersController < ApplicationController
       else
       end
     end
+  end
+
+  def find_ticket_ids(order_items)
+    ticket_ids = []
+    order_items.each do |order_items|
+      ticket_ids << order_items.ticket_id
+    end
+    ticket_ids
   end
 end
 
