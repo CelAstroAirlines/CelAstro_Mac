@@ -27,3 +27,6 @@ Gems:
 
 Database:
 * PostgreSQL
+* 
+API:
+* Rapid API (Google Flights)
