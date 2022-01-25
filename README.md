@@ -5,13 +5,15 @@ CelAstro Airlines
 
 Features:
 * Efficient search to minimize wait time.
-* Save ticket selections in the cart.
-* Instant and responsive seat selecting function for better UX.
+* Providing recommended search results to optimize UX.
+* Allowing users to update cart item quantity and to delete certain cart item.
+* Instant real-time seat selecting function to mimic a seat booking senario while mupltiple users booked the same flight.
 
 
 Frontend:
 * Tailwind 
 * Stimulus
+* JavaScript
 
 Backend:
 * Rails 
@@ -19,10 +21,9 @@ Backend:
 Gems:
 * Devise
 * Ransack
-* Sidekiq
 * Figaro
+* AASM
 * Rails Admin
-
 
 Database:
 * PostgreSQL
