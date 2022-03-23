@@ -19,12 +19,10 @@
             <%= search_form_for @q, url: search_tickets_path do |s| %>
             <div id="form_container">
               <p class="text-xl text-white">台北TPE ➞ 日本HND航班固定為每週一，四，及週六。</p>
-              <p class="text-xl text-white">one_way:單程票</p>
-              <p class="text-xl text-white">roundtrip: 來回票</p>
               <div class="form-control relative flex-auto min-w-0 block my-2 w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id= "ticket_type">
                 <div class="flex justify-between">
                   <div class="text-xl font-semibold italic text-black"><%= s.label :ticket_type_cont, "請選擇航程" %></div>
-                  <div class="text-xl"><%= s.select :ticket_type_cont, ['one_way','roundtrip'] %></div>
+                  <div class="text-xl"><%= s.select :ticket_type_cont, ['單程','來回'] %></div>
                 </div>
               </div>
               <div class="form-control relative flex-auto min-w-0 block my-2 w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">

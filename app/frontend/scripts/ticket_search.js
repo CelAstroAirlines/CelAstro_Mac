@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
   const button = document.getElementById('srcButton')
   if (tripType){
     tripType.addEventListener('change', (e) => {
-      if(e.target.value === "roundtrip"){
+      if(e.target.value === "來回"){
         if (returnDateForm.style.display === "none") {
           returnDateForm.style.display = "block"
         }}
